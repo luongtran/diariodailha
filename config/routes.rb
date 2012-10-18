@@ -1,4 +1,8 @@
 Diariodailha::Application.routes.draw do
+  resources :photos
+
+  devise_for :photographers
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
