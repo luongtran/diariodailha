@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <% if photographer_signed_in? %>
+    <%= link_to "Log out", destroy_photographer_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to "Sign in", new_photographer_session_path %>
+    <%= link_to "Sign Up", new_photographer_registration_path %>
+  <% end %>
 <%= yield %>
 
 </body>
