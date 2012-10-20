@@ -23,6 +23,8 @@ gem 'execjs'
 gem 'devise'
 gem 'pg'
 gem 'simple_form'
+gem 'ckeditor', '3.7.1'
+gem 'paperclip'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -1,0 +1,15 @@
+<%= simple_form_for(@content) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :title %>
+    <%= f.input :subtitle %>
+    <%= cktext_area :content, :body %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

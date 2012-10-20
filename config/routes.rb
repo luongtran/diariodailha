@@ -1,9 +1,17 @@
 Diariodailha::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
+  resources :contents
+
+  resources :abouts
+
+  devise_for :users, :controllers => {:registrations => 'Users::Registrations', :sessions => 'Users::Sessions', :mailer => 'Users::Mailer', :passwords => 'Users::Passwords', :confirmations => 'Users::Confirmations' }
+
   get "site/index"
 
   resources :photos
 
-  devise_for :photographers
+  devise_for :photographers, :controllers => {:registrations => 'Photographers::Registrations', :sessions => 'Photographers::Sessions', :mailer => 'Photographers::Mailer', :passwords => 'Photographers::Passwords', :confirmations => 'Photographers::Confirmations' }
 
   root :to => 'site#index'
 
