@@ -1,3 +1,54 @@
 // Place all the styles related to the Site controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body {
+	background: url('bg_simples.png') #F0F8FF!important;
+}
+.page {
+	margin-left: 5%;
+	margin-right: 5%;
+
+	.header {
+
+		.logo {
+			text-align: center;
+		}
+
+		.info-header {
+			text-align: right;
+			font-family: sans-serif;
+			font-size: smaller;
+			line-height: 30px;
+			a {
+				margin-left: 5px;
+			}
+		}
+
+		.top-banner {
+			text-align: center;
+			line-height: 80px;
+			background: red;
+			-webkit-border-radius: 15px;
+			-moz-border-radius: 15px;
+			border-radius: 15px;
+		}
+		
+		.header-nav {
+			margin-top: 10px;
+		}
+
+		.top-info {
+			text-align: center;
+			background: orange;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			color: white;
+			-moz-box-shadow: 1px 1px 1px #888;
+			-webkit-box-shadow: 1px 1px 1px #888;
+			box-shadow: 1px 1px 1px #888;
+		}
+	}
+} 
