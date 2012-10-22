@@ -6,7 +6,8 @@
     <%= f.input :description %>
     <%= f.input :title %>
     <%= f.input :subtitle %>
-    <%= cktext_area :content, :body %>
+    <%= f.cktext_area :body, :input_html => { :value => @content.body } %>
+
   </div>
 
   <div class="form-actions">

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  beach: MyString
+  peak: MyString
+  date: 2012-10-21 12:02:28
+  photographer: 
+
+two:
+  name: MyString
+  beach: MyString
+  peak: MyString
+  date: 2012-10-21 12:02:28
+  photographer: 

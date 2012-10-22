@@ -1,4 +1,6 @@
 Diariodailha::Application.routes.draw do
+  resources :albums
+
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :contents

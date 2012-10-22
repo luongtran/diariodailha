@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @album.name %>
+</p>
+
+<p>
+  <b>Beach:</b>
+  <%= @album.beach %>
+</p>
+
+<p>
+  <b>Peak:</b>
+  <%= @album.peak %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @album.date %>
+</p>
+
+<p>
+  <b>Photographer:</b>
+  <%= @album.photographer %>
+</p>
+
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>
