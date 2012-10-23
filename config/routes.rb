@@ -13,6 +13,7 @@ Diariodailha::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => 'Users::Registrations', :sessions => 'Users::Sessions', :mailer => 'Users::Mailer', :passwords => 'Users::Passwords', :confirmations => 'Users::Confirmations' }
 
   get "site/index"
+  get "site/terms"
 
   resources :photos
 
