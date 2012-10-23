@@ -2,8 +2,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, :required => true %>
   </div>
+
+  <%= f.input :album_id, :as => :hidden ,:value => @photo.album_id %>
 
   <div class="form-actions">
     <%= f.button :submit %>

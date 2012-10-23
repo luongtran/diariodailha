@@ -1,5 +1,8 @@
 Diariodailha::Application.routes.draw do
-  resources :albums
+  resources :albums do
+    get "show_photos" => "albums#show_photos"
+    get "add_photo" => "albums#add_photo"
+  end
 
   mount Ckeditor::Engine => '/ckeditor'
 

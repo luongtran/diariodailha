@@ -1,6 +1,9 @@
 class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
+
+  before_filter :authenticate_photographer!, :except => [:index]
+
   def index
     @albums = Album.all
 
@@ -42,6 +45,8 @@ class AlbumsController < ApplicationController
   def create
     @album = Album.new(params[:album])
 
+    @album.photographer = current_photographer
+
     respond_to do |format|
       if @album.save
         format.html { redirect_to @album, notice: 'Album was successfully created.' }
@@ -66,6 +71,26 @@ class AlbumsController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @album.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def show_photos
+
+    album = Album.find(params[:album_id])
+
+    @photos = album.photos
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def add_photo
+    @photo = Photo.new
+    @photo.album_id = params[:album_id]
+
+    respond_to do |format|
+      format.html
     end
   end
 

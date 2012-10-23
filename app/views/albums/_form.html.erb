@@ -2,11 +2,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :beach %>
-    <%= f.input :peak %>
-    <%= f.input :date %>
-    <%= f.association :photographer %>
+    <%= f.input :name, :required => true %>
+    <%= f.input :beach, :required => true %>
+    <%= f.input :peak, :required => true %>
+    <%= f.input :date, :required => true %>
   </div>
 
   <div class="form-actions">

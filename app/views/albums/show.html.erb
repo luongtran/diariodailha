@@ -22,9 +22,13 @@
 
 <p>
   <b>Photographer:</b>
-  <%= @album.photographer %>
+  <%= @album.photographer.name %>
 </p>
-
+<p>
+  <b>Photos</b>
+  <%= link_to 'Mostrar Fotos', album_show_photos_path(@album) %>
+  <%= link_to 'Adicionar Fotos', album_show_photos_path(@album) %>
+</p>
 
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>
