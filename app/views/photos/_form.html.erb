@@ -1,11 +1,19 @@
 <%= simple_form_for(@photo) do |f| %>
   <%= f.error_notification %>
-
+  
+  <% if notice != nil %>
+    <div class="alert alert-error">
+      <% notice.each do |e| %>
+        <span class="error"><%= e %></span>
+      <% end %>
+    </div>
+  <% end %>
+  
   <div class="form-inputs">
 
     <%= f.input :album_id, :as => :hidden ,:value => @photo.album_id %>
     <%= f.file_field :pic, :required => true %>
-
+    <%= f.error :pic_file_name %>
   </div>
 
   <div class="form-actions">
