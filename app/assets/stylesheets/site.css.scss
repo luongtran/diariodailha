@@ -3,15 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+@font-face {
+	font-family: bebas;
+	src: url('bebas.otf');
+}
+
+$blue: #3399CC;
+$lightblue: #33CCCC ;	
+$lightgray: #D0D0D0; 
 body {
 	background: url('bg_simples.png') #F0F8FF!important;
+	font-family: sans-serif;
+}
+
+.header-fundo {
+	background: url('bg_header.png') no-repeat;
+	height: 230px;
+	margin-left: -17%;
 }
 .page {
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-top: 10px;
+	margin-left: 22%!important;
+	width: 74%;
 
 	.header {
-
 		.logo {
 			text-align: center;
 		}
@@ -21,6 +36,8 @@ body {
 			font-family: sans-serif;
 			font-size: smaller;
 			line-height: 30px;
+			margin-right: 10px;
+			margin-top: -7px;
 			a {
 				margin-left: 5px;
 			}
@@ -28,27 +45,77 @@ body {
 
 		.top-banner {
 			text-align: center;
-			line-height: 80px;
-			background: red;
+			height: 90px;
+			line-height: 90px;
+			background: $lightblue;
 			-webkit-border-radius: 15px;
 			-moz-border-radius: 15px;
 			border-radius: 15px;
 		}
 		
 		.header-nav {
-			margin-top: 10px;
+			position: absolute;
+			margin-top: 30px;
+
+			a {
+				color: white;
+				font-weight: bold;
+				font-size: 21px;
+				font-family: 'bebas';
+			}
+			.first {
+				margin-left: 12px;
+			}
+
+			.divider-vertical {
+				border-left: 1px $lightgray solid;
+				opacity: 0.5;
+				margin-right: 7px;
+				margin-left: 7px;
+				min-height: 45px;
+				margin-top: -10px;
+			}
+		}
+	}
+
+	.top-info {
+		margin-top: 12px;
+		margin-right: 2%;
+		margin-left: 2%;
+		text-align: center;
+		background: orange!important;
+		-moz-box-shadow: 1px 1px 1px #888;
+		-webkit-box-shadow: 1px 1px 1px #888;
+		box-shadow: 1px 1px 1px #888;
+	}
+
+	.body {
+
+		margin-top: 10px;
+		min-height: 300px;
+		background-color: white;
+		-webkit-border-radius: 15px;
+		-moz-border-radius: 15px;
+		border-radius: 15px;
+		text-align: justify;
+
+		h1.page-title {
+			font-size: 26px;
+			color: $blue;
 		}
 
-		.top-info {
-			text-align: center;
-			background: orange;
-			-webkit-border-radius: 5px;
-			-moz-border-radius: 5px;
-			border-radius: 5px;
-			color: white;
-			-moz-box-shadow: 1px 1px 1px #888;
-			-webkit-box-shadow: 1px 1px 1px #888;
-			box-shadow: 1px 1px 1px #888;
+		h2.page-subtitle {
+			font-size: 14px;
+			color: $lightblue;
+		}
+
+		.content {
+			padding: 10px 30px 30px 30px;
+
+		}
+		ul.terms-list {
+		  list-style-type: none;
+		  padding: 0;
 		}
 	}
 } 
