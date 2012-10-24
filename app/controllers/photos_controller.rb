@@ -1,3 +1,4 @@
+# encoding:utf-8
 class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
@@ -31,17 +32,19 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
     @photo = Photo.new
+    @album = Album.find(params[:photo][:album_id])
 
-    @photo.name = params[:photo][:name]
+    count = 1
+    @photo.name = @album.date.strftime("%d_%m_%Y") + @album.beach + "_" + count.to_s
     @photo.album_id = params[:photo][:album_id]
+    @photo.pic = params[:photo][:pic]
 
-    @album = Album.find(@photo.album_id)
     respond_to do |format|
       if @photo.save
         format.html { redirect_to @album, notice: 'Photo was successfully created.' }
         format.json { render json: @album, status: :created, location: @album }
       else
-        format.html { redirect_to :root }
+        format.html { redirect_to album_add_photo_path(@album), notice: 'Arquivo inválido'}
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       end
     end

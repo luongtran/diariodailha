@@ -1,2 +1,8 @@
 <h1>Fotos</h1>
+<% @photos.each do |p| %>
+  <p>Nome</p>
+  <%= p.name %>
+  <p>Photo</p>
+  <%= image_tag p.pic.url(:medium) %>
+<% end %>
 <%= link_to 'Adicionar Fotos', album_add_photo_path(params[:album_id]) %>
