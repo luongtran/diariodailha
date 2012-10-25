@@ -48,43 +48,38 @@
             </div>
             <div class='container-fluid'>
                 <div class='row-fluid'>
-                    <div class='custom-span9'>
+                    <div class='span9'>
                         <%= yield %> 
                     </div>
-                    <div class='container-right'>
-                        <div class='custom-span3'>
-                            <div class='container-fluid'>
-                                <div class='row banner-small' id='rightbanner-01'> 
-                                    <%= image_tag("banner01.png", :alt => "banner 1") %>
-                                </div>
-                                <div class='row banner-small' id='rightbanner-02'> 
-                                    <%= image_tag("banner02.png", :alt => "banner 2") %>
-                                </div>
-                                <div class='row banner-small' id='rightbanner-03'> 
-                                    <%= image_tag("banner03.png", :alt => "banner 3") %>
-                                </div>
-                                <div class='row banner-medium' id='rightbanner-04'> 
-                                    <%= image_tag("banner04.png", :alt => "banner 4") %>
-                                </div>
-                                <div class='row banner-large' id='rightbanner-05'> 
-                                    <%= image_tag("banner05.png", :alt => "banner 5") %>
-                                </div>
-                                <div class='row banner-login' id='rightbanner-06'> 
-                                    <%= image_tag("area_fotografo.png", :alt => "area do fotografo") %>
-
-                                    <% if photographer_signed_in? %>
-                                        <%= link_to "Log out", destroy_photographer_session_path, :method => :delete %>
-                                    <% else %>
-                                        <%= link_to "Sign in", new_photographer_session_path %>
-                                        <%= link_to "Sign Up", new_photographer_registration_path %>
-                                    <% end %>
-                                </div>
+                    <div class='span3 container-right'>
+                        <div class='row banner-small' id='rightbanner-01'> 
+                                <p><%= image_tag("banner01.png", :alt => "banner 1") %></p>
                             </div>
-                        </div>
+                            <div class='row banner-small' id='rightbanner-02'> 
+                               <p> <%= image_tag("banner02.png", :alt => "banner 2") %></p>
+                            </div>
+                            <div class='row banner-small' id='rightbanner-03'> 
+                                <p><%= image_tag("banner03.png", :alt => "banner 3") %></p>
+                            </div>
+                            <div class='row banner-medium' id='rightbanner-04'> 
+                                <p><%= image_tag("banner04.png", :alt => "banner 4") %></p>
+                            </div>
+                            <div class='row banner-large' id='rightbanner-05'> 
+                                    <p><%= image_tag("banner05.png", :alt => "banner 5") %></p>
+                            </div>
+                            <div class='row banner-login' id='rightbanner-06'> 
+                                <p><%= image_tag("area_fotografo.png", :alt => "area do fotografo") %></p>
+
+                                <% if photographer_signed_in? %>
+                                    <%= link_to "Log out", destroy_photographer_session_path, :method => :delete %>
+                                <% else %>
+                                    <%= link_to "Sign in", new_photographer_session_path %>
+                                    <%= link_to "Sign Up", new_photographer_registration_path %>
+                                <% end %>
+                            </div>
                     </div>
                 </div>
-            </div>
-                        
+            </div>                     
         </div>
     </div>
 </body>

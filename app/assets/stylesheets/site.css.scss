@@ -28,13 +28,12 @@ body {
 	margin-left: 22%!important;
 	width: 74%;
 
-	.custom-span9 {
-		width: 68.5%!important;
-		margin-right: 1.5%;
+	.custom9 {
+		width: 68%;
 	}
 
-	.custom-span3 {
-		width: 29%!important;
+	.custom3 {
+		width: 29%;
 	}
 
 	.header {
@@ -130,24 +129,41 @@ body {
 		}
 	}
 
+
+
+
+
 	.container-right {
+
 		[class *= 'banner'] {
 			background-color: white;
 			margin-top: 10px;
-			margin-left: -18%;
+			margin-left: -15%;
+
 			-webkit-border-radius: $borderradius;
 			-moz-border-radius: $borderradius;
 			border-radius: $borderradius;
-		}
+			max-width: 299px;
 
-		[class *= 'banner'] img {
-			margin-left: auto;
-			margin-right: auto;
-			-webkit-border-radius: $borderradius;
-			-moz-border-radius: $borderradius;
-			border-radius: $borderradius;
+			img {
+				margin-left: auto;
+				margin-right: auto;
+				-webkit-border-radius: $borderradius;
+				-moz-border-radius: $borderradius;
+				border-radius: $borderradius;
+			}
+			
+			p {
+				text-align: center;				
+			}
+		
 		}
-
+		.banner-medium {
+			max-height: 243px;
+		}
+		.banner-small {
+			max-height: 85px;
+		}
 
 	}
 } 
