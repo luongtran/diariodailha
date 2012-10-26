@@ -68,14 +68,36 @@
                                     <p><%= image_tag("banner05.png", :alt => "banner 5") %></p>
                             </div>
                             <div class='row banner-login' id='rightbanner-06'> 
-                                <p><%= image_tag("area_fotografo.png", :alt => "area do fotografo") %></p>
+                                <div class='form-right'>
+                                    <p class='img-header'><%= image_tag("area_fotografo.png", :alt => "area do fotografo") %></p>
 
-                                <% if photographer_signed_in? %>
-                                    <%= link_to "Log out", destroy_photographer_session_path, :method => :delete %>
-                                <% else %>
-                                    <%= link_to "Sign in", new_photographer_session_path %>
-                                    <%= link_to "Sign Up", new_photographer_registration_path %>
-                                <% end %>
+                                    <% if photographer_signed_in? %>
+                                        <%= link_to "Log out", destroy_photographer_session_path, :method => :delete %>
+                                    <% else %>
+                                        <form>
+                                            <input class='input-large gray' type='text' placeholder='usuário: '/>
+                                            <input class='input-large gray' type='text' placeholder='email: '/>
+                                            <div class='actions'>
+                                                <div class='row-fluid'>
+                                                    <div class='span6'>
+                                                        <%= image_submit_tag("entrar_button.png") %>
+                                                    </div>
+                                                    <div class='span6 right'>
+                                                        <%= image_submit_tag("cadastrar_button.png") %>
+                                                    </div>
+                                            </div>
+
+                                            </input>
+                                        </form>
+                                        <div>
+                                            <a href='#' class='password-reminder'>
+                                                esqueci minha senha
+                                            </a>
+                                        </div>
+                                        <%= link_to "Sign in", new_photographer_session_path %>
+                                        <%= link_to "Sign Up", new_photographer_registration_path %>
+                                    <% end %>
+                                </div>
                             </div>
                     </div>
                 </div>

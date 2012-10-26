@@ -12,6 +12,7 @@ $blue: #3399CC;
 $lightblue: #33CCCC ;	
 $lightgray: #D0D0D0; 
 $borderradius: 8px;
+$formgray: #F8F8F8;
 
 body {
 	background: url('bg_simples.png') #F0F8FF!important;
@@ -156,6 +157,64 @@ body {
 			p {
 				text-align: center;				
 			}
+
+			div a.password-reminder {
+				font-size: 12px;
+				text-decoration: underline;
+				color: #AAA;
+			}
+
+			div.form-right {
+				margin-left: 8%;
+				margin-right: -5%;
+				p.img-header {
+					margin-top: 10px;
+					text-align: left;
+				}
+				form {
+					input {
+						margin-bottom: 3px;
+						-moz-border-radius: 10px;
+						-webkit-border-radius: 10px;
+						border-radius: 10px;
+/*						-moz-box-shadow:    inset 1px 1px 1px #888;
+ 					    -webkit-box-shadow: inset 1px 1px 1px #888;
+ 					    box-shadow:         inset 1px 1px 1px #888;*/
+
+					}
+
+					.actions {
+						margin-top: 10px;
+						.right {
+							text-align: right;
+							padding-right: 13%;
+						}
+					}
+
+
+						
+					::-webkit-input-placeholder {
+						color:#AAA;
+						padding-left: 15px;
+						font-family: serif;
+					}
+					input:-moz-placeholder { 
+						color:#AAA;
+						padding-left: 15px;
+						font-family: serif;
+					}
+					input:-ms-input-placeholder {
+					    color: #AAA;
+						padding-left: 15px;
+					    font-family: serif;
+					}
+
+					.gray {
+						background-color: $formgray
+					}
+				}
+			}
+
 		
 		}
 		.banner-medium {
