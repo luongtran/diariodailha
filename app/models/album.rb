@@ -3,4 +3,6 @@ class Album < ActiveRecord::Base
   has_many :photos
 
   attr_accessible :beach, :date, :name, :peak
+
+  accepts_nested_attributes_for :photos, :allow_destroy => true
 end

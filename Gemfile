@@ -10,7 +10,7 @@ gem 'rails', '3.2.8'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'jquery-fileupload-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
@@ -23,7 +23,9 @@ gem 'execjs'
 gem 'devise'
 gem 'pg'
 gem 'simple_form'
-gem "paperclip"
+gem "carrierwave"
+gem "mini_magick"
+gem "rmagick"
 gem "ckeditor"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
