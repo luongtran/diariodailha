@@ -2,7 +2,6 @@ class WorkWithUsController < ApplicationController
   # GET /work_with_us
   # GET /work_with_us.json
 
-  before_filter :authenticate_user!, :except => [:new, :create]
 
   def index
     @work_with_us = WorkWithU.all

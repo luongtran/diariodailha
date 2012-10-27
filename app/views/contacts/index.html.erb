@@ -1,47 +1,45 @@
-<div class='row-fluid'>
-    <div class='span12'>
-        <div class='top-info btn-large' id='top-info'>
-            #top-info
+<h1 class='page-title'> Contato </h1>              
+
+<div class='contact'>
+
+<h1 class='page-title'> Diário da ilha </h1>
+
+    <div class='row-fluid'>
+        <div class='span6'>
+            <p>Rua Marechal Deodoro, 3030</p>
+            <p>Cep. 80.0350-200</p>
+            <p>Curitiba/PR | Brasil</p>
+        </div>
+        <div class='span6'>
+            <p>Tel. 41 3030.3030 | 41 3030.3030</p>
+            <p>contato@diariodailha.com.br</p>
+            <p>anuncie@diariodailha.com.br</p>
         </div>
     </div>
-</div>
 
+    <div class='row-fluid'>
+        <div class='contact-us'>
+            <%= image_tag("map.png", :alt => "Mapa do site!", :class => 'image-right') %>          
 
-
-<div class='container-fluid'>
-    <div class='body'>
-        <div class='content'>    
-
-          <h1>Listing contacts</h1>
-
-          <table>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Message</th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-
-          <% @contacts.each do |contact| %>
-            <tr>
-              <td><%= contact.name %></td>
-              <td><%= contact.email %></td>
-              <td><%= contact.phone %></td>
-              <td><%= contact.message %></td>
-              <td><%= link_to 'Show', contact %></td>
-              <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-              <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-          </table>
-
-          <br />
-
-          <%= link_to 'New Contact', new_contact_path %>
-
+            <form class='form form-horizontal' action='#' method='POST'>
+                <input type='text' placeholder='Nome:' />
+                <input type='text' placeholder='Email:' />
+                <input type='text' placeholder='Telefone:' />
+                <div class="style-select">            
+                    <select>
+                        <option value='0' selected>Selecione o assunto:</option>
+                        <option value='1'>Sugestões</option>
+                        <option value='2'>Dúvidas</option>
+                        <option value='3'>Reclamações</option>
+                        <option value='4'>Elogio</option>
+                        <option value='4'>Denúncia</option>
+                        <option value='5'>Pedido de remoção de conteúdo</option>
+                        <option value='6'>Quero anunciar no DIÁRIO DA ILHA</option>
+                        <option value='7'>Quero ser fotografado surfando</option>
+                    </select>
+                </div>
+                <textarea name="mensagem" id="mensagem" cols="60" rows="10" placeholder='mensagem:'></textarea>
+            </form>
         </div>
     </div>
 </div>

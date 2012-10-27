@@ -13,6 +13,7 @@ $lightblue: #33CCCC ;
 $lightgray: #D0D0D0; 
 $borderradius: 8px;
 $formgray: #F8F8F8;
+$gray: #B0B0B0;
 
 body {
 	background: url('bg_simples.png') #F0F8FF!important;
@@ -122,17 +123,94 @@ body {
 
 		.content {
 			padding: 10px 30px 30px 30px;
+		}
 
+		p.page-subsubtitle {
+			font-weight: bold ;
+			padding-bottom: 20px;
 		}
 		ul.terms-list {
 		  list-style-type: none;
 		  padding: 0;
 		}
+
+		.about {
+
+			p {
+				text-align: left;
+				position: relative;				
+			}
+
+			.image-about {
+				float: left;
+				img.leftarrow {
+					margin-right: -7%;
+					margin-left: -7.3%;
+					z-index: 1;
+				}				
+				img.rightarrow {
+					margin-left: -1%;
+					margin-right: -50px;
+					z-index: 1;
+				}
+				img.main {
+					z-index:2;
+				}
+			}
+		}
+
+		.contact {
+			h1.page-title {
+				color: $gray;
+			}
+
+			p {
+				-webkit-margin-before: 0em;
+				-webkit-margin-after: 0em;
+				-webkit-margin-start: 0px;
+				-webkit-margin-end: 0px;
+			}
+
+
+			div.contact-us {
+				margin-top: 30px;
+
+				.image-right {
+					float: right;
+				}
+				
+				form {
+					input {
+						width: 300px;
+						display: block;
+						margin-bottom: 10px;
+						height: 32px;
+						border-radius: 15px;
+					}
+					.style-select {
+						width: 315px;
+						height: 42px;
+						margin-bottom: 10px;
+						overflow: hidden;
+						border-top-right-radius: 15px;
+						border-bottom-right-radius: 15px;
+						background: url('select-arrow.png') no-repeat right;
+						select {
+						    background: transparent;
+							width: 350px;
+							height: 42px;
+							margin-bottom: 10px;		
+							border-top-right-radius: 15px;
+							border-bottom-right-radius: 15px;
+						}
+					}
+					textarea {
+						width: 300px;
+					}					
+				}
+			}
+		}
 	}
-
-
-
-
 
 	.container-right {
 
@@ -177,10 +255,6 @@ body {
 						-moz-border-radius: 10px;
 						-webkit-border-radius: 10px;
 						border-radius: 10px;
-/*						-moz-box-shadow:    inset 1px 1px 1px #888;
- 					    -webkit-box-shadow: inset 1px 1px 1px #888;
- 					    box-shadow:         inset 1px 1px 1px #888;*/
-
 					}
 
 					.actions {
@@ -223,6 +297,5 @@ body {
 		.banner-small {
 			max-height: 85px;
 		}
-
 	}
 } 

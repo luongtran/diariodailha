@@ -4,4 +4,7 @@ class SiteController < ApplicationController
 
   def terms
   end
+
+  def about
+  end
 end
