@@ -22,7 +22,8 @@ Diariodailha::Application.routes.draw do
   get "site/terms"
   get "site/about"
   get "site/admin_page"
-
+  get "site/work_with_us"
+  
   resources :photos
 
   devise_for :photographers, :controllers => {:registrations => 'Photographers::Registrations', :sessions => 'Photographers::Sessions', :mailer => 'Photographers::Mailer', :passwords => 'Photographers::Passwords', :confirmations => 'Photographers::Confirmations' }

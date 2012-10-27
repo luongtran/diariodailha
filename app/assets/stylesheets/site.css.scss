@@ -210,6 +210,17 @@ body {
 				}
 			}
 		}
+
+		.work-with-us {
+			.send-curriculum {
+				float: left;
+				margin-right: 10px;
+				width: 250px;				
+				input.block {
+					display: block;
+				}
+			}
+		}
 	}
 
 	.container-right {

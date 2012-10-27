@@ -22,7 +22,7 @@
                                 <% if Content.where(:name => "quem_somos") != [] %>
                                     <%= link_to "QUEM SOMOS", content_path(Content.where(:name => "quem_somos").first) %>    
                                 <% else %>
-                                    <a href='#'> QUEM SOMOS </a>
+                                    <%= link_to "QUEM SOMOS", site_about_path %>
                                 <% end %>
                                 <%= link_to "TRABALHE CONOSCO", new_work_with_u_path %>
                                 <% if Content.where(:name => "anuncie_aqui") != [] %>

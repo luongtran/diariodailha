@@ -10,4 +10,7 @@ class SiteController < ApplicationController
 
   def admin_page
   end
+
+  def work_with_us
+  end
 end
