@@ -1,0 +1,22 @@
+<%= simple_form_for("photographer", :url => photographer_session_path) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email, :required => true, :label => false, :autofocus => true, :input_html => { :class => "input-large gray", :placeholder => 'E-mail:' } %>
+    <%= f.input :password, :required => true, :label => false, :input_html => { :class => "input-large gray", :placeholder => 'Senha:' } %>
+    <%= f.input :remember_me, :as => :boolean %>
+  </div>
+
+
+  <div class='actions'>
+    <div class='row-fluid'>
+        <div class='span6'>
+            <%= f.button :submit, "Log in", :class => 'btn btn-primary' %>
+        </div>
+        <div class='span6 right'>
+            <%= link_to "Registrar", new_photographer_registration_path, :class => 'btn' %>
+        </div>
+    </div>
+  </div>
+    
+<% end %>
+
+<%= render "photographers/shared/links" %>

@@ -1,4 +1,10 @@
 Diariodailha::Application.routes.draw do
+  resources :contact_types
+
+  resources :contacts
+
+  resources :work_with_us
+
   resources :albums do
     get "show_photos" => "albums#show_photos"
     get "add_photo" => "albums#add_photo"

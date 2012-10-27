@@ -1,0 +1,44 @@
+<div class='row-fluid'>
+    <div class='span12'>
+        <div class='top-info btn-large' id='top-info'>
+            #top-info
+        </div>
+    </div>
+</div>
+
+
+
+<div class='container-fluid'>
+    <div class='body'>
+        <div class='content'>    
+          <h1>Listing work_with_us</h1>
+
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+
+          <% @work_with_us.each do |work_with_u| %>
+            <tr>
+              <td><%= work_with_u.name %></td>
+              <td><%= work_with_u.email %></td>
+              <td><%= work_with_u.phone %></td>
+              <td><%= link_to 'Show', work_with_u %></td>
+              <td><%= link_to 'Edit', edit_work_with_u_path(work_with_u) %></td>
+              <td><%= link_to 'Destroy', work_with_u, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+          </table>
+
+          <br />
+
+          <%= link_to 'New Work with u', new_work_with_u_path %>
+
+        </div>
+    </div>
+</div>

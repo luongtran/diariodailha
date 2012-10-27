@@ -1,31 +1,41 @@
-<h1>Listing albums</h1>
+<div class='container-fluid'>
+    <div class='body'>
+        <div class='content'>    
+            <h3>Área do Fotógrafo</h3>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Beach</th>
-    <th>Peak</th>
-    <th>Date</th>
-    <th>Photographer</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+            <div class="right">
+                Olá, <%= current_photographer.name %>
+                <%= link_to "editar informações", edit_photographer_registration_path(current_photographer) %>
+            </div>
 
-<% @albums.each do |album| %>
-  <tr>
-    <td><%= album.name %></td>
-    <td><%= album.beach %></td>
-    <td><%= album.peak %></td>
-    <td><%= album.date %></td>
-    <td><%= album.photographer.name %></td>
-    <td><%= link_to 'Show', album %></td>
-    <td><%= link_to 'Edit', edit_album_path(album) %></td>
-    <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Beach</th>
+                <th>Peak</th>
+                <th>Date</th>
+                <th>Photographer</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
 
-<br />
+            <% @albums.each do |album| %>
+              <tr>
+                <td><%= album.name %></td>
+                <td><%= album.beach %></td>
+                <td><%= album.peak %></td>
+                <td><%= album.date %></td>
+                <td><%= album.photographer.name %></td>
+                <td><%= link_to 'Show', album %></td>
+                <td><%= link_to 'Edit', edit_album_path(album) %></td>
+                <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+            </table>
 
-<%= link_to 'New Album', new_album_path %>
+            <br />
+            <%= link_to 'New Album', new_album_path %>
+        </div>
+    </div>
+</div>

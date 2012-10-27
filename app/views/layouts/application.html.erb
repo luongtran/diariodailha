@@ -20,7 +20,7 @@
                         <div class='span9'>
                             <div class='info-header'>
                                 <a href='#'> QUEM SOMOS </a>
-                                <a href='#'> TRABALHE CONOSCO </a>
+                                <%= link_to "TRABALHE CONOSCO", new_work_with_u_path %>
                                 <a href='#'> ANUNCIE AQUI </a>
                                 <a href='#'> CONTATO </a>
                             </div>
@@ -30,7 +30,7 @@
                             <div class="header-nav">
                                 <!-- <div class='navbar-inner'>                             -->
                                     <ul class="nav nav-pills">
-                                        <li class='first'><a href='#'> HOME </a></li>
+                                        <li class='first'><%= link_to "HOME", root_path %></li>
                                         <li class="divider-vertical"></li>
                                         <li><a href='#'> BOLETIM DO MAR </a></li>
                                         <li class='divider-vertical'></li>
@@ -72,30 +72,10 @@
                                     <p class='img-header'><%= image_tag("area_fotografo.png", :alt => "area do fotografo") %></p>
 
                                     <% if photographer_signed_in? %>
-                                        <%= link_to "Log out", destroy_photographer_session_path, :method => :delete %>
+                                        <%= current_photographer.name %>
+                                        <%= link_to "Log out", destroy_photographer_session_path, :method => :delete, :class => 'btn btn-danger' %>
                                     <% else %>
-                                        <form>
-                                            <input class='input-large gray' type='text' placeholder='usuário: '/>
-                                            <input class='input-large gray' type='text' placeholder='email: '/>
-                                            <div class='actions'>
-                                                <div class='row-fluid'>
-                                                    <div class='span6'>
-                                                        <%= image_submit_tag("entrar_button.png") %>
-                                                    </div>
-                                                    <div class='span6 right'>
-                                                        <%= image_submit_tag("cadastrar_button.png") %>
-                                                    </div>
-                                            </div>
-
-                                            </input>
-                                        </form>
-                                        <div>
-                                            <a href='#' class='password-reminder'>
-                                                esqueci minha senha
-                                            </a>
-                                        </div>
-                                        <%= link_to "Sign in", new_photographer_session_path %>
-                                        <%= link_to "Sign Up", new_photographer_registration_path %>
+                                        <%= render "photographers/sessions/form" %>
                                     <% end %>
                                 </div>
                             </div>

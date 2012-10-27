@@ -1,24 +1,40 @@
-<h2>Sign up</h2>
+<div class='row-fluid'>
+    <div class='span12'>
+        <div class='top-info btn-large' id='top-info'>
+          #top-info
+        </div>
+    </div>
+</div>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :name, :required => true %>
-    <%= f.input :phone, :required => true %>
-    <%= f.input :address, :required => true %>
-    <%= f.input :cep, :required => true %>
-    <%= f.input :city, :required => true %>
-    <%= f.input :equipments, :required => true %>
-    <%= f.input :peaks_of_activity, :required => true %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
+
+<div class='container-fluid'>
+  <div class='body'>
+    <div class='content'>    
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :email, :required => true, :autofocus => true %>
+        <%= f.input :name, :required => true %>
+        <%= f.input :phone, :required => true %>
+        <%= f.input :address, :required => true %>
+        <%= f.input :cep, :required => true %>
+        <%= f.input :city, :required => true %>
+        <%= f.input :equipments, :required => true %>
+        <%= f.input :peaks_of_activity, :required => true %>
+        <%= f.input :password, :required => true %>
+        <%= f.input :password_confirmation, :required => true %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up" %>
+      </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+
+    </div>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

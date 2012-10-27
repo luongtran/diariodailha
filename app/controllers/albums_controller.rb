@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
 
-  before_filter :authenticate_photographer!, :except => [:index]
+  before_filter :authenticate_photographer!
 
   def index
     @albums = Album.all
