@@ -1,0 +1,5 @@
+<% if @photos != [] %>
+  <% @photos.each do |p| %>
+    <%= image_tag p.image_url(:thumb) %>
+  <% end %>
+<% end %>

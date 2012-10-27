@@ -1,0 +1,7 @@
+<%= form_tag find_result_path do %>
+  <div class="form-inputs">
+    <%= text_field_tag 'find_by_date', nil,:class => 'input-medium gray', :placeholder => "Busca por: Data" %>
+    <%= text_field_tag 'find_by_keyword', nil,:class => 'input-large gray', :placeholder => "Busca por: Palavra-chave" %>
+    <%= submit_tag 'Enviar', :class => 'btn btn-primary' %>
+  </div>
+<% end %>

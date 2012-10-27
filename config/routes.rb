@@ -25,6 +25,8 @@ Diariodailha::Application.routes.draw do
   get "site/work_with_us"
   
   resources :photos
+  match "find_photos" => "photos#find_photos"
+  match 'find_result' => "photos#find_result"
 
   devise_for :photographers, :controllers => {:registrations => 'Photographers::Registrations', :sessions => 'Photographers::Sessions', :mailer => 'Photographers::Mailer', :passwords => 'Photographers::Passwords', :confirmations => 'Photographers::Confirmations' }
 

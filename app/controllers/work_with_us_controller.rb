@@ -6,6 +6,8 @@ class WorkWithUsController < ApplicationController
   def index
     @work_with_us = WorkWithU.all
 
+    authorize! :manage, WorkWithU
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @work_with_us }
@@ -16,6 +18,8 @@ class WorkWithUsController < ApplicationController
   # GET /work_with_us/1.json
   def show
     @work_with_u = WorkWithU.find(params[:id])
+
+    authorize! :manage, @work_with_u
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,6 +41,7 @@ class WorkWithUsController < ApplicationController
   # GET /work_with_us/1/edit
   def edit
     @work_with_u = WorkWithU.find(params[:id])
+    authorize! :manage, @work_with_u
   end
 
   # POST /work_with_us
@@ -59,6 +64,8 @@ class WorkWithUsController < ApplicationController
   # PUT /work_with_us/1.json
   def update
     @work_with_u = WorkWithU.find(params[:id])
+    
+    authorize! :manage, @work_with_u
 
     respond_to do |format|
       if @work_with_u.update_attributes(params[:work_with_u])
@@ -75,6 +82,9 @@ class WorkWithUsController < ApplicationController
   # DELETE /work_with_us/1.json
   def destroy
     @work_with_u = WorkWithU.find(params[:id])
+
+    authorize! :manage, @work_with_u
+    
     @work_with_u.destroy
 
     respond_to do |format|

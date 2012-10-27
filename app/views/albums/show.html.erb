@@ -27,10 +27,6 @@
 <p>
   <b>Photos</b>
   <%= link_to 'Mostrar Fotos', album_show_photos_path(@album) %>
-  <%= form_for Photo.new do |f| %>
-    <%= f.label :pic, "Upload Imageeeeees" %>
-    <%= f.file_field :pic, multiple: true, name: "photos[image]" %>
-  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_album_path(@album) %> |

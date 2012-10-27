@@ -42,7 +42,7 @@
                                         <li class="divider-vertical"></li>
                                         <li><a href='#'> BOLETIM DO MAR </a></li>
                                         <li class='divider-vertical'></li>
-                                        <li><a href='#'> BUSCAR FOTOS </a></li>
+                                        <li><%= link_to "BUSCAR FOTOS", find_photos_path %></li>
                                         <li class='divider-vertical'></li>
                                         
                                         <% if Content.where(:name => "como_comprar_fotos") != [] %>
@@ -78,7 +78,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class='span3 container-right'>
                         <div class='row banner-small' id='rightbanner-01'> 
