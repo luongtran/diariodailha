@@ -71,14 +71,14 @@
                         <div class='container-fluid'>
                             <div class='body'>
                                 <div class='content'>    
-                                    <%= yield %>
+                                    <%- flash.each do |name, msg| -%>
+                                    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+                                    <%- end -%>
+                                    <%= yield %> 
                                 </div>
                             </div>
                         </div>
-                        <%- flash.each do |name, msg| -%>
-                            <%= content_tag :div, msg, :id => "flash_#{name}" %>
-                        <%- end -%>
-                        <%= yield %> 
+
                     </div>
                     <div class='span3 container-right'>
                         <div class='row banner-small' id='rightbanner-01'> 
