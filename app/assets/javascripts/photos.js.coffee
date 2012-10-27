@@ -17,4 +17,32 @@ jQuery ->
     progress: (e, data) ->
       if data.context
         progress = parseInt(data.loaded / data.total * 100, 10)
-        data.context.find('.bar').css('width', progress + '%')    
+        data.context.find('.bar').css('width', progress + '%')
+
+
+jQuery ->
+  $("#find_by_keyword").keyup ->
+    $("#find_by_date").val("")
+
+jQuery ->
+  $("#find_by_date").keyup ->
+    $("#find_by_keyword").val("")
+
+jQuery ->
+  $("#find_by_date").datepicker()
+  $.datepicker.regional['pt-BR'] = {
+    closeText: 'Fechar', prevText: '&#x3c;Anterior', 
+    nextText: 'Pr&oacute;ximo&#x3e;',
+    currentText: 'Hoje', 
+    monthNames: ['Janeiro','Fevereiro','Mar&ccedil;o','Abril','Maio','Junho', 'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Dez'], 
+    dayNames: ['Domingo','Segunda-feira','Ter&ccedil;a-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sabado'], 
+    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sab'], 
+    dayNamesMin: ['Dom','Seg','Ter','Qua','Qui','Sex','Sab'], 
+    weekHeader: 'Sm', 
+    dateFormat: 'dd/mm/yy', 
+    firstDay: 0, 
+    isRTL: false, 
+    showMonthAfterYear: false, 
+    yearSuffix: ''}
+  $.datepicker.setDefaults($.datepicker.regional['pt-BR'])

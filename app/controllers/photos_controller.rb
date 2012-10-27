@@ -1,15 +1,5 @@
 # encoding:utf-8
 class PhotosController < ApplicationController
-  # GET /photos
-  # GET /photos.json
-#  def index
-#    @photos = Photo.all
-#
-#    respond_to do |format|
-#      format.html # index.html.erb
-#      format.json { render json: @photos }
-#    end
-#  end
 
   # GET /photos/1
   # GET /photos/1.json
@@ -23,10 +13,6 @@ class PhotosController < ApplicationController
   end
 
 
-  # # GET /photos/1/edit
-  # def edit
-  #   @photo = Photo.find(params[:id])
-  # end
 
   # POST /photos
   # POST /photos.json
@@ -54,6 +40,21 @@ class PhotosController < ApplicationController
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+
+  def find_photos
+  end
+
+  def find_result
+    puts params
+    @photos = Photo.where("lower(name) like lower('%#{params[:find_by_keyword]}%')")
+
+    if(@photos == [])
+      flash[:notice] = "Nenhuma foto encontrada."
+      redirect_to find_photos_path
+    end
+    
   end
 
   # DELETE /photos/1

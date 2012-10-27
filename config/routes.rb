@@ -20,13 +20,12 @@ Diariodailha::Application.routes.draw do
 
   get "site/index"
   get "site/terms"
-<<<<<<< HEAD
   get "site/about"
-=======
   get "site/admin_page"
->>>>>>> e19d2424ddd1d42c00fd1ae66dd9ace25b42664c
 
   resources :photos
+  match "find_photos" => "photos#find_photos"
+  match 'find_result' => "photos#find_result"
 
   devise_for :photographers, :controllers => {:registrations => 'Photographers::Registrations', :sessions => 'Photographers::Sessions', :mailer => 'Photographers::Mailer', :passwords => 'Photographers::Passwords', :confirmations => 'Photographers::Confirmations' }
 
