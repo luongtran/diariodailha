@@ -20,6 +20,7 @@ Diariodailha::Application.routes.draw do
 
   get "site/index"
   get "site/terms"
+  get "site/admin_page"
 
   resources :photos
 

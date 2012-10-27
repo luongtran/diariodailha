@@ -1,9 +1,14 @@
 class ContactTypesController < ApplicationController
   # GET /contact_types
   # GET /contact_types.json
-  before_filter :authenticate_user!, :except => [:new, :create]
+
+  load_and_authorize_resource
+
+  before_filter :authenticate_user!
+
+
   def index
-    @contact_types = ContactType.all
+    #@contact_types = ContactType.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +19,7 @@ class ContactTypesController < ApplicationController
   # GET /contact_types/1
   # GET /contact_types/1.json
   def show
-    @contact_type = ContactType.find(params[:id])
+    #@contact_type = ContactType.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +30,7 @@ class ContactTypesController < ApplicationController
   # GET /contact_types/new
   # GET /contact_types/new.json
   def new
-    @contact_type = ContactType.new
+    #@contact_type = ContactType.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,13 +40,13 @@ class ContactTypesController < ApplicationController
 
   # GET /contact_types/1/edit
   def edit
-    @contact_type = ContactType.find(params[:id])
+    #@contact_type = ContactType.find(params[:id])
   end
 
   # POST /contact_types
   # POST /contact_types.json
   def create
-    @contact_type = ContactType.new(params[:contact_type])
+    #contact_type = ContactType.new(params[:contact_type])
 
     respond_to do |format|
       if @contact_type.save
@@ -57,7 +62,7 @@ class ContactTypesController < ApplicationController
   # PUT /contact_types/1
   # PUT /contact_types/1.json
   def update
-    @contact_type = ContactType.find(params[:id])
+    #@contact_type = ContactType.find(params[:id])
 
     respond_to do |format|
       if @contact_type.update_attributes(params[:contact_type])
@@ -73,7 +78,7 @@ class ContactTypesController < ApplicationController
   # DELETE /contact_types/1
   # DELETE /contact_types/1.json
   def destroy
-    @contact_type = ContactType.find(params[:id])
+    #@contact_type = ContactType.find(params[:id])
     @contact_type.destroy
 
     respond_to do |format|

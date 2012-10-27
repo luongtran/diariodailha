@@ -19,10 +19,18 @@
                         </div>
                         <div class='span9'>
                             <div class='info-header'>
-                                <a href='#'> QUEM SOMOS </a>
+                                <% if Content.where(:name => "quem_somos") != [] %>
+                                    <%= link_to "QUEM SOMOS", content_path(Content.where(:name => "quem_somos").first) %>    
+                                <% else %>
+                                    <a href='#'> QUEM SOMOS </a>
+                                <% end %>
                                 <%= link_to "TRABALHE CONOSCO", new_work_with_u_path %>
-                                <a href='#'> ANUNCIE AQUI </a>
-                                <a href='#'> CONTATO </a>
+                                <% if Content.where(:name => "anuncie_aqui") != [] %>
+                                    <%= link_to "ANUNCIE AQUI", content_path(Content.where(:name => "anuncie_aqui").first) %>    
+                                <% else %>
+                                    <a href='#'> ANUNCIE AQUI </a>
+                                <% end %>
+                                <%= link_to "CONTATO", new_contact_path %>
                             </div>
                             <div class='top-banner' id='top-banner'>
                                 #top-banner
@@ -36,9 +44,20 @@
                                         <li class='divider-vertical'></li>
                                         <li><a href='#'> BUSCAR FOTOS </a></li>
                                         <li class='divider-vertical'></li>
-                                        <li><a href='#'> COMO COMPRAR FOTOS </a></li>
+                                        
+                                        <% if Content.where(:name => "como_comprar_fotos") != [] %>
+                                            <li><%= link_to "COMO COMPRAR FOTOS", content_path(Content.where(:name => "como_comprar_fotos").first) %></li>
+                                        <% else %>
+                                            <li><a href="#"> COMO COMPRAR FOTOS </a></li>
+                                        <% end %>
+
                                         <li class='divider-vertical'></li>
-                                        <li><a href="#"> CONTRATE UM FOTÓGRAFO </a></li>
+                                        
+                                        <% if Content.where(:name => "contrate_fotografo") != [] %>
+                                            <li><%= link_to "CONTRATE UM FOTÓGRAFO", content_path(Content.where(:name => "contrate_fotografo").first) %></li>
+                                        <% else %>
+                                            <li><a href="#"> CONTRATE UM FOTÓGRAFO </a></li>
+                                        <% end %>
                                     </ul>
                                 <!-- </div> -->
                             </div>
@@ -49,6 +68,9 @@
             <div class='container-fluid'>
                 <div class='row-fluid'>
                     <div class='span9'>
+                        <%- flash.each do |name, msg| -%>
+                            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+                        <%- end -%>
                         <%= yield %> 
                     </div>
                     <div class='span3 container-right'>
@@ -65,8 +87,18 @@
                                 <p><%= image_tag("banner04.png", :alt => "banner 4") %></p>
                             </div>
                             <div class='row banner-large' id='rightbanner-05'> 
-                                    <p><%= image_tag("banner05.png", :alt => "banner 5") %></p>
+                                <p><%= image_tag("banner05.png", :alt => "banner 5") %></p>
                             </div>
+                            <% if user_signed_in? %>
+                                <div class='row banner-large' id='rightbanner-05'> 
+                                    <%= link_to "Log Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-danger' %>
+
+                                    <% if current_user.is_admin %>
+                                        <%= link_to "GERENCIAR PAGINAS", site_admin_page_path %>
+                                    <% end %>
+                                </div>
+                            <% end %>
+
                             <div class='row banner-login' id='rightbanner-06'> 
                                 <div class='form-right'>
                                     <p class='img-header'><%= image_tag("area_fotografo.png", :alt => "area do fotografo") %></p>
