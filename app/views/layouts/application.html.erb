@@ -68,7 +68,6 @@
             <div class='container-fluid'>
                 <div class='row-fluid'>
                     <div class='span9'>
-<<<<<<< HEAD
                         <div class='container-fluid'>
                             <div class='body'>
                                 <div class='content'>    
@@ -76,12 +75,10 @@
                                 </div>
                             </div>
                         </div>
-=======
                         <%- flash.each do |name, msg| -%>
                             <%= content_tag :div, msg, :id => "flash_#{name}" %>
                         <%- end -%>
                         <%= yield %> 
->>>>>>> e19d2424ddd1d42c00fd1ae66dd9ace25b42664c
                     </div>
                     <div class='span3 container-right'>
                         <div class='row banner-small' id='rightbanner-01'> 
