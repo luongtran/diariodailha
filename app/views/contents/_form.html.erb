@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, :as => :select, :include_blank => false, :collection => ["anuncie_aqui", "como_comprar_fotos", "contrate_fotografo", "quem_somos", "termos_de_uso" ] %>
     <%= f.input :description %>
     <%= f.input :title %>
     <%= f.input :subtitle %>

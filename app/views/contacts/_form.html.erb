@@ -6,7 +6,7 @@
     <%= f.input :email %>
     <%= f.input :phone %>
     <%= f.input :message %>
-    <%= f.input :contact_type_id, :as => :select, :collection => ContactType.all %>
+    <%= f.input :contact_type_id, :as => :select, :include_blank => false, :required => true, :collection => ContactType.all %>
   </div>
 
   <div class="form-actions">

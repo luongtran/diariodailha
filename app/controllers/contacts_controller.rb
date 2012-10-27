@@ -2,13 +2,19 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
 
+  before_filter :authenticate_user!, :except => [:new, :create]
+
   def index
     @contacts = Contact.all
+
+    authorize! :read, Contact
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @contacts }
     end
+
+
   end
 
   # GET /contacts/1
@@ -16,10 +22,13 @@ class ContactsController < ApplicationController
   def show
     @contact = Contact.find(params[:id])
 
+    authorize! :read, @contact
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @contact }
     end
+    
   end
 
   # GET /contacts/new
@@ -36,6 +45,8 @@ class ContactsController < ApplicationController
   # GET /contacts/1/edit
   def edit
     @contact = Contact.find(params[:id])
+
+    authorize! :update, @contact
   end
 
   # POST /contacts
@@ -45,8 +56,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
-        format.json { render json: @contact, status: :created, location: @contact }
+        format.html { redirect_to :root, notice: 'Contact was successfully created.' }
       else
         format.html { render action: "new" }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
@@ -58,6 +68,8 @@ class ContactsController < ApplicationController
   # PUT /contacts/1.json
   def update
     @contact = Contact.find(params[:id])
+
+    authorize! :update, @contact
 
     respond_to do |format|
       if @contact.update_attributes(params[:contact])
@@ -75,6 +87,8 @@ class ContactsController < ApplicationController
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
+    
+    authorize! :manage, @contact
 
     respond_to do |format|
       format.html { redirect_to contacts_url }
