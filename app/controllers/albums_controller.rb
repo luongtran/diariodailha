@@ -84,6 +84,9 @@ class AlbumsController < ApplicationController
     end
   end
 
+
+
+
   def add_photo
     @photo = Photo.new
     @photo.album_id = params[:album_id]

@@ -1,41 +1,72 @@
-<div class='container-fluid'>
-    <div class='body'>
-        <div class='content'>    
-            <h3>Área do Fotógrafo</h3>
+<div class='albums-index'>
 
-            <div class="right">
-                Olá, <%= current_photographer.name %>
-                <%= link_to "editar informações", edit_photographer_registration_path(current_photographer) %>
+    <div class="row">       
+        <div class='span6'>
+            <p class='img-header'><%= image_tag("area_fotografo.png", :alt => "area do fotografo") %></p>
+        </div>
+        <div class="span6">            
+            <div class="photographer-info">
+                <h1>Olá, <%= current_photographer.name %></h1>
+                <p class="edit">
+                    <%= link_to "editar informações", edit_photographer_registration_path(current_photographer) %>
+                </p>
             </div>
-
-            <table>
-              <tr>
-                <th>Name</th>
-                <th>Beach</th>
-                <th>Peak</th>
-                <th>Date</th>
-                <th>Photographer</th>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-
-            <% @albums.each do |album| %>
-              <tr>
-                <td><%= album.name %></td>
-                <td><%= album.beach %></td>
-                <td><%= album.peak %></td>
-                <td><%= album.date %></td>
-                <td><%= album.photographer.name %></td>
-                <td><%= link_to 'Show', album %></td>
-                <td><%= link_to 'Edit', edit_album_path(album) %></td>
-                <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-            <% end %>
-            </table>
-
-            <br />
-            <%= link_to 'New Album', new_album_path %>
         </div>
     </div>
+
+    <h1 class="page-subtitle">Upload</h1>
+    <p> <%= link_to 'Cadastre', new_album_path %> quantos álbuns quiser</p>
+
+    <ul class="breadcrumb">
+        <li class='active'>Você está em<span class="divider">></span></li>
+        <li class="active">Álbuns</li>
+    </ul>
+
+    <div class="albums">
+        <div class="row-fluid">
+            <% @albums.each do |album| %>                
+                <div class="span2">
+
+                    <div class="thumbnail">
+                        <!-- @TODO Colocar uma imagem do algum de "capa" -->
+                         <%= link_to image_tag('logo_site.png'), album %>
+                        <div class="description">
+                            <div class="date"><%= album.date.strftime('%d/%m/%Y') %></div>
+                            <div class="name"><%= album.name %></div>
+                            <div class="beach"><%= album.beach %></div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+<!-- 
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Beach</th>
+        <th>Peak</th>
+        <th>Date</th>
+        <th>Photographer</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @albums.each do |album| %>
+      <tr>
+        <td><%= album.name %></td>
+        <td><%= album.beach %></td>
+        <td><%= album.peak %></td>
+        <td><%= album.date %></td>
+        <td><%= album.photographer.name %></td>
+        <td><%= link_to 'Show', album %></td>
+        <td><%= link_to 'Edit', edit_album_path(album) %></td>
+        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </table>
+
+    <br />
+    <%= link_to 'New Album', new_album_path %> -->
 </div>

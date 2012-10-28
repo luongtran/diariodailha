@@ -5,7 +5,7 @@
         <h1 class="page-title">Cadastre-se</h1>
     </div>
 
-    <p>Após se cadastrar, você receberá a confirmação por email</p>
+    <p class="info">Após se cadastrar, você receberá a confirmação por email</p>
 
     <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form form-horizontal"})  do |f| %>
     <%= f.error_notification %>

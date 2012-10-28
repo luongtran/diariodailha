@@ -116,6 +116,15 @@ body {
 			color: $blue;
 		}
 
+		.img-header {
+			margin-top: 20px;
+		}
+
+		h1.page-subtitle {
+			color: $gray;
+			font-size: 26px;
+		}
+
 		h2.page-subtitle {
 			font-size: 14px;
 			color: $lightblue;
@@ -227,13 +236,68 @@ body {
 			.img-header {
 				margin-top: 20px;
 			}
+			.info {
+				margin-bottom: 30px;
+			}
 			form {
 				input {
-					width: 300px;
 					display: block;
 					margin-bottom: 10px;
 					height: 32px;
 					border-radius: 15px;
+				}
+			}
+		}
+
+		.albums-index {
+			.row {
+				margin-left: 1px;
+			}
+			.photographer-info {				
+				float: right;
+				h1 {
+					color: $blue;
+					font-size: 32px;
+					font-weight: bold;
+				}
+				p.edit {
+					margin-top: -10px;
+					text-align: right;
+					text-decoration: underline;
+					a {
+						font-size: smaller;
+						color: $gray;
+					}
+				}
+			}
+
+			a {
+				color: $blue;
+				text-decoration: underline;
+			}
+
+			a:hover {
+				background-color: transparent;
+				color: $blue;
+			}
+
+			.breadcrumb {
+				margin-top: 25px;
+				border-radius: 15px;
+				.you-are-in {
+					color: $gray;
+				}
+			}
+
+			.description {
+				text-align: center;
+				margin-top: 5px;
+				margin-bottom: 5px;
+				.name,
+				.beach,
+				.date {
+					line-height: 14px;
+					font-size: 12px;
 				}
 			}
 		}
