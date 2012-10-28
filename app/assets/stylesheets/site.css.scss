@@ -129,6 +129,7 @@ body {
 			font-weight: bold ;
 			padding-bottom: 20px;
 		}
+
 		ul.terms-list {
 		  list-style-type: none;
 		  padding: 0;
@@ -218,6 +219,21 @@ body {
 				width: 250px;				
 				input.block {
 					display: block;
+				}
+			}
+		}
+
+		.sign-up {
+			.img-header {
+				margin-top: 20px;
+			}
+			form {
+				input {
+					width: 300px;
+					display: block;
+					margin-bottom: 10px;
+					height: 32px;
+					border-radius: 15px;
 				}
 			}
 		}
