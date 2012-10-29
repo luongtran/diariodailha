@@ -29,7 +29,7 @@
 
                     <div class="thumbnail">
                         <!-- @TODO Colocar uma imagem do algum de "capa" -->
-                         <%= link_to image_tag('logo_site.png'), album %>
+                         <%= link_to image_tag('logo_site.png'), album_show_photos_path(album) %>
                         <div class="description">
                             <div class="date"><%= album.date.strftime('%d/%m/%Y') %></div>
                             <div class="name"><%= album.name %></div>
@@ -70,3 +70,14 @@
     <br />
     <%= link_to 'New Album', new_album_path %> -->
 </div>
+
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+        $('#container-right').hide();
+        $('#content').removeClass('span9');
+        // $('#content').addClass('full');
+        $('#body').addClass('full');
+    })
+
+</script>

@@ -67,9 +67,9 @@
             </div>
             <div class='container-fluid'>
                 <div class='row-fluid'>
-                    <div class='span9'>
+                    <div id='content' class='span9'>
                         <div class='container-fluid'>
-                            <div class='body'>
+                            <div class='body' id='body'>
                                 <div class='content'>    
                                     <%- flash.each do |name, msg| -%>
                                     <%= content_tag :div, msg, :id => "flash_#{name}" %>
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class='span3 container-right'>
+                    <div id='container-right' class='span3 container-right'>
                         <div class='row banner-small' id='rightbanner-01'> 
                                 <p><%= image_tag("banner01.png", :alt => "banner 1") %></p>
                             </div>

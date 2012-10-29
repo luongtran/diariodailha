@@ -29,6 +29,7 @@ gem "mini_magick"
 gem "rmagick"
 gem "ckeditor"
 gem "cancan"
+gem "plupload-rails"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -252,6 +252,8 @@ body {
 		.albums-index {
 			.row {
 				margin-left: 1px;
+				margin-bottom: -10px;
+
 			}
 			.photographer-info {				
 				float: right;
@@ -300,7 +302,22 @@ body {
 					font-size: 12px;
 				}
 			}
+			.crop {
+
+			}
+			.crop img{
+				width: 100%;
+				height: 150px;	
+			}
+
+			.album-row {
+				margin-bottom: 20px;
+			}
 		}
+	}
+
+	.full {
+		margin-right: -2%;
 	}
 
 	.container-right {
