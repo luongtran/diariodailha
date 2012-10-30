@@ -51,11 +51,11 @@ class WorkWithUsController < ApplicationController
 
     respond_to do |format|
       if @work_with_u.save
-        format.html { redirect_to @work_with_u, notice: 'Work with u was successfully created.' }
-        format.json { render json: @work_with_u, status: :created, location: @work_with_u }
+        format.html { redirect_to root_path, notice: 'Work with u was successfully created.' }
+        #format.json { render json: @work_with_u, status: :created, location: @work_with_u }
       else
         format.html { render action: "new" }
-        format.json { render json: @work_with_u.errors, status: :unprocessable_entity }
+        #format.json { render json: @work_with_u.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -1,3 +1,13 @@
-<%= image_tag photo.image_url(:thumb).to_s %>
-<br>
-<%= photo.name %>
+<div class="span3">
+  <div class="thumbnail">
+    <div class="crop">
+        <%= image_tag photo.image_url(:thumb).to_s, :class => 'img-rounded'%>
+    </div>
+    <div class="description">
+        <div class="date"><%= @photo.album.date.strftime('%d/%m/%Y') %></div>
+        <div class="name"><%= @photo.album.peak %></div>
+        <div class="beach"><%= @photo.album.beach %></div>
+    </div>
+  </div>
+</div>
+                        

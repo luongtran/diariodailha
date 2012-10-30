@@ -4,4 +4,14 @@
     <%= text_field_tag 'find_by_keyword', nil,:class => 'input-large gray', :placeholder => "Busca por: Palavra-chave" %>
     <%= submit_tag 'Enviar', :class => 'btn btn-primary' %>
   </div>
+
+  <div>
+    <h3>Útimos álbuns adicionados</h3>
+    <% Album.limit(10).order('date desc').each do |a| %>
+      <%= link_to 'Ver álbum', album_path(a) %>
+      <br>
+    <% end %>
+  </div>
+
+  </di>
 <% end %>

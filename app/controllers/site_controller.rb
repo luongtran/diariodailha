@@ -16,4 +16,7 @@ class SiteController < ApplicationController
 
   def advertise
   end
+
+  def how_to_buy_photos
+  end
 end

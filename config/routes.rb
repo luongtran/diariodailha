@@ -1,4 +1,8 @@
 Diariodailha::Application.routes.draw do
+  resources :photo_lists
+
+  resources :sales
+
   resources :contact_types
 
   resources :contacts
@@ -27,6 +31,7 @@ Diariodailha::Application.routes.draw do
   get "site/how_buy"
   
   
+  get "site/how_to_buy_photos"
   
   resources :photos
   match "find_photos" => "photos#find_photos"

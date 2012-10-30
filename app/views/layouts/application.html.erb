@@ -48,7 +48,7 @@
                                         <% if Content.where(:name => "como_comprar_fotos") != [] %>
                                             <li><%= link_to "COMO COMPRAR FOTOS", content_path(Content.where(:name => "como_comprar_fotos").first) %></li>
                                         <% else %>
-                                            <li><%= link_to "COMO COMPRAR FOTOS", site_how_buy_path %></li>
+                                            <li><%= link_to "COMO COMPRAR FOTOS", site_how_to_buy_photos_path %></li>
                                         <% end %>
 
                                         <li class='divider-vertical'></li>

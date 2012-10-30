@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sale:</b>
+  <%= @photo_list.sale %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= @photo_list.photo %>
+</p>
+
+
+<%= link_to 'Edit', edit_photo_list_path(@photo_list) %> |
+<%= link_to 'Back', photo_lists_path %>
