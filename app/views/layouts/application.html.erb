@@ -45,11 +45,8 @@
                                         <li><%= link_to "BUSCAR FOTOS", find_photos_path %></li>
                                         <li class='divider-vertical'></li>
                                         
-                                        <% if Content.where(:name => "como_comprar_fotos") != [] %>
-                                            <li><%= link_to "COMO COMPRAR FOTOS", content_path(Content.where(:name => "como_comprar_fotos").first) %></li>
-                                        <% else %>
-                                            <li><a href="#"> COMO COMPRAR FOTOS </a></li>
-                                        <% end %>
+                                        
+                                        <li><%= link_to "COMO COMPRAR FOTOS", site_how_to_buy_photos_path %></li>
 
                                         <li class='divider-vertical'></li>
                                         

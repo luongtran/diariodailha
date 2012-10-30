@@ -1,5 +1,6 @@
 <% if @photos != [] %>
   <% @photos.each do |p| %>
     <%= image_tag p.image_url(:thumb) %>
+    <%= link_to 'Ver Álbum', album_path(p.album) %>
   <% end %>
 <% end %>

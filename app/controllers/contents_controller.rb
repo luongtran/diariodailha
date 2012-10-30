@@ -2,7 +2,7 @@ class ContentsController < ApplicationController
   # GET /contents
   # GET /contents.json
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:show]
   
   def index
     @contents = Content.all

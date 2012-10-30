@@ -13,4 +13,7 @@ class SiteController < ApplicationController
 
   def work_with_us
   end
+
+  def how_to_buy_photos
+  end
 end

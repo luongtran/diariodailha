@@ -48,7 +48,12 @@ class PhotosController < ApplicationController
 
   def find_result
     puts params
-    @photos = Photo.where("lower(name) like lower('%#{params[:find_by_keyword]}%')")
+    if !params[:find_by_keyword].empty?
+      @photos = Photo.where("lower(name) like lower('%#{params[:find_by_keyword]}%')")
+    elsif !params[:find_by_date].empty?
+      date_str = params[:find_by_date].gsub('/', '_')
+      @photos = Photo.where("lower(name) like lower('%#{date_str}%')")
+    end
 
     if(@photos == [])
       flash[:notice] = "Nenhuma foto encontrada."

@@ -8,7 +8,8 @@ development:
   database: diariodailha_development
   pool: 5
   timeout: 5000
-  username: derik
+  username: raphael
+  password: raphael
 
 
 # Warning: The database defined as "test" will be erased and

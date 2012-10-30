@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121027141551) do
+ActiveRecord::Schema.define(:version => 20121030011530) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(:version => 20121027141551) do
     t.text     "body"
   end
 
+  create_table "photo_lists", :force => true do |t|
+    t.integer  "sale_id"
+    t.integer  "photo_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "photo_lists", ["photo_id"], :name => "index_photo_lists_on_photo_id"
+  add_index "photo_lists", ["sale_id"], :name => "index_photo_lists_on_sale_id"
+
   create_table "photographers", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -101,6 +111,15 @@ ActiveRecord::Schema.define(:version => 20121027141551) do
   end
 
   add_index "photos", ["album_id"], :name => "index_photos_on_album_id"
+
+  create_table "sales", :force => true do |t|
+    t.datetime "date"
+    t.integer  "user_id"
+    t.integer  "photo_list_id"
+    t.integer  "value"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
