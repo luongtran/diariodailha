@@ -1,16 +1,62 @@
-<div class='row-fluid'>
-    <div class='span12'>
-        <div class='top-info btn-large' id='top-info'>
-            #top-info
-        </div>
-    </div>
+<div class="home">
+	<div class="row-fluid">
+		<div class="allnews">
+			<div class="span4 news">
+				<div class="row">
+					<div class="new">
+						<h1 class="page-title">Noticia 01</h1>
+						<p>Veja mais aqui dentro!</p>
+					</div>
+				</div>
+				<div class="row top-divider">
+					<div class="new">
+						<h1 class="page-title">Noticia 02</h1>
+						<p>Veja mais aqui dentro!</p>
+					</div>
+				</div>
+				<div class="row top-divider">
+					<div class="new">
+						<h1 class="page-title">Noticia 03</h1>
+						<p>Veja mais aqui dentro!</p>
+					</div>
+				</div>
+				<div class="row top-divider">
+					<div class="new">
+						<h1 class="page-title">Noticia 04</h1>
+						<p>Veja mais aqui dentro!</p>
+					</div>
+				</div>
+				<div class="row top-divider">
+					<div class="new">
+						<h1 class="page-title">Noticia 05</h1>
+						<p>Veja mais aqui dentro!</p>
+					</div>
+				</div> 
+				<div class="row top-divider action">
+					<a href="#" class="btn btn-primary">Veja mais</a>	
+				</div>
+			</div>
+			<span class="divider"></span>
+			<div class="span8 headline">
+				<h1 class="page-title">Destaque</h1>
+				<p><%= image_tag('foto_quem.png') %></p>
+				<p class="page-subsubtitle">Titulo!</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+		</div>
+	</div>
 </div>
 
-
-
-<div class='container-fluid'>
-    <div class='body'>
-        <div class='content'>    
-        </div>
-    </div>
-</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#top-info").removeClass("hidden");
+		$("#top-info").show();
+		$("#home-more").removeClass("hidden");
+		$("#home-more").show();
+	})
+</script>

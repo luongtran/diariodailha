@@ -23,6 +23,10 @@ Diariodailha::Application.routes.draw do
   get "site/about"
   get "site/admin_page"
   get "site/work_with_us"
+  get "site/advertise"
+  get "site/how_buy"
+  
+  
   
   resources :photos
   match "find_photos" => "photos#find_photos"

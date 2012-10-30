@@ -28,7 +28,7 @@
                                 <% if Content.where(:name => "anuncie_aqui") != [] %>
                                     <%= link_to "ANUNCIE AQUI", content_path(Content.where(:name => "anuncie_aqui").first) %>    
                                 <% else %>
-                                    <a href='#'> ANUNCIE AQUI </a>
+                                <%= link_to "ANUNCIE AQUI", site_advertise_path %>
                                 <% end %>
                                 <%= link_to "CONTATO", new_contact_path %>
                             </div>
@@ -48,7 +48,7 @@
                                         <% if Content.where(:name => "como_comprar_fotos") != [] %>
                                             <li><%= link_to "COMO COMPRAR FOTOS", content_path(Content.where(:name => "como_comprar_fotos").first) %></li>
                                         <% else %>
-                                            <li><a href="#"> COMO COMPRAR FOTOS </a></li>
+                                            <li><%= link_to "COMO COMPRAR FOTOS", site_how_buy_path %></li>
                                         <% end %>
 
                                         <li class='divider-vertical'></li>
@@ -65,6 +65,16 @@
                     </div>  
                 </div>
             </div>
+
+            <div id='top-info' class='row-fluid hidden'>
+                <div class='span12'>
+                    <div class='top-info btn-large' id='top-info'>
+                        #top-info
+                    </div>
+                </div>
+            </div>
+
+
             <div class='container-fluid'>
                 <div class='row-fluid'>
                     <div id='content' class='span9'>
@@ -77,6 +87,22 @@
                                     <%= yield %> 
                                 </div>
                             </div>
+                        </div>
+
+                        <div id="home-more" class="hidden">                            
+                            <div class='container-fluid'>
+                                <div class='home-adver' id='home-ad'>
+                                    <div class='banner' id='med-banner'>
+                                        #med-banner
+                                    </div>     
+                                </div>
+                            </div>                        
+
+                            <div class='container-fluid'>
+                                <div class='home-pics' id='home-pics'>
+
+                                </div>
+                            </div>                        
                         </div>
                     </div>
                     <div id='container-right' class='span3 container-right'>

@@ -1,47 +1,30 @@
-<div class='row-fluid'>
-    <div class='span12'>
-        <div class='top-info btn-large' id='top-info'>
-            #top-info
-        </div>
-    </div>
-</div>
 
+<p id="notice"><%= notice %></p>
 
+<p>
+  <b>Name:</b>
+  <%= @contact.name %>
+</p>
 
-<div class='container-fluid'>
-    <div class='body'>
-        <div class='content'>    
-          
-          <p id="notice"><%= notice %></p>
+<p>
+  <b>Email:</b>
+  <%= @contact.email %>
+</p>
 
-          <p>
-            <b>Name:</b>
-            <%= @contact.name %>
-          </p>
+<p>
+  <b>Phone:</b>
+  <%= @contact.phone %>
+</p>
 
-          <p>
-            <b>Email:</b>
-            <%= @contact.email %>
-          </p>
+<p>
+  <b>Message:</b>
+  <%= @contact.message %>
+</p>
 
-          <p>
-            <b>Phone:</b>
-            <%= @contact.phone %>
-          </p>
+<p>
+  <b>Message:</b>
+  <%= @contact.contact_type.name %>
+</p>
 
-          <p>
-            <b>Message:</b>
-            <%= @contact.message %>
-          </p>
-
-          <p>
-            <b>Message:</b>
-            <%= @contact.contact_type.name %>
-          </p>
-
-          <%= link_to 'Edit', edit_contact_path(@contact) %> |
-          <%= link_to 'Back', contacts_path %>
-
-        </div>
-    </div>
-</div>
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>

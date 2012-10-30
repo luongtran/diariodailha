@@ -1,46 +1,30 @@
-<div class='row-fluid'>
-    <div class='span12'>
-        <div class='top-info btn-large' id='top-info'>
-            #top-info
-        </div>
-    </div>
-</div>
+  
+<h1>Listing contents</h1>
 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Title</th>
+    <th>Subtitle</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
+<% @contents.each do |content| %>
+  <tr>
+    <td><%= content.name %></td>
+    <td><%= content.description %></td>
+    <td><%= content.title %></td>
+    <td><%= content.subtitle %></td>
+    <td><%= link_to 'Show', content %></td>
+    <td><%= link_to 'Edit', edit_content_path(content) %></td>
+    <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
 
-<div class='container-fluid'>
-    <div class='body'>
-        <div class='content'>    
-            <h1>Listing contents</h1>
+<br />
 
-            <table>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Title</th>
-                <th>Subtitle</th>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-
-            <% @contents.each do |content| %>
-              <tr>
-                <td><%= content.name %></td>
-                <td><%= content.description %></td>
-                <td><%= content.title %></td>
-                <td><%= content.subtitle %></td>
-                <td><%= link_to 'Show', content %></td>
-                <td><%= link_to 'Edit', edit_content_path(content) %></td>
-                <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-            <% end %>
-            </table>
-
-            <br />
-
-            <%= link_to 'New Content', new_content_path %>
-
-        </div>
-    </div>
-</div>
+<%= link_to 'New Content', new_content_path %>
