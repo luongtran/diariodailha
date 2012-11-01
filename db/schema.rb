@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030011530) do
+ActiveRecord::Schema.define(:version => 20121101031415) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -97,8 +97,12 @@ ActiveRecord::Schema.define(:version => 20121030011530) do
     t.string   "city"
     t.string   "equipments"
     t.string   "peaks_of_activity"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "photographers", ["confirmation_token"], :name => "index_photographers_on_confirmation_token", :unique => true
   add_index "photographers", ["email"], :name => "index_photographers_on_email", :unique => true
   add_index "photographers", ["reset_password_token"], :name => "index_photographers_on_reset_password_token", :unique => true
 
@@ -112,14 +116,25 @@ ActiveRecord::Schema.define(:version => 20121030011530) do
 
   add_index "photos", ["album_id"], :name => "index_photos_on_album_id"
 
+  create_table "sale_items", :force => true do |t|
+    t.datetime "date"
+    t.integer  "sale_id"
+    t.integer  "photo_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sale_items", ["photo_id"], :name => "index_sale_items_on_photo_id"
+  add_index "sale_items", ["sale_id"], :name => "index_sale_items_on_sale_id"
+
   create_table "sales", :force => true do |t|
     t.datetime "date"
     t.integer  "user_id"
-    t.integer  "photo_list_id"
-    t.integer  "value"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
+
+  add_index "sales", ["user_id"], :name => "index_sales_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

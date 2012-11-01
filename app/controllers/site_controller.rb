@@ -9,6 +9,7 @@ class SiteController < ApplicationController
   end
 
   def admin_page
+    authorize! :manage, :all
   end
 
   def work_with_us

@@ -18,7 +18,7 @@ class SalesControllerTest < ActionController::TestCase
 
   test "should create sale" do
     assert_difference('Sale.count') do
-      post :create, sale: { date: @sale.date, photo_list_id: @sale.photo_list_id, user_id: @sale.user_id, value: @sale.value }
+      post :create, sale: { date: @sale.date }
     end
 
     assert_redirected_to sale_path(assigns(:sale))
@@ -35,7 +35,7 @@ class SalesControllerTest < ActionController::TestCase
   end
 
   test "should update sale" do
-    put :update, id: @sale, sale: { date: @sale.date, photo_list_id: @sale.photo_list_id, user_id: @sale.user_id, value: @sale.value }
+    put :update, id: @sale, sale: { date: @sale.date }
     assert_redirected_to sale_path(assigns(:sale))
   end
 

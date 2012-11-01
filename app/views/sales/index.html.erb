@@ -4,8 +4,6 @@
   <tr>
     <th>Date</th>
     <th>User</th>
-    <th>Photo list</th>
-    <th>Value</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,9 +12,7 @@
 <% @sales.each do |sale| %>
   <tr>
     <td><%= sale.date %></td>
-    <td><%= sale.user_id %></td>
-    <td><%= sale.photo_list_id %></td>
-    <td><%= sale.value %></td>
+    <td><%= sale.user %></td>
     <td><%= link_to 'Show', sale %></td>
     <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
     <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>

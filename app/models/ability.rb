@@ -10,6 +10,7 @@ class Ability
         can :manage, User
         can :manage, Photographer
         can :manage, WorkWithU
+        can :manage, :all
       else
         can :create, Contact
       end

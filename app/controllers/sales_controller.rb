@@ -1,9 +1,6 @@
 class SalesController < ApplicationController
   # GET /sales
   # GET /sales.json
-
-  before_filter :authenticate_user!
-
   def index
     @sales = Sale.all
 
@@ -43,17 +40,13 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
-    @sale = Sale.new
-    @sale.user = current_user
-    @sale.date = Time.now
-    @sale.update_attributes(params[:sale])
+    @sale = Sale.new(params[:sale])
 
     respond_to do |format|
       if @sale.save
         format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
         format.json { render json: @sale, status: :created, location: @sale }
       else
-        @sale.destroy
         format.html { render action: "new" }
         format.json { render json: @sale.errors, status: :unprocessable_entity }
       end

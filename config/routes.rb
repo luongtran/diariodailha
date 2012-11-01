@@ -1,4 +1,13 @@
 Diariodailha::Application.routes.draw do
+
+  resources :sale_items
+
+  resources :photographers do
+    get "authorize" => "photographers#authorize"
+
+    get "deny" => "photographers#deny"
+  end
+
   resources :photo_lists
 
   resources :sales

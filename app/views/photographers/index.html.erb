@@ -1,0 +1,23 @@
+  <h1>Fotógrafos</h1>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Cadastro</th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @photographers.each do |photographer| %>
+    <tr>
+      <td><%= photographer.name %></td>
+      <td><%= photographer.email %></td>
+      <td><%= photographer.phone %></td>
+      <td><%= photographer.confirmed_at %></td>
+      <td><%= link_to 'Autorizar Cadastro', photographer_authorize_path(photographer) %></td>
+      <td><%= link_to 'Negar cadastro', edit_photographer_path(photographer), data: { confirm: 'Tem certeza?' } %></td>
+    </tr>
+  <% end %>
+  </table>
