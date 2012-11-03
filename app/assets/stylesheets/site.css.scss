@@ -18,17 +18,24 @@ $gray: #B0B0B0;
 body {
 	background: url('bg_simples.png') #F0F8FF!important;
 	font-family: sans-serif;
+	.header-img {
+		background: url('header.png') no-repeat;
+		position: relative;
+		float: center;
+		margin-left: 9.5%;
+		height: 230px;
+	}
 }
 
-.header-fundo {
-	background: url('bg_header.png') no-repeat;
-	height: 230px;
-	margin-left: -17%;
-}
+
+
 .page {
-	margin-top: 10px;
-	margin-left: 22%!important;
-	width: 74%;
+	top: 0px;
+	width: 83.5%;
+	position: absolute;
+	text-align: center;
+	margin-left: 9.5%;
+
 
 	#home-more {
 
@@ -412,8 +419,10 @@ body {
 				height: 150px;	
 			}
 
-			.album-row {
-				margin-bottom: 20px;
+			.albums {
+				.album-row {
+					margin-bottom: 20px;
+				}
 			}
 		}
 		
