@@ -1,8 +1,29 @@
- 
+<h1 class='page-title'> Contato </h1>
 
-<h1>New contact</h1>
+<div class='contact'>
 
-<%= render 'form' %>
+	<h1 class='page-title'> Diário da ilha </h1>Propriedade de NOAN SERVIÇOS FOTOGRÁFICOS
 
-<%= link_to 'Back', contacts_path %>
+    <div class='row-fluid'>
+        <div class='span6'>
+            <p>Rua Anita Garibaldi, 79 – Sala 104 – Centro </p>
+            <p>CEP 88.010-500</p>
+            <p>Florianópolis/SC | Brasil</p>
+        </div>
+        <div class='span6'>
+            <p>Tel. (48) 9999-9999</p>
+            <p>contato@diariodailha.com.br</p>
+            <p>anuncie@diariodailha.com.br</p>
+            <p>juridico@diariodailha.com.br</p>
+            <p>administrador@diariodailha.com.br</p>
+        </div>
+    </div>
 
+<div class='row-fluid'>
+        <div class='contact-us'>
+            <%= image_tag("map.png", :alt => "Mapa do site!", :class => 'image-right') %>          
+
+        	<%= render 'form' %>
+        </div>
+    </div>
+</div>

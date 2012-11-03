@@ -281,14 +281,22 @@ body {
 						height: 32px;
 						border-radius: 15px;
 					}
+					input[type="image"] {
+						height: 42px;
+						width: 174px;
+						margin-left: 140px;
+					}
 					.style-select {
 						width: 315px;
 						height: 42px;
 						margin-bottom: 10px;
 						overflow: hidden;
-						border-top-right-radius: 15px;
-						border-bottom-right-radius: 15px;
-						background: url('select-arrow.png') no-repeat right;
+						
+						background: url('select-arrow.png') no-repeat right #ebebeb;
+						-webkit-box-shadow: inset 2px 2px 3px #cecece;
+						box-shadow: inset 2px 2px 3px #cecece;
+					    border-radius: 15px;
+					    border-color: transparent;
 						select {
 						    background: transparent;
 							width: 350px;
@@ -300,6 +308,7 @@ body {
 					}
 					textarea {
 						width: 300px;
+						height: 300px;
 					}					
 				}
 			}
@@ -308,10 +317,19 @@ body {
 		.work-with-us {
 			.send-curriculum {
 				float: left;
-				margin-right: 10px;
-				width: 250px;				
-				input.block {
-					display: block;
+				margin-right: 20px;
+				width: 325px;				
+				input {
+					width: 303px;
+					.block {
+						display: block;
+					}
+				}
+				input[type="image"] {
+					height: 42px;
+					width: 174px;
+					float: right;
+					margin-right: 8px;
 				}
 			}
 		}
@@ -459,36 +477,17 @@ body {
 						-moz-border-radius: 10px;
 						-webkit-border-radius: 10px;
 						border-radius: 10px;
-					}
 
+					}
+					a {
+						font-family: sans-serif;
+					}
 					.actions {
 						margin-top: 10px;
 						.right {
 							text-align: right;
 							padding-right: 13%;
 						}
-					}
-
-
-						
-					::-webkit-input-placeholder {
-						color:#AAA;
-						padding-left: 15px;
-						font-family: serif;
-					}
-					input:-moz-placeholder { 
-						color:#AAA;
-						padding-left: 15px;
-						font-family: serif;
-					}
-					input:-ms-input-placeholder {
-					    color: #AAA;
-						padding-left: 15px;
-					    font-family: serif;
-					}
-
-					.gray {
-						background-color: $formgray
 					}
 				}
 			}
@@ -503,3 +502,105 @@ body {
 		}
 	}
 } 
+
+.form-inputs {
+	input {
+		background: #f1f1f1; /* Old browsers */
+		background: -moz-linear-gradient(top,  #f1f1f1 0%, #ececec 50%, #e5e5e5 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1f1f1), color-stop(50%,#ececec), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #f1f1f1 0%,#ececec 50%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #f1f1f1 0%,#ececec 50%,#e5e5e5 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #f1f1f1 0%,#ececec 50%,#e5e5e5 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #f1f1f1 0%,#ececec 50%,#e5e5e5 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+
+		-webkit-box-shadow: inset 2px 2px 3px #cecece;
+		box-shadow: inset 2px 2px 3px #cecece;
+        height: 30px;
+        border-radius: 10px;
+        border-color: transparent;
+
+	}
+
+
+	::-webkit-input-placeholder {
+		color: #666666;
+		padding-left: 15px;
+		font-family: georgia, sans-serif;
+	    font-weight: lighter;
+		font-size: 14px;
+	}
+	input:-moz-placeholder { 
+		color:#666666;
+		padding-left: 15px;
+		font-size: 14px;
+	    font-weight: 100;
+	}
+	input:-ms-input-placeholder {
+	    color: #666666;
+		padding-left: 15px;
+		font-size: 14px;
+	    font-family: georgia, sans-serif;
+	    font-weight: lighter;
+
+	}
+}
+
+
+
+.curriculum {
+	div.custom_file_upload {
+		width: 317px;
+		height: 42px;
+		cursor: pointer!important;
+
+	}
+
+	input.file {
+		width: 317px;
+		height: 42px;
+		cursor: pointer;
+	}
+
+	div.file_upload {
+		background: url('curriculo.png') no-repeat right;
+		font-weight: bold;
+		color: #FFF;
+		text-align: center;
+		padding-top: 8px;
+		cursor: pointer!important;
+
+	}
+	div.file_upload:before {
+		position: absolute;
+		left: 0; right: 0;
+		text-align: center;
+		cursor: pointer;
+	}
+
+	div.file_upload input {
+		position: relative;
+		height: 42px;
+		width: 317px;
+		display: inline;
+		cursor: pointer;
+		opacity: 0;
+	}
+}
+
+.leform {
+	background: #f1f1f1; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f1f1f1 0%, #ececec 50%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1f1f1), color-stop(50%,#ececec), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f1f1f1 0%,#ececec 50%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f1f1f1 0%,#ececec 50%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f1f1f1 0%,#ececec 50%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f1f1f1 0%,#ececec 50%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+
+	-webkit-box-shadow: inset 2px 2px 3px #cecece;
+	box-shadow: inset 2px 2px 3px #cecece;
+    height: 30px;
+    border-radius: 10px;
+    border-color: transparent;
+}
