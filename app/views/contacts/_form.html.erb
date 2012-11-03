@@ -2,14 +2,40 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :phone %>
-    <%= f.input :message %>
-    <%= f.input :contact_type_id, :as => :select, :include_blank => false, :required => true, :collection => ContactType.all %>
+    <%= f.input :name, :label => false, :class => 'block', :placeholder => 'Nome: ' %>
+    <%= f.input :email, :label => false, :class => 'block', :placeholder => 'Email: ' %>
+    <%= f.input :phone, :label => false, :class => 'block', :placeholder => 'Telefone: ' %>
+    <div class="style-select">
+    <%= f.input :contact_type_id, :label => false, :as => :select, :include_blank => false, :required => true, :collection => ContactType.all, :input_html => { :class => "leform" } %> <%= image_tag('select-arrow.png', :alt => '', :class => 'arrow') %> <%= image_tag('select-arrow.png', :alt => '', :class => 'arrow') %>
+
+
+    </div>
+    <%= f.input :message, :label => false, :placeholder => 'Mensagem: ', :input_html => { :class => 'leform', :rows => 5, :cols => 10 } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="actions">        
+      <%= image_submit_tag("enviar_button_large.png") %></p>
   </div>
 <% end %>
+
+
+
+<!-- <form class='form form-horizontal' action='#' method='POST'>
+    <input type='text' placeholder='Nome:' />
+    <input type='text' placeholder='Email:' />
+    <input type='text' placeholder='Telefone:' />
+    <div class="style-select">            
+        <select>
+            <option value='0' selected>Selecione o assunto:</option>
+            <option value='1'>Sugestões</option>
+            <option value='2'>Dúvidas</option>
+            <option value='3'>Reclamações</option>
+            <option value='4'>Elogio</option>
+            <option value='4'>Denúncia</option>
+            <option value='5'>Pedido de remoção de conteúdo</option>
+            <option value='6'>Quero anunciar no DIÁRIO DA ILHA</option>
+            <option value='7'>Quero ser fotografado surfando</option>
+        </select>
+    </div>
+    <textarea name="mensagem" id="mensagem" cols="60" rows="10" placeholder='mensagem:'></textarea>
+</form> -->

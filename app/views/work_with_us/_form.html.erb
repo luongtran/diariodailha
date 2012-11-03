@@ -1,14 +1,31 @@
-<%= simple_form_for(@work_with_u) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :phone %>
-    <%= f.file_field :curriculum %>
+<!-- <form action="#" method="POST">
+  <input class='block' type='text' placeholder='Nome:' />     
+  <input class='block' type='text' placeholder='Email:' />
+  <input class='block' type='text' placeholder='Telefone:' />
+  <div class="inline">          
+      <input type="button" class='btn btn-warning' value='Anexar Curriculo' />
+      <input type="submit" class='btn btn-primary' value="Enviar">
   </div>
+</form> -->
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+<div class="send-curriculum">
+    <%= simple_form_for(@work_with_u) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+            <%= f.input :name, :label => false, :class => "block", :placeholder => "Nome: " %>
+            <%= f.input :email, :label => false, :class => "block", :placeholder => "Email: " %>
+            <%= f.input :phone, :label => false, :class => "block", :placeholder => "Telefone: " %>
+            <div class="curriculum">                
+                <div class="custom_file_upload">
+                    <div class="file_upload">
+                        <%= f.file_field :curriculum, :id => "file_upload", :name => "file_upload" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">        
+            <%= image_submit_tag("enviar_button_large.png") %></p>
+        </div>
+    <% end %>
+</div>
