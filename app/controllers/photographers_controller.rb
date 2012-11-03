@@ -3,7 +3,7 @@ class PhotographersController < ApplicationController
   def authorize
     authorize! :manage, :all
 
-    @photographer = Photographer.find(params[:photographer_id])
+    @photographer = Photographer.find(params[:id])
 
     @photographer.confirmed_at = Time.now
 
@@ -19,7 +19,7 @@ class PhotographersController < ApplicationController
   def deny
     authorize! :manage, :all
 
-    @photographer = Photographer.find(params[:photographer_id])
+    @photographer = Photographer.find(params[:id])
 
     @photographer.destroy
 
@@ -31,5 +31,9 @@ class PhotographersController < ApplicationController
   def index
     authorize! :manage, :all
     @photographers = Photographer.all
+  end
+
+  def show_albums
+    @albums = current_photographer.albums
   end
 end

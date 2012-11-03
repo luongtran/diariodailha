@@ -1,48 +1,28 @@
-<!-- <h1>Fotos</h1>
-<div id="photos">
-<script id="template-upload" type="text/x-tmpl">
-<div class="upload">
-  {%=o.name%}
-  <div class="progress"><div class="bar" style="width: 0%;"></div></div>
-</div>
-</script>
-
-<% @photos.each do |p| %>
-  <%= image_tag p.image_url(:thumb).to_s %>
-<% end %>
-</div>
-
-
-
-<%= form_for Photo.new do |f| %>
-  <%= f.hidden_field :album_id, :value => @album.id %>
-  <%= f.label :image, "Upload Imageeeeees" %>
-  <%= f.file_field :image, multiple: true, name: "photo[image]" %>
-<% end %>
- -->
 <div class='albums-index'>
 
-    <div class="row">       
-        <div class='span6'>
-            <p class='img-header'><%= image_tag("area_fotografo.png", :alt => "area do fotografo") %></p>
-        </div>
-        <div class="span6">            
-            <div class="photographer-info">
-                <h1>Olá, <%= current_photographer.name %></h1>
-                <p class="edit">
-                    <%= link_to "editar informações", edit_photographer_registration_path(current_photographer) %>
-                </p>
+
+    <% if photographer_signed_in? %>
+        <div class="row">       
+            <div class='span6'>
+                <p class='img-header'><%= image_tag("area_fotografo.png", :alt => "area do fotografo") %></p>
+            </div>
+            <div class="span6">            
+                <div class="photographer-info">
+                    <h1>Olá, <%= current_photographer.name %></h1>
+                    <p class="edit">
+                        <%= link_to "editar informações", edit_photographer_registration_path(current_photographer) %>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <h1 class="page-subtitle">Upload</h1>
-    <%= form_for Photo.new do |f| %>
-        <%= f.hidden_field :album_id, :value => @album.id %>
-        <%= f.label :image, "Cadastre quantas fotos quiser!" %> 
-        <%= f.file_field :image, multiple: true, name: "photo[image]" %>
+        <h1 class="page-subtitle">Upload</h1>
+        <%= form_for Photo.new do |f| %>
+            <%= f.hidden_field :album_id, :value => @album.id %>
+            <%= f.label :image, "Cadastre quantas fotos quiser!" %> 
+            <%= f.file_field :image, multiple: true, name: "photo[image]" %>
+        <% end %>
     <% end %>
-
 
 
 

@@ -17,7 +17,7 @@
       <td><%= photographer.phone %></td>
       <td><%= photographer.confirmed_at %></td>
       <td><%= link_to 'Autorizar Cadastro', photographer_authorize_path(photographer) %></td>
-      <td><%= link_to 'Negar cadastro', edit_photographer_path(photographer), data: { confirm: 'Tem certeza?' } %></td>
+      <td><%= link_to 'Negar cadastro', photographer_deny_path(photographer), data: { confirm: 'Tem certeza?' } %></td>
     </tr>
   <% end %>
   </table>

@@ -2,11 +2,12 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
 
-  before_filter :authenticate_photographer!
+  before_filter :authenticate_photographer!, :except => [:show_photos]
 
   def index
     @albums = Album.all
 
+    authorize! :manage, :all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @albums }
