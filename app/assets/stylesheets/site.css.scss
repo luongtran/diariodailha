@@ -401,6 +401,11 @@ body {
 			}
 
 			.description {
+				a {
+					height: 48px;
+					width: 130px;
+					position: absolute;
+				}
 				text-align: center;
 				margin-top: 5px;
 				margin-bottom: 5px;
@@ -418,11 +423,64 @@ body {
 				width: 100%;
 				height: 150px;	
 			}
+			.crop-small img{
+				width: 100%;
+				height: 130px;
+				border-radius: 10px;
+			}
 
 			.albums {
 				.album-row {
 					margin-bottom: 20px;
 				}
+				.mouse-over {
+					height: 130px;
+					width: 130px;
+					position: absolute;
+				}
+				.mouse-over:hover {
+					background: url('mouseover.png') no-repeat center;
+					background-color: rgba(55, 55, 55, 0.9);
+					border-radius: 15px;
+				};
+				.link-edit {
+					height: 140px;
+					width: 65px;
+					position: absolute;
+				}
+				.link-delete {
+					float: right;
+					height: 140px;
+					position: absolute;
+					width: 65px;
+					margin-left:65px;
+				}
+
+				.mouse-over-big {
+					width: 208px;
+					height: 150px;
+					position: absolute;
+					.link-edit {
+						height: 150px;
+						width: 104px;
+						position: absolute;
+					}
+					.link-delete {
+						float: right;
+						height: 150px;
+						position: absolute;
+						width: 104px;
+						margin-left: 104px;
+					}
+				}
+				.mouse-over-big:hover {
+					background: url('mouseover.png') no-repeat center;
+					background-color: rgba(55, 55, 55, 0.9);
+					border-radius: 10px;
+				};
+
+
+
 			}
 		}
 		
@@ -513,6 +571,7 @@ body {
 } 
 
 .form-inputs {
+	vertical-align: middle;
 	input {
 		background: #f1f1f1; /* Old browsers */
 		background: -moz-linear-gradient(top,  #f1f1f1 0%, #ececec 50%, #e5e5e5 100%); /* FF3.6+ */
@@ -528,7 +587,15 @@ body {
         height: 30px;
         border-radius: 10px;
         border-color: transparent;
+	}
 
+	input.xbutton[type='image'] {
+		height: auto;
+		margin-top: -2px;
+	}
+
+	input.large {
+		width: 500px;
 	}
 
 
@@ -597,6 +664,83 @@ body {
 	}
 }
 
+.photo-upload {
+	div.custom_file_upload {
+		width: 220px;
+		height: 42px;
+	}
+
+	input.file {
+		width: 70px;
+		height: 42px;
+	}
+
+	div.file_upload {
+		background: url('cadastre_photo_complete.png') no-repeat right;
+		font-weight: bold;
+		color: #FFF;
+		text-align: center;
+		padding-top: 8px;
+
+	}
+	div.file_upload:before {
+		position: absolute;
+		left: 0; right: 0;
+		text-align: center;
+	}
+
+	div.file_upload input {
+		position: relative;
+		height: 31px;
+		width: 70px;
+		display: inline;
+		cursor: pointer!important;
+		opacity: 0;
+		left: -70px;
+		z-index: 9999;
+	}
+}
+
+.photo-inside {
+	div.custom_file_upload {
+		width: 211px;
+		height: 134px;
+		cursor: pointer!important;
+
+	}
+
+	input.file {
+		width: 211px;
+		height: 134px;
+		cursor: pointer;
+	}
+
+	div.file_upload {
+		background: url('nova_foto.png') no-repeat right;
+		font-weight: bold;
+		color: #FFF;
+		text-align: center;
+		padding-top: 8px;
+		cursor: pointer!important;
+
+	}
+	div.file_upload:before {
+		position: absolute;
+		left: 0; right: 0;
+		text-align: center;
+		cursor: pointer;
+	}
+
+	div.file_upload input {
+		position: relative;
+		height: 134px;
+		width: 211px;
+		display: inline;
+		cursor: pointer;
+		opacity: 0;
+	}
+}
+
 .leform {
 	background: #f1f1f1; /* Old browsers */
 	background: -moz-linear-gradient(top,  #f1f1f1 0%, #ececec 50%, #e5e5e5 100%); /* FF3.6+ */
@@ -612,4 +756,24 @@ body {
     height: 30px;
     border-radius: 10px;
     border-color: transparent;
+}
+
+
+
+.search {
+	.img-header {
+		float: right;
+	}
+	.xbutton {
+		margin-top: 10px;
+		float: right;
+	}
+	.crop-small img{
+		width: 100%;
+		height: 100px;
+		border-radius: 10px;
+	}
+	.album-row {
+		margin-bottom: 20px;
+	}
 }

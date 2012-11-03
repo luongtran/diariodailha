@@ -27,62 +27,42 @@
             <div class="span2">
                <%= link_to image_tag('new_album.png'), new_album_path %>
            </div>
+           <% @break_row = 6 %>
             <% @albums.each_with_index do |album, index| %>     
-                <% if (index == 5 || (index > 5 && index % 5 == 0)) %>
+                <% if index + 1 == @break_row %>
+                    <% @break_row = @break_row + 6 %>
+                    <% @opened = 1 %>
                     </div>
                     <div class="row-fluid album-row">
-                    <% @opened = 1 %>
                 <% end %>         
-                    <div class="span2">
-                        <div class="thumbnail">
-                            <!-- @TODO Colocar uma imagem do algum de "capa" -->
-                             <%= link_to image_tag('logo_site.png'), album_show_photos_path(album) %>
-                            <div class="description">
-                                <div class="date"><%= album.date.strftime('%d/%m/%Y') %></div>
-                                <div class="name"><%= album.name %></div>
-                                <div class="beach"><%= album.beach %></div>
-                            </div>
+                <div class="span2">
+                    <div class="thumbnail">
+                        <!-- @TODO Colocar uma imagem do algum de "capa" -->
+                        <div class='mouse-over'>
+                            <span><%= link_to '', edit_album_path(album), :class => 'link-edit' %></span>
+                            <span><%= link_to '', album, :method => 'delete', :class => 'link-delete'%></span>
+                        </div>
+                        <% if album.photos != [] %>
+                        <div class="crop-small">                            
+                            <%= image_tag album.photos[0].image_url(:thumb).to_s, :class => 'img-rounded'%>
+                        </div>
+                        <% else %> 
+                            <%= link_to image_tag('logo_site.png'), album_show_photos_path(album) %>
+                        <% end %>
+                        <div class="description">
+                            <%= link_to '', album_show_photos_path(album) %>
+                            <div class="date"><%= album.date.strftime('%d/%m/%Y') %></div>
+                            <div class="name"><%= index %></div>
+                            <div class="beach"><%= album.beach %></div>
                         </div>
                     </div>
-                <% if (index > 10 && index % 10 == 0) %>
-                    </div>
-                    <% @opened = 0 %>
-                <% end %>        
+                </div>     
             <% end %>
             <% if @opened == 1 %>                
                 </div>
             <% end %>
         </div>
     </div>
-<!-- 
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Beach</th>
-        <th>Peak</th>
-        <th>Date</th>
-        <th>Photographer</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-
-    <% @albums.each do |album| %>
-      <tr>
-        <td><%= album.name %></td>
-        <td><%= album.beach %></td>
-        <td><%= album.peak %></td>
-        <td><%= album.date %></td>
-        <td><%= album.photographer.name %></td>
-        <td><%= link_to 'Show', album %></td>
-        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-    </table>
-
-    <br />
-    <%= link_to 'New Album', new_album_path %> -->
 </div>
 
 <script type="text/javascript">
@@ -91,7 +71,7 @@
         $('#container-right').hide();
         $('#content').removeClass('span9');
         // $('#content').addClass('full');
-        $('#body').addClass('full');
-    })
+        $('#body').addClass('full');        
+    });
 
 </script>

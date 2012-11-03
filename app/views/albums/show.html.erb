@@ -1,33 +1,36 @@
 <p id="notice"><%= notice %></p>
 
+<h1 class="page-title">Álbum  <%= @album.name %></h1>
 <p>
-  <b>Name:</b>
+  <b>Nome:</b>
   <%= @album.name %>
 </p>
 
 <p>
-  <b>Beach:</b>
+  <b>Praia:</b>
   <%= @album.beach %>
 </p>
 
 <p>
-  <b>Peak:</b>
+  <b>Pico:</b>
   <%= @album.peak %>
 </p>
 
 <p>
-  <b>Date:</b>
+  <b>Data:</b>
   <%= @album.date %>
 </p>
 
 <p>
-  <b>Photographer:</b>
+  <b>Fotógrafo:</b>
   <%= @album.photographer.name %>
 </p>
 <p>
-  <b>Photos</b>
+  <b>Fotos</b>
   <%= link_to 'Mostrar Fotos', album_show_photos_path(@album) %>
 </p>
 
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+<div class="form-actions">
+  <%= link_to 'Editar álbum', edit_album_path(@album), :class => 'btn' %>
+  <%= link_to 'Voltar', albums_path, :class => 'btn' %>
+</div>
