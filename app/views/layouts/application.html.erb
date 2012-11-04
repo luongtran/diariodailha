@@ -7,7 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class='header-fundo'>
+    <div class="wrapper">
+        <div class='header-fundo'>
         <div class='header-img'></div>
         <div class='page'>
             <div class='container-fluid'>
@@ -76,7 +77,7 @@
             </div>
 
 
-            <div class='container-fluid'>
+            <div class='container-fluid' id="size3">
                 <div class='row-fluid'>
                     <div id='content' class='span9'>
                         <div class='container-fluid'>
@@ -101,9 +102,36 @@
 
                             <div class='container-fluid'>
                                 <div class='home-pics' id='home-pics'>
+                                    <div class="row-fluid album-row">
+                                        <% @break_page = 0 %>
+                                        <% @opened = false %>
+                                        <% Album.limit(50).order('date desc').each do |album| %>
+                                            <% album.photos.each_with_index do |photo, index| %>
+                                                <% if @break_page == 4 %>
+                                                    <%= image_tag photo.image.to_s, :class => 'img-rounded big'%>
+                                                    <div class="description">
+                                                        <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
+                                                        <div class="beach"><%= photo.album.beach %></div>
+                                                    </div>
 
+                                                    <% break %>
+                                                <% else %>
+                                                    <% @break_page = @break_page + 1 %>                    
+                                                <% end %>
+                                                <div class="span3 home-img">
+                                                    <div class="crop-small">
+                                                        <%= image_tag photo.image_url(:thumb).to_s, :class => 'img-rounded'%>
+                                                    </div>
+                                                    <div class="description hide">
+                                                        <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
+                                                        <div class="beach"><%= photo.album.beach %></div>
+                                                    </div>
+                                                </div>
+                                            <% end %>
+                                        <% end %>
+                                    </div>
                                 </div>
-                            </div>                        
+                            </div>
                         </div>
                     </div>
                     <div id='container-right' class='span3 container-right'>
@@ -146,10 +174,16 @@
                                     <% end %>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
-            </div>                     
-        </div>
+            </div>
+
+        </div>        
+    </div>
+
+    <div class="footer">
+        <p><%= link_to "TERMOS DE USO", site_terms_path %> | <b>Diario da Ilha</b> Rua xxxxx xxx xxx</p>
     </div>
 
     <div id="modal_user_session_new"class="modal hide fade">
@@ -174,5 +208,14 @@
             <%= link_to "Cadastre-se agora mesmo", new_user_registration_path %>
         </div>
     </div>
+
 </body>
+
+<script type="text/javascript">
+    $(window).load(function() {
+        var page = $(".page").height();
+        var container = $("#size3").height();
+        $(".footer").css("margin-top", ((page > container) ? page : container) -220 +   "px");
+    });
+</script>
 </html>

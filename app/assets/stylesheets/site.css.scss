@@ -27,7 +27,19 @@ body {
 	}
 }
 
+.footer {
+	background: url("footer.png");
+	height: 74px; /* .push must be the same height as .footer */
+	p {
+		text-align: center;
+		padding-top: 45px;
+		vertical-align: middle;
+		font-size: smaller;
+	}
+}
 
+.home-pics {
+}
 
 .page {
 	top: 0px;
@@ -35,8 +47,7 @@ body {
 	position: absolute;
 	text-align: center;
 	margin-left: 9.5%;
-
-
+	margin-bottom: -74px;
 	#home-more {
 
 		.home-adver {
@@ -53,12 +64,34 @@ body {
 		}
 
 		.home-pics {
-			min-height: 400px;
+			min-height: 600px;
 			background-color: white;
 			margin-top: 18px;
 			-webkit-border-radius: $borderradius;
 			-moz-border-radius: $borderradius;
 			border-radius: $borderradius;
+			padding: 10px 20px;
+			.home-img {
+				margin-top: 10px;
+			}
+			.crop-small img{
+				width: 100%;
+				height: 100px;
+				border-radius: 10px;
+			}
+
+			.description {
+				.date {
+					font-size: smaller;
+				}
+			}
+			.big {
+				width: 100%;
+				height: 500px;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+
 		}
 	}
 
@@ -777,3 +810,29 @@ body {
 		margin-bottom: 20px;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
