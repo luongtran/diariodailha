@@ -80,4 +80,8 @@ class SalesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def add_photo
+    puts params[:photo_id]
+  end
 end

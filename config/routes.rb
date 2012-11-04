@@ -14,6 +14,8 @@ Diariodailha::Application.routes.draw do
 
   resources :sales
 
+  get "/sales/:photo_id/add_photo" => "sales#add_photo", :as => "sale_add_photo"
+
   resources :contact_types
 
   resources :contacts
