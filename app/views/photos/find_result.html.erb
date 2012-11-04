@@ -1,16 +1,69 @@
-<div class="row-fluid album-row">
-  <% @photos.each do |p| %>
-    <div class="span4">
-      <div class="thumbnail">
+<div class="search-result">
 
-        <div class="crop">
-          <%= image_tag p.image_url(:thumb).to_s, :class => 'img-rounded'%>
+    <div class="row-fluid">   
+        <div class="span6">
+            <h1 class="page-title">Busca fotos</h1>
+        </div>   
+        <div class="span6">            
+            <p class='img-header'><%= image_tag("cart_amount_button.png", :alt => "area do fotografo") %></p>
         </div>
-        <div class="description">
-          <%= link_to 'Ver Álbum', album_path(p.album), :class => "btn btn-small" %>
-          <%= link_to 'Adicionar ao Carrinho', sale_add_photo_path(p.id), :class => "btn btn-small", remote: true %>
+    </div> 
+
+
+    <%= form_tag find_result_path do %>
+        <div class="form-inputs">
+            <%= text_field_tag 'find_by_date', nil,:class => 'input-medium gray', :placeholder => "Busca por: Data" %>
+            <%= text_field_tag 'find_by_keyword', nil,:class => 'input-large gray large', :placeholder => "Busca por: Palavra-chave" %>
+            <%= image_submit_tag('buscar_button.png', :class => 'xbutton') %>
         </div>
-      </div>
+    <% end %>
+
+    <div class="results">
+        <span class="emph">Sua Busca</span> retornou <%= @photos.size %> resultados!
     </div>
-  <% end %>
-</div> 
+    <hr />
+
+
+    <% @break_row = 5 %>
+    <% @opened = 0 %>
+    <div class="row-fluid album-row">
+        
+        <% @photos.each_with_index do |photo, index| %>      
+            <% if index + 1 == @break_row %>
+                <% @break_row = @break_row + 4 %>
+                <% @opened = 1 %>
+                </div>
+                <div class="row-fluid album-row">
+            <% end %>                   
+            <div class="span3">
+                <div class="thumbnail">
+                    <div class="crop">
+                        <%= image_tag photo.image_url(:thumb).to_s, :class => 'img-rounded'%>
+                    </div>
+                    <div class="description-buttons">
+                        <a href="<%= sale_add_photo_path(photo.id) %>" class="btn btn-small btn-info buy" data-remote="true"> 
+                            <i class="icon-shopping-cart"></i> 
+                        </a>
+                        <a href="<%=  album_path(photo.album) %>" class="btn btn-small see">
+                            <i class="icon-eye-open"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <% if @opened == 1 %>                
+        </div>
+    <% end %>
+
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#container-right').hide();
+    $('#content').removeClass('span9');
+    // $('#content').addClass('full');
+    $('#body').addClass('full');        
+});
+</script>    
