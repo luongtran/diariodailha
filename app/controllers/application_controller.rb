@@ -6,12 +6,16 @@ class ApplicationController < ActionController::Base
   def create_basket
     if session[:basket] == nil
       session[:basket] = Sale.new
-      if user_signed_in?
-        basket.user_id = current_user.id
-      end
     end
   end
-  
+
+  def basket
+    session[:basket]
+  end
+
+  def basket=(basket)
+    session[:basket] = basket
+  end  
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = "Access denied."
     redirect_to root_url

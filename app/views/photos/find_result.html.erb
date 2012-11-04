@@ -8,7 +8,7 @@
         </div>
         <div class="description">
           <%= link_to 'Ver Álbum', album_path(p.album), :class => "btn btn-small" %>
-          <%= link_to 'Adicionar ao Carrinho', sale_add_photo_path(p.id), :class => "btn btn-small" %>
+          <%= link_to 'Adicionar ao Carrinho', sale_add_photo_path(p.id), :class => "btn btn-small", remote: true %>
         </div>
       </div>
     </div>

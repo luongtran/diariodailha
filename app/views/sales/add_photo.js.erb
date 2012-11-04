@@ -1,0 +1,7 @@
+<% if user_signed_in? && basket.user_id != nil %>
+  console.log("Logged");
+<% else %>
+  $("#alert_sucess_login").remove();
+  $("#form_div").show();
+  $("#modal_user_session_new").modal();
+<% end %>
