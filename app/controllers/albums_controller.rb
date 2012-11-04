@@ -39,6 +39,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1/edit
   def edit
     @album = Album.find(params[:id])
+    @album.date = @album.date.strftime('%d/%m/%Y')
   end
 
   # POST /albums
@@ -66,7 +67,7 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.update_attributes(params[:album])
-        format.html { redirect_to @album, notice: 'Album was successfully updated.' }
+        format.html { redirect_to @album, notice: 'Album editado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

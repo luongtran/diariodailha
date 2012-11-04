@@ -1,5 +1,12 @@
 <% if @photo.new_record? %>
   alert("Failed to upload photo: <%= j @photo.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-  $("#photos").append("<%= j render(@photo) %>");
+  var size = $('.thumbnail').size() + 1;
+  if (size % 4 == 0) {
+  	$("#album").append("<div class='row-fluid album-row'><%= j render(@photo) %></div>");
+  }
+  else {
+  	$("#album .row-fluid:last").append("<%= j render(@photo) %>");	
+  }
+  $(document).reload();
 <% end %>

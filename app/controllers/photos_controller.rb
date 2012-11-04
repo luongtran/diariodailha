@@ -65,11 +65,12 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
+    session[:return_to] ||= request.referer
     @photo = Photo.find(params[:id])
     @photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to photos_url }
+      format.html { redirect_to session[:return_to] }
       format.json { head :no_content }
     end
   end

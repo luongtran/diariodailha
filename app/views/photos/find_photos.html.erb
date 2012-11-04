@@ -1,17 +1,60 @@
-<%= form_tag find_result_path do %>
-  <div class="form-inputs">
-    <%= text_field_tag 'find_by_date', nil,:class => 'input-medium gray', :placeholder => "Busca por: Data" %>
-    <%= text_field_tag 'find_by_keyword', nil,:class => 'input-large gray', :placeholder => "Busca por: Palavra-chave" %>
-    <%= submit_tag 'Enviar', :class => 'btn btn-primary' %>
-  </div>
+<div class="search">
+    <div class="row-fluid">   
+        <div class="span6">
+            <h1 class="page-title">Busca fotos</h1>
+        </div>   
+        <div class="span6">            
+            <p class='img-header'><%= image_tag("cart_amount_button.png", :alt => "area do fotografo") %></p>
+        </div>
+    </div> 
 
-  <div>
-    <h3>Útimos álbuns adicionados</h3>
-    <% Album.limit(10).order('date desc').each do |a| %>
-      <%= link_to a.name, album_show_photos_path(a) %>
-      <br>
+    <%= form_tag find_result_path do %>
+      <div class="form-inputs">
+        <%= text_field_tag 'find_by_date', nil,:class => 'input-medium gray', :placeholder => "Busca por: Data" %>
+        <%= text_field_tag 'find_by_keyword', nil,:class => 'input-large gray large', :placeholder => "Busca por: Palavra-chave" %>
+      <%= image_submit_tag('buscar_button.png', :class => 'xbutton') %>
+      </div>
+
+
+      <div>
+        <h3>Útimos álbuns adicionados</h3>
+        <% @break_page = 0 %>
+        <% @opened = false %>
+        <div class="row-fluid album-row">
+            <% Album.limit(10).order('date desc').each do |album| %>
+                <% album.photos.each_with_index do |photo, index| %>
+                    <% if @break_page == 6 %>
+                        </div>
+                        <div class="row-fluid album-row">
+                        <% @break_page = 1 %>
+                        <% @opened = true %>
+                    <% else %>
+                        <% @break_page = @break_page + 1 %>                    
+                    <% end %>
+                    <div class="span2">
+                            <div class="crop-small">
+                                <%= image_tag photo.image_url(:thumb).to_s, :class => 'img-rounded'%>
+                            </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+        <% if @opened  %>
+            </div>
+        <% end %>
+      </div>
+
+      </di>
     <% end %>
-  </div>
 
-  </di>
-<% end %>
+
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#container-right').hide();
+        $('#content').removeClass('span9');
+        // $('#content').addClass('full');
+        $('#body').addClass('full');        
+    });
+    </script>    
+</div>

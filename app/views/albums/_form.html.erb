@@ -2,13 +2,20 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name, :required => true %>
-    <%= f.input :beach, :required => true %>
-    <%= f.input :peak, :required => true %>
-    <%= f.input :date, :required => true %>
+    <%= f.input :name, :required => true, :label => false, :class => 'block leform', :placeholder => 'Nome: ' %>
+    <%= f.input :beach, :required => true, :label => false, :class => 'block leform', :placeholder => 'Praia: ' %>
+    <%= f.input :peak, :required => true, :label => false, :class => 'block leform', :placeholder => 'Pico: ' %>
+    <%= f.input :date, :label => false, :as => :datepicker, :placeholder => "Data:" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Salvar', :class => 'btn btn-primary' %> 
+    <%= link_to 'Voltar aos álbuns', albums_path, :class => 'btn' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $(".hasDatePicker").datepicker();
+  });
+</script>
