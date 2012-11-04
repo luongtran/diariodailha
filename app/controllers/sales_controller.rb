@@ -1,6 +1,8 @@
 class SalesController < ApplicationController
   # GET /sales
   # GET /sales.json
+
+  before_filter :authenticate_user!, :except => [:add_photo]
   def index
     @sales = Sale.all
 
@@ -82,24 +84,41 @@ class SalesController < ApplicationController
   end
 
   def add_photo
-    @photo = Photo.find(params[:photo_id])
 
-    b = basket
+    if (user_signed_in?)
+      if (session[:basket] == nil)
+        session[:basket] = []
+      end
 
-    sale_item = SaleItem.new
-
-    sale_item.photo = @photo
-    sale_item.sale = b
-    sale_item.date = Time.now
-
-    b.sale_items << sale_item
+      add_to_basket(params[:photo_id])
+    end 
 
     respond_to do |format|
-      if user_signed_in?
-        b.user_id = current_user.id
-        basket=(b)
-      end
       format.js
     end
+  end
+
+  def finish_sale
+
+    if (session[:basket] != nil)
+      @sale = Sale.new
+      @sale.date = Time.now
+      @sale.user = current_user
+      
+      session[:basket].each do |b|
+        sale_item = SaleItem.new
+        sale_item.sale = @sale
+        sale_item.photo = Photo.find(b)
+        sale_item.date = Time.now
+
+        sale_item.save
+      end
+
+      session[:basket] = nil
+      @sale.save
+    else
+      redirect_to find_photos_path, :notice => "Venda Finalizada"
+    end
+
   end
 end

@@ -1,0 +1,5 @@
+<p><%= @sale.date %></p>
+<p><%= @sale.user.name %></p>
+<% @sale.sale_items.each do |i| %>
+  <%= i.photo_id %>
+<% end %>

@@ -1,5 +1,6 @@
-<% if user_signed_in? && basket.user_id != nil %>
-  console.log("Logged");
+<% if user_signed_in? %>
+  $("#basket_items").empty();
+  $("#basket_items").append('<%= basket %><%= image_tag("cart_amount_button.png", :alt => "Carrinho de compras") %>');
 <% else %>
   $("#alert_sucess_login").remove();
   $("#form_div").show();

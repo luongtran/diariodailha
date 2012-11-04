@@ -6,7 +6,8 @@
         <h1 class="page-title">Busca fotos</h1>
       </div>   
       <div class="span6">            
-        <p class='img-header'><%= basket.sale_items.count %> <%= image_tag("cart_amount_button.png", :alt => "Carrinho de compras") %></p>
+        <p id="basket_items" class='img-header'><%= basket unless basket == nil %><%= image_tag("cart_amount_button.png", :alt => "Carrinho de compras") %></p>
+        <%= link_to "Finalizar compra", sale_finish_sale_path, :class => "btn btn-small" %>
       </div>
     </div> 
 
@@ -27,7 +28,7 @@
           </div>
           <div class="description">
             <%= link_to 'Ver Álbum', album_path(p.album), :class => "btn btn-small" %>
-            <%= link_to 'Adicionar ao Carrinho', sale_add_photo_path(p.id), :class => "btn btn-small", remote: true %>
+              <%= link_to 'Adicionar ao Carrinho', sale_add_photo_path(p.id), :class => "btn btn-small", remote: true %>
           </div>
         </div>
       </div>
