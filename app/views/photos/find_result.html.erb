@@ -1,6 +1,16 @@
-<% if @photos != [] %>
+<div class="row-fluid album-row">
   <% @photos.each do |p| %>
-    <%= image_tag p.image_url(:thumb) %>
-    <%= link_to 'Ver Álbum', album_path(p.album) %>
+    <div class="span4">
+      <div class="thumbnail">
+
+        <div class="crop">
+          <%= image_tag p.image_url(:thumb).to_s, :class => 'img-rounded'%>
+        </div>
+        <div class="description">
+          <%= link_to 'Ver Álbum', album_path(p.album), :class => "btn btn-small" %>
+          <%= link_to 'Adicionar ao Carrinho', sale_add_photo_path(p.id), :class => "btn btn-small", remote: true %>
+        </div>
+      </div>
+    </div>
   <% end %>
-<% end %>
+</div> 

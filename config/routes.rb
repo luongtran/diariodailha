@@ -1,16 +1,20 @@
 Diariodailha::Application.routes.draw do
 
-  resources :sale_items
+  #resources :sale_items
 
-  resources :photographers do
-    get "authorize" => "photographers#authorize"
+  get "/photographers/:id/authorize" => "photographers#authorize", :as => "photographer_authorize"
 
-    get "deny" => "photographers#deny"
-  end
+  get "/photographers/:id/deny" => "photographers#deny", :as => "photographer_deny"
+
+  get "/photographers/show_albums" => "photographers#show_albums", :as => "photographer_show_albums"
+
+  match "photographers" => "photographers#index"
 
   resources :photo_lists
 
   resources :sales
+
+  get "/sales/:photo_id/add_photo" => "sales#add_photo", :as => "sale_add_photo"
 
   resources :contact_types
 

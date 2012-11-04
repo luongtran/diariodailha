@@ -80,4 +80,17 @@ class SalesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def add_photo
+    @photo = Photo.find(params[:photo_id])
+    respond_to do |format|
+      if user_signed_in?
+        b = basket
+        b.user_id = current_user.id
+        basket=(b)
+      end
+
+      format.js
+    end
+  end
 end
