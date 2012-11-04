@@ -17,3 +17,4 @@
 //= require jquery.ui.datepicker
 //= require_tree .
 //= require ckeditor/init
+

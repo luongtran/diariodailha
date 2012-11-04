@@ -8,7 +8,7 @@ development:
   database: diariodailha_development
   pool: 5
   timeout: 5000
-  username: raphael
+  username: derik
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
