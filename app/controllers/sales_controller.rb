@@ -83,13 +83,22 @@ class SalesController < ApplicationController
 
   def add_photo
     @photo = Photo.find(params[:photo_id])
+
+    b = basket
+
+    sale_item = SaleItem.new
+
+    sale_item.photo = @photo
+    sale_item.sale = b
+    sale_item.date = Time.now
+
+    b.sale_items << sale_item
+
     respond_to do |format|
       if user_signed_in?
-        b = basket
         b.user_id = current_user.id
         basket=(b)
       end
-
       format.js
     end
   end
