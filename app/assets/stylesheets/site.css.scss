@@ -449,9 +449,6 @@ body {
 					font-size: 12px;
 				}
 			}
-			.crop {
-
-			}
 			.crop img{
 				width: 100%;
 				height: 150px;	
@@ -811,16 +808,56 @@ body {
 	}
 }
 
+.search-result {
+	.img-header {
+		float: right;
+	}
+	.xbutton {
+		margin-top: 10px;
+		float: right;
+	}
+	.album-row {
+		margin-bottom: 25px;
+	}
+	.description-buttons {
+		margin-top: 5px;
+		margin-bottom: 5px;
+		text-align: center;
+		.see {
+			margin-right: 5px;
+			margin-left: -5px;
+		}
+		.buy {
+			margin-left: 5px;
+			margin-right: -5px;
+		}
+	}
 
+	.crop img{
+		width: 100%;
+		height: 150px;
+	}
 
+	.results {
+		span.emph {
+			font-size: 15px;
+			color: $gray;
+		}
 
+	}
 
+	#basket_items {
+		background: url("cart_amount_button.png") no-repeat;
+		height: 38px;
+		width: 50.2%;
+		color: white;
+		line-height: 39px;
+		span {
+			padding-left: 43px;
+		}
+	}
 
-
-
-
-
-
+}
 
 
 
