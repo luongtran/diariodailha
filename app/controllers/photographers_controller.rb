@@ -1,5 +1,6 @@
 # encoding:utf-8
 class PhotographersController < ApplicationController
+  
   def authorize
     authorize! :manage, :all
 

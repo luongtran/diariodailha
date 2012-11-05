@@ -8,7 +8,7 @@ Diariodailha::Application.routes.draw do
 
   get "/photographers/show_albums" => "photographers#show_albums", :as => "photographer_show_albums"
 
-  match "photographers" => "photographers#index"
+  match "photographers/index" => "photographers#index"
 
   resources :photo_lists
 

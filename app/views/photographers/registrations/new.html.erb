@@ -7,7 +7,7 @@
 
     <p class="info">Após se cadastrar, você receberá a confirmação por email</p>
 
-    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form form-horizontal"})  do |f| %>
+    <%= simple_form_for("photographer", :url => photographer_registration_path, :html => { :class => "form form-horizontal"})  do |f| %>
     <%= f.error_notification %>
 
     <div class="row">        
