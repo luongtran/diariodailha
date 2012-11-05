@@ -1,14 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :create_basket
-
-  def create_basket
-    if session[:basket] == nil
-      session[:basket] = Sale.new
-    end
-  end
-
   def basket
     session[:basket]
   end
@@ -16,6 +8,11 @@ class ApplicationController < ActionController::Base
   def basket=(basket)
     session[:basket] = basket
   end  
+
+  def add_to_basket(photo_id)
+    session[:basket] << photo_id
+  end
+  
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = "Access denied."
     redirect_to root_url

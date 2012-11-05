@@ -189,11 +189,12 @@
     <div id="modal_user_session_new"class="modal hide fade">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>Faça Login</h3>
+            <h3>Faça Login <%= user_signed_in? %></h3>
         </div>
         <div id="form_div" class="modal-body">
             <%= simple_form_for("user", :url => user_session_path, remote: true) do |f| %>
               <div class="form-inputs">
+                <%= token_tag(nil) %>
                 <%= f.input :email, :required => false, :autofocus => true %>
                 <%= f.input :password, :required => false %>
               </div>

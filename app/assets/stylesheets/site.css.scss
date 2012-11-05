@@ -845,6 +845,18 @@ body {
 		}
 
 	}
+
+	#basket_items {
+		background: url("cart_amount_button.png") no-repeat;
+		height: 38px;
+		width: 50.2%;
+		color: white;
+		line-height: 39px;
+		span {
+			padding-left: 43px;
+		}
+	}
+
 }
 
 

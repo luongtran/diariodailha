@@ -5,7 +5,9 @@
             <h1 class="page-title">Busca fotos</h1>
         </div>   
         <div class="span6">            
-            <p class='img-header'><%= image_tag("cart_amount_button.png", :alt => "area do fotografo") %></p>
+            <p id="basket_items" class='img-header'>
+                <span> <%= basket.count unless basket == nil %> item no carrinho</span>
+            </p>
         </div>
     </div> 
 
@@ -66,4 +68,4 @@ $(document).ready(function() {
     // $('#content').addClass('full');
     $('#body').addClass('full');        
 });
-</script>    
+</script>
