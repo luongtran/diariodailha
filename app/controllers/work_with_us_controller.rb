@@ -51,7 +51,7 @@ class WorkWithUsController < ApplicationController
 
     respond_to do |format|
       if @work_with_u.save
-        format.html { redirect_to root_path, notice: 'Work with u was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Curriculum enviado com sucesso!' }
         #format.json { render json: @work_with_u, status: :created, location: @work_with_u }
       else
         format.html { render action: "new" }

@@ -27,8 +27,6 @@
     <% end %>
 
 
-
-
     <ul class="breadcrumb">
         <li class='active'>Você está em<span class="divider">></span></li>
         <li>Álbuns - <%= @album.name %> > </li>
@@ -45,10 +43,11 @@
         </script> 
     </div>
 
+
     <div class="albums" id="album">
         <div class="row-fluid album-row">
             <div class='span3'>
-                <%= form_for Photo.new do |f| %>
+                <%= form_for Photo.new, :html => {:id => "new_photo_image" } do |f| %>
                     <%= f.hidden_field :album_id, :value => @album.id %>
                     <div class="photo-inside">                
                         <div class="custom_file_upload">
