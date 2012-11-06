@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   $("#basket_items").empty();
-  $("#basket_items").append('<%= basket %>');
+  $("#basket_items").append('<span> <%= basket.count unless basket == nil %> item no carrinho</span>');
 <% else %>
   $("#alert_sucess_login").remove();
   $("#form_div").show();

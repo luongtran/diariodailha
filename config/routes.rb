@@ -1,5 +1,9 @@
 Diariodailha::Application.routes.draw do
 
+  resources :messages
+
+  resources :news
+
   #resources :sale_items
 
   get "/photographers/:id/authorize" => "photographers#authorize", :as => "photographer_authorize"
@@ -8,7 +12,7 @@ Diariodailha::Application.routes.draw do
 
   get "/photographers/show_albums" => "photographers#show_albums", :as => "photographer_show_albums"
 
-  match "photographers" => "photographers#index"
+  match "photographers/index" => "photographers#index"
 
   resources :photo_lists
 

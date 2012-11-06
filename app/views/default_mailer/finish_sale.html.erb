@@ -1,0 +1,7 @@
+<p>Olá, <%= @sale.user.name %></p>
+
+<p>Faça o depósito na conta: XXXXXXXX </p>
+
+<% @sale.sale_items.each do |i| %>
+  <p><%= image_tag i.photo.image_url(:medium).to_s %></p>
+<% end %>
