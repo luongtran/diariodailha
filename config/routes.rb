@@ -1,5 +1,9 @@
 Diariodailha::Application.routes.draw do
 
+  resources :messages
+
+  resources :news
+
   #resources :sale_items
 
   get "/photographers/:id/authorize" => "photographers#authorize", :as => "photographer_authorize"

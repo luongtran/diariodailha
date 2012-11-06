@@ -2,39 +2,16 @@
 	<div class="row-fluid">
 		<div class="allnews">
 			<div class="span4 news">
-				<div class="row">
-					<div class="new">
-						<h1 class="page-title">Noticia 01</h1>
-						<p>Veja mais aqui dentro!</p>
-
+				<% Message.limit(5).each do |m| %>
+					<div class="row top-divider">
+						<div class="new">
+							<h1 class="page-title"><%= m.title %></h1>
+							<p><%= link_to "Veja mais aqui dentro!", message_path(m) %></p>
+						</div>
 					</div>
-				</div>
-				<div class="row top-divider">
-					<div class="new">
-						<h1 class="page-title">Noticia 02</h1>
-						<p>Veja mais aqui dentro!</p>
-					</div>
-				</div>
-				<div class="row top-divider">
-					<div class="new">
-						<h1 class="page-title">Noticia 03</h1>
-						<p>Veja mais aqui dentro!</p>
-					</div>
-				</div>
-				<div class="row top-divider">
-					<div class="new">
-						<h1 class="page-title">Noticia 04</h1>
-						<p>Veja mais aqui dentro!</p>
-					</div>
-				</div>
-				<div class="row top-divider">
-					<div class="new">
-						<h1 class="page-title">Noticia 05</h1>
-						<p>Veja mais aqui dentro!</p>
-					</div>
-				</div> 
+				<% end %>
 				<div class="row top-divider action">
-					<a href="#" class="btn btn-primary">Veja mais</a>	
+					 <%= link_to "Veja Mais", messages_path, :class => "btn btn-primary" %>
 				</div>
 			</div>
 			<span class="divider"></span>

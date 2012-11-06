@@ -18,10 +18,10 @@ class DefaultMailer < ActionMailer::Base
   #
   #   en.default_mailer.finish_sale.subject
   #
-  def finish_sale
-    @greeting = "Hi"
+  def finish_sale(sale)
+    @sale = sale
 
-    mail to: "to@example.org"
+    mail to: sale.user.email, subject: "Compra de fotos"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml

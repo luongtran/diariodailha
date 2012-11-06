@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= @message.title %>
+</p>
+
+<p>
+  <%= raw @message.body %>
+</p>
+
+<% if can? :manage, @message %>
+  <%= link_to 'Editar', edit_message_path(@message) %> |
+  <%= link_to 'Todas as notícias', messages_path %>
+<% end %>

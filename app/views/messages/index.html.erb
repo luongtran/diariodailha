@@ -1,0 +1,10 @@
+<h1>Notícias</h1>
+
+
+<% @messages.each do |message| %>
+  <p><%= link_to message.title, message_path(message) %> </p>
+<% end %>
+
+<%  if can? :manage, @message %>
+  <%= link_to 'Nova notícia', new_message_path %>
+<% end %>

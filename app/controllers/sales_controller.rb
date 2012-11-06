@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SalesController < ApplicationController
   # GET /sales
   # GET /sales.json
@@ -116,6 +117,10 @@ class SalesController < ApplicationController
 
       session[:basket] = nil
       @sale.save
+
+      DefaultMailer.finish_sale(@sale).deliver
+      flash[:notice] = "Venda finalizada com sucesso! Você receberá um email com informações sobre como proceder"
+      redirect_to root_path
     else
       redirect_to find_photos_path, :notice => "Venda Finalizada"
     end
