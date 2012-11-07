@@ -44,7 +44,7 @@
                         </div>
                         <% if album.photos != [] %>
                         <div class="crop-small">                            
-                            <%= image_tag album.photos[0].image_url(:thumb).to_s, :class => 'img-rounded'%>
+                            <%= image_tag album.photos[0].image_url(:cover).to_s, :class => 'img-rounded'%>
                         </div>
                         <% else %> 
                             <%= link_to image_tag('logo_site.png'), album_show_photos_path(album) %>

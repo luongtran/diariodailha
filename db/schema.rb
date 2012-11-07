@@ -74,13 +74,6 @@ ActiveRecord::Schema.define(:version => 20121106022559) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "news", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "photographers", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false

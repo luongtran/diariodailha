@@ -74,7 +74,7 @@
                             <span><%= link_to '', photo, :method => 'delete', :class => 'link-delete'%></span>
                         </div>
                         <div class="crop">
-                            <%= image_tag photo.image_url(:thumb).to_s, :class => 'img-rounded'%>
+                            <%= image_tag photo.image_url(:crop_large).to_s, :class => 'img-rounded'%>
                         </div>
                         <div class="description">
                             <div class="date"><%= @album.date.strftime('%d/%m/%Y') %></div>

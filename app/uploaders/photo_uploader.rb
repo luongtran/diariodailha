@@ -40,15 +40,44 @@ class PhotoUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [200, 200]
   end
 
+  version :crop_small do
+    process :resize_to_fill => [200, 200]
+    process :crop => [::Magick::CenterGravity, 142, 130]
+  end
+
+  version :cover do
+    process :resize_to_fill => [140, 130]
+  end
+
+  version :crop_large do
+    process :resize_to_fill => [250, 250]
+    process :crop => [::Magick::CenterGravity, 208, 150]
+  end
+
+  version :crop_home do
+    process :resize_to_fill => [200, 150]
+    process :crop => [::Magick::CenterGravity, 158, 100]
+  end
+
   version :medium do
-    process :resize_to_limit => [640, 480]
+    process :resize_to_fill => [800, 600]
+    process :crop => [::Magick::CenterGravity, 640, 480]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
- def extension_white_list
-   %w(jpg jpeg png tiff)
- end
+  def extension_white_list
+    %w(jpg jpeg png tiff)
+  end
+
+  def crop(gravity, w, h) 
+    manipulate! do |img|
+      img.crop(gravity, w, h)
+    end
+  end
+
+
+
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

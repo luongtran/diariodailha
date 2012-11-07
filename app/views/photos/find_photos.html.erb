@@ -34,8 +34,9 @@
                     <% end %>
                     <div class="span2">
                         <div class="crop-small">
-                            <%= link_to (image_tag photo.image_url(:thumb).to_s, :class => 'img-rounded'), album_show_photos_path(album) %>
+                            <%= link_to (image_tag photo.image_url(:crop_small).to_s, :class => 'img-rounded'), album_show_photos_path(album) %>
                         </div>
+                        
                     </div>
                 <% end %>
             <% end %>

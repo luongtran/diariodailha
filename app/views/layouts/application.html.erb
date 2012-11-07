@@ -108,7 +108,7 @@
                                         <% Album.limit(50).order('date desc').each do |album| %>
                                             <% album.photos.each_with_index do |photo, index| %>
                                                 <% if @break_page == 4 %>
-                                                    <%= image_tag photo.image.to_s, :class => 'img-rounded big'%>
+                                                    <%= image_tag photo.image_url(:medium).to_s, :class => 'img-rounded big'%>
                                                     <div class="description">
                                                         <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
                                                         <div class="beach"><%= photo.album.beach %></div>
@@ -120,7 +120,7 @@
                                                 <% end %>
                                                 <div class="span3 home-img">
                                                     <div class="crop-small">
-                                                        <%= image_tag photo.image_url(:thumb).to_s, :class => 'img-rounded'%>
+                                                        <%= image_tag photo.image_url(:crop_home).to_s, :class => 'img-rounded'%>
                                                     </div>
                                                     <div class="description hide">
                                                         <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
