@@ -55,7 +55,7 @@ Diariodailha::Application.routes.draw do
   match "find_photos" => "photos#find_photos"
   match 'find_result' => "photos#find_result"
 
-  devise_for :photographers, :controllers => {:registrations => 'Photographers::Registrations', :sessions => 'Photographers::Sessions', :mailer => 'Photographers::Mailer', :passwords => 'Photographers::Passwords', :confirmations => 'Photographers::Confirmations' }
+  devise_for :photographers, :controllers => {:registrations => 'Photographers::Registrations', :sessions => 'Photographers::Sessions', :passwords => 'Photographers::Passwords', :confirmations => 'Photographers::Confirmations' }
 
   root :to => 'site#index'
 
