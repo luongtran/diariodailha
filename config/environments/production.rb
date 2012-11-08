@@ -67,4 +67,7 @@ Diariodailha::Application.configure do
 
   # Ckeditor
   config.assets.precompile += Ckeditor.assets
+
+  config.action_mailer.default_url_options = { :host => 'http://diariodailha2.herokuapp.com' }
+
 end
