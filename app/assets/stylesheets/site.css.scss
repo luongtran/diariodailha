@@ -291,7 +291,7 @@ body {
 			}
 		}
 
-		.about {
+		.about, .quem_somos {
 
 			p {
 				text-align: left;
@@ -377,7 +377,7 @@ body {
 			}
 		}
 
-		.work-with-us {
+		.work-with-us, .trabalhe_conosco {
 			.send-curriculum {
 				float: left;
 				margin-right: 20px;
@@ -806,7 +806,7 @@ body {
 
 	-webkit-box-shadow: inset 2px 2px 3px #cecece;
 	box-shadow: inset 2px 2px 3px #cecece;
-    height: 30px;
+    height: 30px!important;
     border-radius: 10px;
     border-color: transparent;
 }
@@ -881,17 +881,20 @@ body {
 
 }
 
+.largeinput {
+	width: 90%;
+}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
+.actions-form {
+	float: right;
+}	
+.cadastro {
+	margin-right: 7%;
+}
+.micrologin {
+	margin-right: -11px;
+}

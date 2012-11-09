@@ -1,11 +1,11 @@
 <%= simple_form_for("user", :url => user_session_path) do |f| %>
-  <h3>Login de Usuários</h3>
+  <h1 class="page-title">Login</h1>
   <div class="form-inputs">
-    <%= f.input :email, :required => false, :autofocus => true %>
-    <%= f.input :password, :required => false %>
+    <%= f.input :email,  :label => false, :class => 'block leform', :placeholder => 'Email', :required => false, :autofocus => true %>
+    <%= f.input :password,  :label => false, :class => 'block leform', :placeholder => 'Senha', :required => false %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign in" %>
-  </div>
+   	<div class="actions-form micrologin">        
+   	    <%= image_submit_tag("entrar_button.png") %></p>
+  	</div>
 <% end %>

@@ -1,16 +1,16 @@
-<h3>Cadastrar-se</h3>
+<h1 class='page-title'>Cadastrar-se</h3>
 <%= simple_form_for("user", :url => user_registration_path) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :name, :required => true %>
-    <%= f.input :phone, :required => true %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
+    <%= f.input :email,  :input_html => { :class =>'largeinput block leform input-xlarge' }, :label => false, :placeholder => 'Email' ,:required => true, :autofocus => true %>
+    <%= f.input :name, :input_html => { :class => ' largeinput block leform input-xlarge' } , :label => false, :placeholder => 'Nome' ,:required => true %>
+    <%= f.input :phone,  :input_html => { :class =>' largeinput block leform input-xlarge' }, :label => false, :placeholder => 'Telefone' ,:required => true %>
+    <%= f.input :password,  :input_html => { :class =>'largeinput block leform input-xlarge' }, :label => false, :placeholder => 'Senha' ,:required => true %>
+    <%= f.input :password_confirmation,  :input_html => { :class =>' largeinput block leform input-xlarge' }, :label => false, :placeholder => 'Confirmação de senha' ,:required => true %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Cadastrar" %>
+  <div class="actions-form cadastro">        
+    <%= image_submit_tag("cadastrar_button2.png") %>
   </div>
 <% end %>
