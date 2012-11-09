@@ -35,7 +35,20 @@
                                 <%= link_to "CONTATO", new_contact_path %>
                             </div>
                             <div class='top-banner' id='top-banner'>
-                                #top-banner
+                                <% banner_top = Banner.where(:position => "top-banner").first %>
+                                <%  if banner_top != nil %>
+                                    <% if banner_top.file_url.include? ".swf" %>
+                                        <embed width="100%" height="100%" name="plugin" src="<%= banner_top.file_url %>" type="application/x-shockwave-flash">
+                                    <% else %>
+                                        <% if banner_top.link.empty? %>
+                                            <%= image_tag banner_top.file_url %>
+                                        <% else %>
+                                            <a href="<%= banner_top.link %>" targe="_blank"><%= image_tag banner_top.file_url %></a>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    Anuncie Aqui
+                                <% end  %>
                             </div>              
                             <div class="header-nav">
                                 <!-- <div class='navbar-inner'>                             -->
@@ -95,7 +108,20 @@
                             <div class='container-fluid'>
                                 <div class='home-adver' id='home-ad'>
                                     <div class='banner' id='med-banner'>
-                                        #med-banner
+                                        <% banner_med = Banner.where(:position => "med-banner").first %>
+                                        <%  if banner_med != nil %>
+                                            <% if banner_med.file_url.include? ".swf" %>
+                                                <embed width="100%" height="100%" name="plugin" src="<%= banner_med.file_url %>" type="application/x-shockwave-flash">
+                                            <% else %>
+                                                <% if banner_med.link.empty? %>
+                                                    <%= image_tag banner_med.file_url %>
+                                                <% else %>
+                                                    <a href="<%= banner_med.link %>" targe="_blank"><%= image_tag banner_med.file_url %></a>
+                                                <% end %>
+                                            <% end %>
+                                        <% else %>
+                                            Anuncie Aqui
+                                        <% end  %>
                                     </div>     
                                 </div>
                             </div>                        

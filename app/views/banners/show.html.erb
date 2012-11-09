@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @banner.name %>
+</p>
+
+<p>
+  <b>Posição:</b>
+  <%= @banner.position %>
+</p>
+
+<p>
+  <% if @banner.file_url.include? ".swf" %>
+    <embed width="100%" height="100%" name="plugin" src="<%= @banner.file_url %>" type="application/x-shockwave-flash">
+  <% else %>
+    <%= image_tag @banner.file_url %>
+  <% end %>
+</p>
+
+<%= link_to 'Editar', edit_banner_path(@banner) %> |
+<%= link_to 'Todos os banners', banners_path %>

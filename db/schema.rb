@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121109002805) do
+ActiveRecord::Schema.define(:version => 20121109014808) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(:version => 20121109002805) do
   end
 
   add_index "albums", ["photographer_id"], :name => "index_albums_on_photographer_id"
+
+  create_table "banners", :force => true do |t|
+    t.string   "name"
+    t.string   "possition"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "file"
+    t.string   "link"
+  end
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
