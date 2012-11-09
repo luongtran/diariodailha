@@ -1,4 +1,9 @@
 <div class="home">
+
+  <%- flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <%- end -%>
+  <%= yield %> 
 	<div class="row-fluid">
 		<div class="allnews">
 			<div class="span4 news">

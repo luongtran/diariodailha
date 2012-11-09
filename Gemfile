@@ -19,6 +19,7 @@ end
 gem 'jquery-rails'
 gem 'nifty-generators', :group => :development
 gem 'execjs'
+gem 'therubyracer'
 gem 'devise'
 gem 'pg'
 gem 'simple_form'

@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20121109014808) do
 
   create_table "banners", :force => true do |t|
     t.string   "name"
-    t.string   "possition"
+    t.string   "position"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "file"
@@ -82,13 +82,6 @@ ActiveRecord::Schema.define(:version => 20121109014808) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.boolean  "contrast"
-  end
-
-  create_table "news", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "photographers", :force => true do |t|

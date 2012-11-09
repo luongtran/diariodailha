@@ -1,5 +1,8 @@
 <%= simple_form_for("user", :url => user_session_path) do |f| %>
   <h1 class="page-title">Login</h1>
+
+  <%= devise_error_messages! @user %>
+  
   <div class="form-inputs">
     <%= f.input :email,  :label => false, :class => 'block leform', :placeholder => 'Email', :required => false, :autofocus => true %>
     <%= f.input :password,  :label => false, :class => 'block leform', :placeholder => 'Senha', :required => false %>

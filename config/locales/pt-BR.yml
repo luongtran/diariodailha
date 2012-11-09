@@ -1,0 +1,60 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+pt-BR:
+  hello: "Hello world"
+
+pt-BR:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "não pode ser vazio"
+            password:
+              blank: "não pode ser vazio"
+              too_short: "Senha muito curta (mínimo 6 caractéres)"
+            name:
+              blank: "não pode ser vazio"
+        photographer:
+          attributes:
+            email:
+              blank: "não pode ser vazio"
+            password:
+              blank: "não pode ser vazio"
+              too_short: "Senha muito curta (mínimo 6 caractéres)"
+            name:
+              blank: "não pode ser vazio"
+            phone:
+              blank: "não pode ser vazio"
+            cep:
+              blank: "não pode ser vazio"
+            address:
+              blank: "não pode ser vazio"
+            city:
+              blank: "não pode ser vazio"
+            equipments:
+              blank: "não pode ser vazio"
+            peaks_of_activity:
+              blank: "não pode ser vazio"
+    models:
+      user: Usuário
+    attributes:
+      user:
+        email: "Email"
+        password: "Senha"
+        name: "Nome"
+      photographer:
+        password: "Senha"
+        name: "Nome"
+        phone: "Telefone"
+        cep: "CEP"
+        address: "Endereço"
+        city: "Cidade"
+        equipments: "Equipamentos"
+        peaks_of_activity: "Picos de atividade"

@@ -9,4 +9,8 @@ class Photographer < ActiveRecord::Base
   attr_accessible :name, :phone, :cep, :address, :city, :equipments, :peaks_of_activity, :confirmed_at
 
   has_many :albums
+
+  validates_uniqueness_of :email
+  validates_presence_of :name, :phone, :cep, :address, :city, :equipments, :peaks_of_activity
+  
 end
