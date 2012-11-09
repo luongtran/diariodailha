@@ -3,14 +3,18 @@
     <ul>
 
       <li><%= link_to "Editar conteúdo das páginas", contents_path %></li>
-
+      
       <li><%= link_to "Ver currículos", work_with_us_path %></li>
 
       <li><%= link_to "Ver contatos realizados", contacts_path %></li>
-
+      <ul>
+        <li><%= link_to "Cadastrar Tipos de contatos", new_contact_type_path %></li>
+      </ul>
       <li><%= link_to "Ver Fotógrafos cadastrados", photographers_index_path %></li>
 
-      <li><%= link_to "Cadastrar Notícias", new_news_path %></li>
+      <li><%= link_to "Cadastrar Notícias", new_message_path %></li>
+
+      <li><%= link_to "Ver todas as notícias", messages_path %> </li>
     </ul>
   </div>
 </div>

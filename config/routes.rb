@@ -1,8 +1,8 @@
 Diariodailha::Application.routes.draw do
 
-  resources :messages
-
-  resources :news
+  resources :messages do 
+    get "contrast_message" => "messages#contrast_message"
+  end
 
   #resources :sale_items
 

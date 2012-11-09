@@ -10,5 +10,6 @@
 
 <% if can? :manage, @message %>
   <%= link_to 'Editar', edit_message_path(@message) %> |
-  <%= link_to 'Todas as notícias', messages_path %>
+  <%= link_to 'Todas as notícias', messages_path %> |
+  <%= link_to 'Tornar Destaque', message_contrast_message_path(@message), remote: true %>
 <% end %>
