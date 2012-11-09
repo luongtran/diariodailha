@@ -35,6 +35,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+
   # Create different versions of your uploaded files:
   version :thumb do
     process :resize_to_limit => [200, 200]
@@ -55,8 +56,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :crop_home do
-    process :resize_to_fill => [200, 150]
-    process :crop => [::Magick::CenterGravity, 158, 100]
+    process :resize_to_fill => [200, 200]
+    process :crop => [::Magick::CenterGravity, 158, 158]
   end
 
   version :medium do

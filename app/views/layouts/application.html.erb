@@ -104,22 +104,24 @@
                                 <div class='home-pics' id='home-pics'>
                                     <div class="row-fluid album-row">
                                         <% Photo.limit(5).order('id desc').each_with_index do |photo, index| %>
-                                            <% if index == 4 %>
-                                                <%= image_tag photo.image_url(:medium).to_s, :class => 'img-rounded big'%>
-                                                <div class="description">
-                                                    <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
-                                                    <div class="beach"><%= photo.album.beach %></div>
-                                                </div>                                                
-                                            <% else %>
-                                                <div class="span3 home-img">
-                                                    <div class="crop-small">
-                                                        <%= image_tag photo.image_url(:crop_home).to_s, :class => 'img-rounded'%>
-                                                    </div>
-                                                    <div class="description hide">
+                                            <% unless photo.album.nil? %>
+                                                <% if index == 4 %>
+                                                    <%= image_tag photo.image_url(:medium).to_s, :class => 'img-rounded big'%>
+                                                    <div class="description">
                                                         <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
                                                         <div class="beach"><%= photo.album.beach %></div>
+                                                    </div>                                                
+                                                <% else %>
+                                                    <div class="span3 home-img">
+                                                        <div class="crop-small">
+                                                            <%= image_tag photo.image_url(:crop_home).to_s, :class => 'img-rounded'%>
+                                                        </div>
+                                                        <div class="description hide">
+                                                            <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
+                                                            <div class="beach"><%= photo.album.beach %></div>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                <% end %>
                                             <% end %>
                                         <% end %>
                                     </div>
