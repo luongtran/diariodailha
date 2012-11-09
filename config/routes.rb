@@ -1,5 +1,7 @@
 Diariodailha::Application.routes.draw do
 
+  resources :banners
+
   resources :messages do 
     get "contrast_message" => "messages#contrast_message"
   end
