@@ -1,7 +1,10 @@
+# encoding: utf-8
 class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
+    authorize! :manage, :all
+
     @messages = Message.all
 
     respond_to do |format|
@@ -24,6 +27,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   # GET /messages/new.json
   def new
+    authorize! :manage, :all
     @message = Message.new
 
     respond_to do |format|
@@ -34,12 +38,14 @@ class MessagesController < ApplicationController
 
   # GET /messages/1/edit
   def edit
+    authorize! :manage, :all
     @message = Message.find(params[:id])
   end
 
   # POST /messages
   # POST /messages.json
   def create
+    authorize! :manage, :all
     @message = Message.new(params[:message])
 
     respond_to do |format|
@@ -56,6 +62,7 @@ class MessagesController < ApplicationController
   # PUT /messages/1
   # PUT /messages/1.json
   def update
+    authorize! :manage, :all
     @message = Message.find(params[:id])
 
     respond_to do |format|
@@ -72,12 +79,36 @@ class MessagesController < ApplicationController
   # DELETE /messages/1
   # DELETE /messages/1.json
   def destroy
+    authorize! :manage, :all
     @message = Message.find(params[:id])
     @message.destroy
 
     respond_to do |format|
       format.html { redirect_to messages_url }
       format.json { head :no_content }
+    end
+  end
+
+  def contrast_message
+    authorize! :manage, :all
+
+    Message.where(contrast: true).each do |m| 
+      puts m.title
+      m.contrast = false
+      m.save()
+    end
+
+    message = Message.find(params[:message_id])
+    message.contrast = true;
+    puts message.title
+    if (message.save())
+      @status = "Notícia destacada com sucesso"
+    else
+      @status = "Não foi possível destacar notícia, tente novamente"
+    end
+
+    respond_to do |format|
+      format.js 
     end
   end
 end

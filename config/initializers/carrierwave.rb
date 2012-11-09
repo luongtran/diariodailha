@@ -6,6 +6,5 @@ CarrierWave.configure do |config|
     region: "sa-east-1"
   }
   config.fog_directory = "diariodailhabucket"
-  config.fog_authenticated_url_expiration = 600 # 10 minutes
 
 end
