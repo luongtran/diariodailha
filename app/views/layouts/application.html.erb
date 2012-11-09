@@ -103,32 +103,23 @@
                             <div class='container-fluid'>
                                 <div class='home-pics' id='home-pics'>
                                     <div class="row-fluid album-row">
-                                        <% @break_page = 0 %>
-                                        <% @opened = false %>
-                                        <% Album.limit(50).order('date desc').each do |album| %>
-                                            <% album.photos.each_with_index do |photo, index| %>
-                                                <% if @break_page <= 4 %>
-                                                    <% if @break_page == 4 %>
-                                                        <%= image_tag photo.image_url(:medium).to_s, :class => 'img-rounded big'%>
-                                                        <div class="description">
-                                                            <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
-                                                            <div class="beach"><%= photo.album.beach %></div>
-                                                        </div>
-
-                                                        <% break %>
-                                                    <% else %>
-                                                        <% @break_page = @break_page + 1 %>                    
-                                                    <% end %>
-                                                    <div class="span3 home-img">
-                                                        <div class="crop-small">
-                                                            <%= image_tag photo.image_url(:crop_home).to_s, :class => 'img-rounded'%>
-                                                        </div>
-                                                        <div class="description hide">
-                                                            <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
-                                                            <div class="beach"><%= photo.album.beach %></div>
-                                                        </div>
+                                        <% Photo.limit(5).order('id desc').each_with_index do |photo, index| %>
+                                            <% if index == 4 %>
+                                                <%= image_tag photo.image_url(:medium).to_s, :class => 'img-rounded big'%>
+                                                <div class="description">
+                                                    <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
+                                                    <div class="beach"><%= photo.album.beach %></div>
+                                                </div>                                                
+                                            <% else %>
+                                                <div class="span3 home-img">
+                                                    <div class="crop-small">
+                                                        <%= image_tag photo.image_url(:crop_home).to_s, :class => 'img-rounded'%>
                                                     </div>
-                                                <% end %>
+                                                    <div class="description hide">
+                                                        <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
+                                                        <div class="beach"><%= photo.album.beach %></div>
+                                                    </div>
+                                                </div>
                                             <% end %>
                                         <% end %>
                                     </div>
