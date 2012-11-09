@@ -3,8 +3,6 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    authorize! :manage, :all
-
     @messages = Message.all
 
     respond_to do |format|
