@@ -26,7 +26,7 @@ gem 'simple_form'
 gem "carrierwave"
 gem "mini_magick"
 gem "rmagick"
-gem "ckeditor", git: "git@github.com:rhdeandrade/ckeditor.git"
+gem "ckeditor", git: "git://github.com/rhdeandrade/ckeditor.git"
 gem "cancan"
 gem 'fog'
 gem "plupload-rails"
