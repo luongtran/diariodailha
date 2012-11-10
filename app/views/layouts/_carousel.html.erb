@@ -63,29 +63,36 @@
             $(this).children(".move").addClass("showing");
             var album_id = $(".move.showing").data("id");
             var current = $('.item')
-            var next = $('.hitem').data('id', album_id);
-            $(current).each(function(index, el) {
-                $(el).removeClass('item');
-                $(el).removeClass('active');
-                $(el).addClass('hitem');
-                $(el).addClass('hide');
-
-            });
-            $(next).each(function(index, el) {
-                $(el).removeClass('hitem');
-                $(el).addClass('item');
-                if (index == 0) {
-                    $(el).addClass('active');
-                }
-                $(el).removeClass('hide');
-            });
-            $(".active-description").each(function(index, el) {
-                if ($(el).data('id') == album_id) {
-                    $(el).removeClass('hide');
-                } else {                    
+            var next = $('.hitem');
+            var i = 0;
+            if ($(current).data('id') != album_id) {
+                $(current).each(function(index, el) {
+                    $(el).removeClass('item');
+                    $(el).removeClass('active');
+                    $(el).addClass('hitem');
                     $(el).addClass('hide');
-                }
-            });
+
+                });
+                $(next).each(function(index, el) {
+                    if($(el).data('id') == album_id) {
+                        console.log(index);
+                        if (i == 0) {
+                            $(el).addClass('active');
+                        }
+                        $(el).removeClass('hitem');
+                        $(el).addClass('item');
+                        $(el).removeClass('hide');
+                        i = 1;
+                    }
+                });
+                $(".active-description").each(function(index, el) {
+                    if ($(el).data('id') == album_id) {
+                        $(el).removeClass('hide');
+                    } else {                    
+                        $(el).addClass('hide');
+                    }
+                });
+            }
         });
         
     });

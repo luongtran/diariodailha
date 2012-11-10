@@ -47,36 +47,10 @@ body {
 	}
 }
 
-html, body {
-	height: 100%;
-}
-
-#wrap {
-	min-height: 100%;
-}
-
-#main {
-	overflow:auto;
-	padding-bottom: 74px;
-}  /* must be same height as the footer */
-
-#footer {} 
-
-/*Opera Fix*/
-body:before {
-	content:"";
-	height:100%;
-	float:left;
-	width:0;
-	margin-top:-32767px;
-}
 
 .footer {
 	background: url("footer.png");
-	position: relative;
-	margin-top: -74px; /* negative value of footer height */
-	height: 74px;
-	clear:both;
+	height: 74px; /* .push must be the same height as .footer */
 	p {
 		text-align: center;
 		padding-top: 45px;
@@ -707,6 +681,7 @@ body:before {
 		.banner-small {
 			max-height: 85px;
 		}
+		
 	}
 } 
 
