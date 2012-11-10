@@ -55,7 +55,11 @@
                                     <ul class="nav nav-pills">
                                         <li class='first'><%= link_to "HOME", root_path %></li>
                                         <li class="divider-vertical"></li>
-                                        <li><a href='#'> BOLETIM DO MAR </a></li>
+                                        <% if Content.where(:name => "boletim_do_mar") != [] %>
+                                            <li><%= link_to "BOLETIM DO MAR", content_path(Content.where(:name => "boletim_do_mar").first) %></li>
+                                        <% else %>
+                                            <li><a href="#">BOLETIM DO MAR</a></li>
+                                        <% end %>
                                         <li class='divider-vertical'></li>
                                         <li><%= link_to "BUSCAR FOTOS", find_photos_path %></li>
                                         <li class='divider-vertical'></li>
