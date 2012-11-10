@@ -47,6 +47,7 @@ body {
 	}
 }
 
+
 .footer {
 	background: url("footer.png");
 	height: 74px; /* .push must be the same height as .footer */
@@ -59,6 +60,17 @@ body {
 }
 
 .home-pics {
+	.carousel {
+		margin-top: 140px;
+	}
+	.crop-small {
+		cursor: pointer;
+	}
+
+	.hitem {
+		visibility: hidden;
+	}
+
 }
 
 .page {
@@ -93,6 +105,36 @@ body {
 			padding: 10px 20px;
 			.home-img {
 				margin-top: 10px;
+				.active-description {
+					position: absolute;
+					background-color: rgba(0, 0, 0, 0.4);
+					border-radius: 10px;
+					width: 153px;
+					height: 153px;
+					border: none;
+					border: 3px solid $gray;
+					border-radius: 10px;				
+					.text {
+						margin-top: 40%;
+						text-align: left;
+						margin-left: 10%;
+						margin-right: 10%;
+						.date {
+							color: #cecece;
+							font-size: smaller;
+							line-height: 7px;
+						}				
+						.beach {
+							color: white;
+							.divider {
+								margin-top: 10%;
+								border-bottom: 1px solid white;
+							}
+						}							
+					}
+				}
+			}
+			.crop-small {
 			}
 			.crop-small img{
 				/*width: 100%;*/
@@ -101,9 +143,6 @@ body {
 			}
 
 			.description {
-				.date {
-					font-size: smaller;
-				}
 			}
 			.big {
 				width: 100%;
@@ -642,6 +681,7 @@ body {
 		.banner-small {
 			max-height: 85px;
 		}
+		
 	}
 } 
 
@@ -919,4 +959,10 @@ body {
 }
 .micrologin {
 	margin-right: -11px;
+}
+
+
+
+.carousel {
+    padding-top: 1px;
 }
