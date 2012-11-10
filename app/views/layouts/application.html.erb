@@ -234,7 +234,12 @@
     $(window).load(function() {
         var page = $(".page").height();
         var container = $("#size3").height();
-        $(".footer").css("margin-top", ((page > container) ? page : container) -220 +   "px");
+        var winH = $(window).height();
+        var biggest = function() {
+            return (page > container) ? ((winH > page) ? winH - 83  : page) : container
+        };
+
+        $(".footer").css("margin-top", biggest() -220 +   "px");
     });
 </script>
 </html>

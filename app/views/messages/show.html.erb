@@ -1,15 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<h1 class="page-title">
   <%= @message.title %>
-</p>
+</h1>
 
-<p>
-  <%= raw @message.body %>
-</p>
+<div class="new-content">
+	<p>
+	  <%= raw @message.body %>
+	</p>
+</div>
 
 <% if can? :manage, @message %>
   <%= link_to 'Editar', edit_message_path(@message) %> |
   <%= link_to 'Todas as notícias', messages_path %> |
-  <%= link_to 'Tornar Destaque', message_contrast_message_path(@message), remote: true %>
+  <%= link_to 'Tornar Destaque', message_contrast_message_path(@message), remote: true %> | 
+  <%= link_to 'Excluir Noticia', @message, :method => 'Delete' %>
 <% end %>

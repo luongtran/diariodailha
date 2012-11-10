@@ -162,7 +162,7 @@ body {
 			a {
 				color: white;
 				font-size: 15px;
-				font-family: "Trebuchet MS";
+				font-family: "Trebuchet MS", trebuc, sans-serif;
 				font-weight: bolder;
 			}
 
@@ -248,28 +248,50 @@ body {
 
 		.home {
 			.divider {				
-				width: 1px;
-				height: 200px;
-			  	-moz-box-shadow:    1px 1px 1px 1px #ccc;
-  				box-shadow:         1px 1px 1px 1px #ccc;
+				height: 305px;
+			  	position: absolute;
+			  	width: 4px;
+				background: rgb(255,255,255); /* Old browsers */
+				background: -moz-linear-gradient(top, rgba(255,255,255,1) 1%, rgba(242,242,242,1) 49%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(255,255,255,1)), color-stop(49%,rgba(242,242,242,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top, rgba(255,255,255,1) 1%,rgba(242,242,242,1) 49%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top, rgba(255,255,255,1) 1%,rgba(242,242,242,1) 49%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top, rgba(255,255,255,1) 1%,rgba(242,242,242,1) 49%,rgba(255,255,255,1) 100%); /* IE10+ */
+				background: linear-gradient(to bottom, rgba(255,255,255,1) 1%,rgba(242,242,242,1) 49%,rgba(255,255,255,1) 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */			
+				border-left: 1px solid white;
 			}
-
+			.wrapper {
+				margin-left: -30px!important;
+				margin-top: -10px;
+				margin-bottom: -30px;
+				border-top-left-radius: 10px;
+				border-bottom-left-radius: 10px;
+				background-color: #FAFAFA;
+			}
 			.news {
+				padding-left: 20px;				
+				padding-top: 10px;
+				padding-right: 10px;
 				min-height: 600px;
-  				-moz-box-shadow: 2px 1px #ccc;
-  				-webkit-box-shadow:  2px 1px #ccc;
 
-				box-shadow: 2px 1px #ccc;
+				
 			  	h1.page-title {
 					font-size: 16px;
 					margin-bottom: -10px;
 				}
 				.top-divider {	
-					border-top: 1px dashed $gray;
+					border-top: 1px dotted #ccc;
 				}
 				.row {
 					.new {
 						margin: 20px;
+
+						.preview {
+							line-height: 18px;
+							text-align: left;
+							margin-bottom: 10px;
+						}
 					}
 
 				}

@@ -1,36 +1,35 @@
 <div class="home">
 
-  <%- flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <%- end -%>
-  <%= yield %> 
+  	<%- flash.each do |name, msg| -%>
+  		<%= content_tag :div, msg, :id => "flash_#{name}" %>
+  	<%- end -%>
+  	<%= yield %> 
 	<div class="row-fluid">
 		<div class="allnews">
-			<div class="span4 news">
-				<% Message.limit(5).each do |m| %>
-					<div class="row top-divider">
-						<div class="new">
-							<h1 class="page-title"><%= m.title %></h1>
-							<p><%= link_to "Veja mais aqui dentro!", message_path(m) %></p>
+			<div class="span5 news wrapper">
+				<div class="row">
+					<% Message.limit(5).order("id desc").each do |m| %>
+							<div class="new">
+								<h1 class="page-title preview"><%= m.title %></h1>
+								<p><%= link_to "Veja mais aqui dentro!", message_path(m) %></p>
+							</div>
 						</div>
-					</div>
-				<% end %>
-				<div class="row top-divider action">
+						<div class="row top-divider">							
+					<% end %>
+				</div>
+				<div class="row action">
 					 <%= link_to "Veja Mais", messages_path, :class => "btn btn-primary" %>
 				</div>
 			</div>
 			<span class="divider"></span>
-			<div class="span8 headline">
-				<h1 class="page-title">Destaque</h1>
-				<p><%= image_tag('foto_quem.png') %></p>
-				<p class="page-subsubtitle">Titulo!</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
+			<% Message.where(contrast: true).each do |d| %>
+				<div class="span7 headline">
+					<h1 class="page-title"><%= d.title %></h1>
+					<p>
+						<%= raw d.body %>
+					</p>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </div>
