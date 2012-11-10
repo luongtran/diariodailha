@@ -16,7 +16,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
+
+  photo = nil
   def store_dir
+    photo = model
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
@@ -34,8 +37,6 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-
-
   process :resize_to_fill => [640, 480]
   
   # Create different versions of your uploaded files:
@@ -64,10 +65,19 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   version :medium do
     process :resize_to_fill => [800, 600]
-    process :crop => [::Magick::CenterGravity, 640, 480]
+    process :overlay_images
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
+
+  def overlay_images
+    manipulate! format: "png" do |source|
+      overlay_path = Rails.root.join("public/images/logo_site.png")
+      overlay = Magick::Image.read(overlay_path).first
+      overlay.resize_to_fill(30, 30)
+      source.composite!(overlay, 20, 20, Magick::OverCompositeOp)
+    end
+  end
   # For images you might use something like this:
   def extension_white_list
     %w(jpg jpeg png tiff)

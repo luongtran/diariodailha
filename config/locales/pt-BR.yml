@@ -278,6 +278,15 @@ pt-BR:
           attributes:
             name:
               blank: "Não pode ser vazio"
+        content:
+          name:
+            blank: "Não pode ser vazio"
+          description:
+            blank: "Não pode ser vazio"
+          subtitle:
+            blank: "Não pode ser vazio"
+          title:
+            blank: "Não pode ser vazio"
 
     models:
       user: Usuário
@@ -313,3 +322,8 @@ pt-BR:
         message: "Mensagem"
       contact_type:
         name: "Nome"
+      content:
+        name: "Nome"
+        description: "Descrição"
+        subtitle: "Subtítulo"
+        title: "Título"

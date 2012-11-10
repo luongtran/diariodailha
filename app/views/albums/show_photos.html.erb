@@ -1,29 +1,31 @@
 <div class='albums-index'>
 
-    <div class="row">       
-        <div class='span6'>
-            <p class='img-header'><%= image_tag("area_fotografo.png", :alt => "area do fotografo") %></p>
-        </div>
-        <div class="span6">            
-            <div class="photographer-info">
-                <h1>Olá, <%= current_photographer.name %></h1>
-                <p class="edit">
-                    <%= link_to "editar informações", edit_photographer_registration_path(current_photographer) %>
-                </p>
+    <% if photographer_signed_in? %>
+        <div class="row">       
+            <div class='span6'>
+                <p class='img-header'><%= image_tag("area_fotografo.png", :alt => "area do fotografo") %></p>
             </div>
-        </div>
-    </div>
-
-    <h1 class="page-subtitle">Upload</h1>
-    <%= form_for Photo.new do |f| %>
-        <%= f.hidden_field :album_id, :value => @album.id %>
-        <div class="photo-upload">                
-            <div class="custom_file_upload">
-                <div class="file_upload">
-                    <%= f.file_field :image, multiple: true, name: "photo[image]" %> 
+            <div class="span6">            
+                <div class="photographer-info">
+                    <h1>Olá, <%= current_photographer.name %></h1>
+                    <p class="edit">
+                        <%= link_to "editar informações", edit_photographer_registration_path(current_photographer) %>
+                    </p>
                 </div>
             </div>
         </div>
+
+        <h1 class="page-subtitle">Upload</h1>
+        <%= form_for Photo.new do |f| %>
+            <%= f.hidden_field :album_id, :value => @album.id %>
+            <div class="photo-upload">                
+                <div class="custom_file_upload">
+                    <div class="file_upload">
+                        <%= f.file_field :image, multiple: true, name: "photo[image]" %> 
+                    </div>
+                </div>
+            </div>
+        <% end %>
     <% end %>
 
 
@@ -46,18 +48,20 @@
 
     <div class="albums" id="album">
         <div class="row-fluid album-row">
-            <div class='span3'>
-                <%= form_for Photo.new, :html => {:id => "new_photo_image" } do |f| %>
-                    <%= f.hidden_field :album_id, :value => @album.id %>
-                    <div class="photo-inside">                
-                        <div class="custom_file_upload">
-                            <div class="file_upload">
-                                <%= f.file_field :image, multiple: true, name: "photo[image]" %> 
+            <% if photographer_signed_in? %>
+                <div class='span3'>
+                    <%= form_for Photo.new, :html => {:id => "new_photo_image" } do |f| %>
+                        <%= f.hidden_field :album_id, :value => @album.id %>
+                        <div class="photo-inside">                
+                            <div class="custom_file_upload">
+                                <div class="file_upload">
+                                    <%= f.file_field :image, multiple: true, name: "photo[image]" %> 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <% end %>
-            </div>
+                    <% end %>
+                </div>
+            <% end %>
             <% @break_row = 4 %>
             <% @photos.each_with_index do |photo, index| %>      
                 <% if index + 1 == @break_row %>
@@ -69,10 +73,12 @@
                 <div class="span3">
                     <div class="thumbnail">
                         <!-- @TODO Colocar uma imagem do algum de "capa" -->
-                        <div class='mouse-over-big'>
-                            <span><%= link_to '', '#', :class => 'link-edit' %></span>
-                            <span><%= link_to '', photo, :method => 'delete', :class => 'link-delete'%></span>
-                        </div>
+                        <% if photographer_signed_in? %>
+                            <div class='mouse-over-big'>
+                                <span><%= link_to '', '#', :class => 'link-edit' %></span>
+                                <span><%= link_to '', photo, :method => 'delete', :class => 'link-delete'%></span>
+                            </div>
+                        <% end %>
                         <div class="crop">
                             <%= image_tag photo.image_url(:crop_large).to_s, :class => 'img-rounded'%>
                         </div>
