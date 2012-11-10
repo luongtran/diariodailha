@@ -1,0 +1,93 @@
+<div class='home-pics' id='home-pics'>
+    <div class="row-fluid album-row">
+        <% Album.limit(4).order('id desc').each_with_index do |album, aindex| %>
+            <div class="span3 home-img">
+                <div class="crop-small">
+                    <% if aindex == 0 %>
+                        <div data-id='<%= album.id %>' class="active-description">
+                    <% else %>
+                        <div data-id='<%= album.id %>' class="active-description hide">
+                    <% end %>
+                        <div class="text">                            
+                            <div class="date"><%= album.date.strftime('%d/%m/%Y') %></div>
+                            <div class="beach"><%= album.beach %><div class="divider"></div></div>
+                        </div>
+                    </div>
+                    <% if aindex == 0 %>
+                        <div class='move showing' data-id='<%= album.id %>'>
+                    <% else %>
+                        <div class='move' data-id='<%= album.id %>'>                        
+                    <% end %>                        
+                        <% unless album.photos[0].nil? %>
+                            <%= image_tag album.photos[0].image_url(:crop_home).to_s, :class => 'img-rounded cover'%>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+        <div id="leCarousel" class="carousel slide">
+            <div class="carousel-inner">
+                <% Album.limit(4).order('id desc').each_with_index do |album, aindex| %>
+                    <% album.photos.each_with_index do |photo, index| %>
+                        <% if aindex == 0 %>
+                            <!-- Carousel items -->
+                            <% if index == 0 %>
+                                <div data-id='<%= album.id %>' class="active item">
+                                    <%= image_tag photo.image_url(:medium).to_s, :class => 'img-rounded big'%>
+                                </div>
+                            <% else %>
+                                <div data-id='<%= album.id %>' class="item">
+                                    <%= image_tag photo.image_url(:medium).to_s, :class => 'img-rounded big'%>
+                                </div>
+                            <% end %>
+                        <% else %>
+                            <div data-id='<%= album.id %>' class="hitem hide">
+                                <%= image_tag photo.image_url(:medium).to_s, :class => 'img-rounded big'%>
+                            </div>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.carousel').carousel({
+            interval: false
+        });
+
+        $('.crop-small').click(function(event) {
+            $(".move.showing").removeClass("showing");
+            $(this).children(".move").addClass("showing");
+            var album_id = $(".move.showing").data("id");
+            var current = $('.item')
+            var next = $('.hitem').data('id', album_id);
+            $(current).each(function(index, el) {
+                $(el).removeClass('item');
+                $(el).removeClass('active');
+                $(el).addClass('hitem');
+                $(el).addClass('hide');
+
+            });
+            $(next).each(function(index, el) {
+                $(el).removeClass('hitem');
+                $(el).addClass('item');
+                if (index == 0) {
+                    $(el).addClass('active');
+                }
+                $(el).removeClass('hide');
+            });
+            $(".active-description").each(function(index, el) {
+                if ($(el).data('id') == album_id) {
+                    $(el).removeClass('hide');
+                } else {                    
+                    $(el).addClass('hide');
+                }
+            });
+        });
+        
+    });
+
+</script>

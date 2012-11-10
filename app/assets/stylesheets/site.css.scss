@@ -47,9 +47,36 @@ body {
 	}
 }
 
+html, body {
+	height: 100%;
+}
+
+#wrap {
+	min-height: 100%;
+}
+
+#main {
+	overflow:auto;
+	padding-bottom: 74px;
+}  /* must be same height as the footer */
+
+#footer {} 
+
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;
+}
+
 .footer {
 	background: url("footer.png");
-	height: 74px; /* .push must be the same height as .footer */
+	position: relative;
+	margin-top: -74px; /* negative value of footer height */
+	height: 74px;
+	clear:both;
 	p {
 		text-align: center;
 		padding-top: 45px;
@@ -59,6 +86,17 @@ body {
 }
 
 .home-pics {
+	.carousel {
+		margin-top: 140px;
+	}
+	.crop-small {
+		cursor: pointer;
+	}
+
+	.hitem {
+		visibility: hidden;
+	}
+
 }
 
 .page {
@@ -93,6 +131,36 @@ body {
 			padding: 10px 20px;
 			.home-img {
 				margin-top: 10px;
+				.active-description {
+					position: absolute;
+					background-color: rgba(0, 0, 0, 0.4);
+					border-radius: 10px;
+					width: 153px;
+					height: 153px;
+					border: none;
+					border: 3px solid $gray;
+					border-radius: 10px;				
+					.text {
+						margin-top: 40%;
+						text-align: left;
+						margin-left: 10%;
+						margin-right: 10%;
+						.date {
+							color: #cecece;
+							font-size: smaller;
+							line-height: 7px;
+						}				
+						.beach {
+							color: white;
+							.divider {
+								margin-top: 10%;
+								border-bottom: 1px solid white;
+							}
+						}							
+					}
+				}
+			}
+			.crop-small {
 			}
 			.crop-small img{
 				/*width: 100%;*/
@@ -101,9 +169,6 @@ body {
 			}
 
 			.description {
-				.date {
-					font-size: smaller;
-				}
 			}
 			.big {
 				width: 100%;
@@ -919,4 +984,10 @@ body {
 }
 .micrologin {
 	margin-right: -11px;
+}
+
+
+
+.carousel {
+    padding-top: 1px;
 }
