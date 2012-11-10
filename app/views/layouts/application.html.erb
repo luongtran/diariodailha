@@ -124,31 +124,7 @@
                             </div>                        
 
                             <div class='container-fluid'>
-                                <div class='home-pics' id='home-pics'>
-                                    <div class="row-fluid album-row">
-                                        <% Photo.limit(5).order('id desc').each_with_index do |photo, index| %>
-                                            <% unless photo.album.nil? %>
-                                                <% if index == 4 %>
-                                                    <%= image_tag photo.image_url(:medium).to_s, :class => 'img-rounded big'%>
-                                                    <div class="description">
-                                                        <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
-                                                        <div class="beach"><%= photo.album.beach %></div>
-                                                    </div>                                                
-                                                <% else %>
-                                                    <div class="span3 home-img">
-                                                        <div class="crop-small">
-                                                            <%= image_tag photo.image_url(:crop_home).to_s, :class => 'img-rounded'%>
-                                                        </div>
-                                                        <div class="description hide">
-                                                            <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
-                                                            <div class="beach"><%= photo.album.beach %></div>
-                                                        </div>
-                                                    </div>
-                                                <% end %>
-                                            <% end %>
-                                        <% end %>
-                                    </div>
-                                </div>
+                                <%= render 'layouts/carousel' %>
                             </div>
                         </div>
                     </div>
@@ -200,10 +176,6 @@
         </div>        
     </div>
 
-    <div class="footer">
-        <p><%= link_to "TERMOS DE USO", site_terms_path %> | <b>Diario da Ilha</b> Rua xxxxx xxx xxx</p>
-    </div>
-
     <div id="modal_user_session_new"class="modal hide fade">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -228,6 +200,10 @@
         </div>
     </div>
 
+    <div class="footer hide">
+        <p><%= link_to "TERMOS DE USO", site_terms_path %> | <b>Diario da Ilha</b> Rua xxxxx xxx xxx</p>
+    </div>
+
 </body>
 
 <script type="text/javascript">
@@ -240,6 +216,7 @@
         };
 
         $(".footer").css("margin-top", biggest() -220 +   "px");
+        $(".footer").removeClass('hide');
     });
 </script>
 </html>
