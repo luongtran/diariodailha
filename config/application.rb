@@ -38,6 +38,7 @@ module Diariodailha
     config.encoding = "utf-8"
     I18n.locale = 'pt-BR'
     config.i18n.default_locale = :'pt-BR'
+    config.i18n.fallbacks = true
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 

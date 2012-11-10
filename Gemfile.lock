@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:rhdeandrade/ckeditor.git
+  revision: c191b528273e9a4c544d0f3bc4aa21ead1708581
+  specs:
+    ckeditor (3.7.3)
+      mime-types
+      orm_adapter
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -35,9 +43,6 @@ GEM
     carrierwave (0.7.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
-    ckeditor (3.7.1)
-      mime-types
-      orm_adapter
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -160,7 +165,7 @@ PLATFORMS
 DEPENDENCIES
   cancan
   carrierwave
-  ckeditor
+  ckeditor!
   coffee-rails (~> 3.2.1)
   devise
   execjs
