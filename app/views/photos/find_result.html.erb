@@ -30,7 +30,7 @@
 
     <% @break_row = 5 %>
     <% @opened = 0 %>
-    <div class="row-fluid album-row">
+    <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery" data-selector="div.crop-small">
         
         <% @photos.each_with_index do |photo, index| %>      
             <% if index + 1 == @break_row %>
@@ -41,14 +41,14 @@
             <% end %>                   
             <div class="span3">
                 <div class="thumbnail">
-                    <div class="crop">
+                    <div class="crop" data-href="<%= photo.image_url(:medium).to_s %>" title="<%= photo.album.beach %>" >
                         <%= image_tag photo.image_url(:thumb).to_s, :class => 'img-rounded'%>
                     </div>
                     <div class="description-buttons">
                         <a href="<%= sale_add_photo_path(photo.id) %>" class="btn btn-small btn-info buy" data-remote="true"> 
                             <i class="icon-shopping-cart"></i> 
                         </a>
-                        <a href="<%=  album_path(photo.album) %>" class="btn btn-small see">
+                        <a href="<%=  album_show_photos_path(photo.album) %>" class="btn btn-small see">
                             <i class="icon-eye-open"></i>
                         </a>
                     </div>
@@ -59,9 +59,19 @@
     <% if @opened == 1 %>                
         </div>
     <% end %>
-
 </div>
 
+<div id="modal-gallery" class="modal modal-gallery hide fade" tabindex="-1" style="width: 900px!important">
+    <div class="modal-dismiss" >
+        <a class="close" data-dismiss="modal">&times;</a>
+    </div> 
+    <div class="modal-body">
+        <div class="modal-image"></div>
+    </div>
+    <div class="modal-black-box">
+        <div class="modal-title"></div>
+    </div>
+</div>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -71,3 +81,6 @@ $(document).ready(function() {
     $('#body').addClass('full');        
 });
 </script>
+
+<script src="http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js"></script>
+<script src="https://raw.github.com/blueimp/Bootstrap-Image-Gallery/master/js/bootstrap-image-gallery.min.js"></script>
