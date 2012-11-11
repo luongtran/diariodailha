@@ -18,6 +18,20 @@
 .modal-gallery .modal-body {
   max-height: none;
 }
+
+.modal-gallery .modal-body  .modal-black-box {
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto;
+  height: 40px;
+  line-height: 35px;
+  text-align: center;
+  color: white;
+  border-top: solid 1px white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+} 
+
 .modal-gallery .modal-title {
   display: inline-block;
   max-height: 54px;
