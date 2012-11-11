@@ -79,18 +79,4 @@
 <script src="http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js"></script>
 <script src="https://raw.github.com/blueimp/Bootstrap-Image-Gallery/master/js/bootstrap-image-gallery.min.js"></script>
 
-<script type="text/javascript">
-    
-$('#modal-gallery').on('displayed', function () {
-    var modalData = $(this).data('modal');
-    $(".modal-black-box").width($('.modal-image').width());
-    $(".modal-title").width($('.modal-image').width());
-    var img = $('.modal-image').width();
-    var gal = $('.modal-gallery').width();
-    var margin = ((gal - img)/2) + img - 20;
-    $(".modal-dismiss").css('left', margin + "px");
-    // modalData.$links is the list of (filtered) element nodes as jQuery object
-    // modalData.img is the img (or canvas) element for the loaded image
-    // modalData.options.index is the index of the current link
-});
-</script>
+
