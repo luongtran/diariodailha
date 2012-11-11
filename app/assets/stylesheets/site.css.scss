@@ -681,7 +681,7 @@ body {
 		.banner-small {
 			max-height: 85px;
 		}
-		
+
 	}
 } 
 
@@ -965,4 +965,27 @@ body {
 
 .carousel {
     padding-top: 1px;
+}
+
+.modal-gallery {
+	background-color: rgba(0, 0, 0, 0);
+	width: 665px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border: none;
+	.modal-black-box {
+		background-color: black;
+		width: 521px;
+		margin-left: auto;
+		margin-right: auto;
+		height: 40px;
+		margin-top: -14px;
+		line-height: 35px;
+		text-align: center;
+		color: white;
+		border-top: solid 1px white;
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+	}	
 }

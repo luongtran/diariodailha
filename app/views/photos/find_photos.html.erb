@@ -21,42 +21,60 @@
         <h3 class='page-subsubtitle'>Útimos álbuns adicionados</h3>
         <% @break_page = 0 %>
         <% @opened = false %>
-        <div class="row-fluid album-row">
-            <% Album.limit(10).order('date desc').each do |album| %>
-                <% album.photos.each_with_index do |photo, index| %>
-                    <% if @break_page == 6 %>
+        <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery" data-selector="div.crop-small">
+            <div class="row-fluid album-row">
+                <% Album.limit(10).order('date desc').each do |album| %>
+                    <% album.photos.each_with_index do |photo, index| %>
+                        <% if @break_page == 6 %>
+                            </div>
+                            <div class="row-fluid album-row">
+                            <% @break_page = 1 %>
+                            <% @opened = true %>
+                        <% else %>
+                            <% @break_page = @break_page + 1 %>
+                        <% end %>
+                        <div class="span2">
+                            <div class="crop-small" data-href="<%= photo.image_url(:medium).to_s %>" title="<%= photo.album.beach %>" >
+                                <%= image_tag photo.image_url(:crop_small).to_s, :class => 'img-rounded' %>
+                            </div>
                         </div>
-                        <div class="row-fluid album-row">
-                        <% @break_page = 1 %>
-                        <% @opened = true %>
-                    <% else %>
-                        <% @break_page = @break_page + 1 %>                    
                     <% end %>
-                    <div class="span2">
-                        <div class="crop-small">
-                            <%= link_to (image_tag photo.image_url(:crop_small).to_s, :class => 'img-rounded'), album_show_photos_path(album) %>
-                        </div>
-                        
-                    </div>
                 <% end %>
-            <% end %>
+            </div>
         </div>
         <% if @opened  %>
             </div>
         <% end %>
     </div>
-
 </div>
-    <% end %>
+<% end %>
 
 
+
+<div id="modal-gallery" class="modal modal-gallery hide fade" tabindex="-1">
+    <div class="modal-dismiss" >
+        <a class="close" data-dismiss="modal">&times;</a>
+    </div> 
+    <div class="modal-body">
+        <div class="modal-image"></div>
+    </div>
+    <div class="modal-black-box">
+        <div class="modal-title"></div>
+    </div>
+</div>
 
     <script type="text/javascript">
     $(document).ready(function() {
         $('#container-right').hide();
         $('#content').removeClass('span9');
         // $('#content').addClass('full');
-        $('#body').addClass('full');        
+        $('#body').addClass('full');    
+
     });
+
     </script>    
 </div>
+
+<script src="http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js"></script>
+<script src="https://raw.github.com/blueimp/Bootstrap-Image-Gallery/master/js/bootstrap-image-gallery.min.js"></script>
+
