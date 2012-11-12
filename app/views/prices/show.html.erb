@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Valor:</b>
+  <%= @price.value %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @price.type %>
+</p>
+
+
+<%= link_to 'Editar', edit_price_path(@price) %> |
+<%= link_to 'Todos os preços', prices_path %>

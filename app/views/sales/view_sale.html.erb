@@ -1,0 +1,43 @@
+<div class="row-fluid">
+    <div class="span12">
+        <%= form_tag sale_finish_sale_path do %>
+            <% basket.each do |key, value| %>
+                <div class="span10">
+                    <div class="span2">
+                        <div class="thumbnail">
+                            <div class="crop">
+                                <%= image_tag Photo.find(key).image_url(:crop_small).to_s, :class => 'img-rounded' %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span2">
+                        <%= number_field_tag "digital" + key.to_s, 1, :in => 0...10 %>
+                        <%= label_tag "Digital" %>
+                    </div>
+                    <div class="span2">
+                        <%= number_field_tag "small" + key.to_s, 1, :in => 0...10 %>
+                        <%= label_tag "Fisica pequena" %>
+                    </div>
+                    <div class="span2">
+                        <%= number_field_tag "medium" + key.to_s, 1, :in => 0...10 %>
+                        <%= label_tag "Física média" %>
+                    </div>
+                    <div class="span2">
+                        <%= number_field_tag "big" + key.to_s, 1, :in => 0...10 %>
+                        <%= label_tag "Física grande" %>
+                    </div>
+                </div>
+            <% end %>
+            <%= submit_tag "Finalizar venda", :class => 'btn btn-finish-sale' %>
+        <% end %>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#container-right').hide();
+    $('#content').removeClass('span9');
+    // $('#content').addClass('full');
+    $('#body').addClass('full');        
+});
+</script>

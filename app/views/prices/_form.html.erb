@@ -1,0 +1,12 @@
+<%= simple_form_for(@price) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :value, as: :text %>
+    <%= f.input :type, as: :select, collection: ["digital", "física_pequena", "física_média", "física_grande"], include_blank: false %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :value => "Salvar" %>
+  </div>
+<% end %>
