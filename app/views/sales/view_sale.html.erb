@@ -1,5 +1,10 @@
 <div class="row-fluid">
     <div class="span12">
+        <p>Total R$<span id="total"></span></p>
+        <input type="hidden" id="digital" value="<%= Price.where(price_type: 'digital').first.value %>">
+        <input type="hidden" id="small" value="<%= Price.where(price_type: 'física_pequena').first.value %>">
+        <input type="hidden" id="medium" value="<%= Price.where(price_type: 'física_média').first.value %>">
+        <input type="hidden" id="big" value="<%= Price.where(price_type: 'física_grande').first.value %>">
         <%= form_tag sale_finish_sale_path do %>
             <% basket.each do |key, value| %>
                 <div class="span10">
@@ -28,7 +33,7 @@
                     </div>
                 </div>
             <% end %>
-            <%= submit_tag "Finalizar venda", :class => 'btn btn-finish-sale' %>
+            <%= submit_tag "Finalizar venda", :class => 'btn btn-primary btn-finish-sale' %>
         <% end %>
     </div>
 </div>
@@ -39,5 +44,52 @@ $(document).ready(function() {
     $('#content').removeClass('span9');
     // $('#content').addClass('full');
     $('#body').addClass('full');        
+
+    var digital = $("#digital").val();
+    var small = $("#small").val();
+    var medium = $("#medium").val();
+    var big = $("#big").val();
+
+
+    var calculateTotal = function() {
+        var total = 0;
+        $("[name^='digital']").each(function() {
+            total = total + (parseInt(this.value) * digital);
+        });
+        $("[name^='small']").each(function() {
+            total = total + (parseInt(this.value) * small);
+        });
+        $("[name^='medium']").each(function() {
+            total = total + (parseInt(this.value) * medium);
+        });
+        $("[name^='big']").each(function() {
+            total = total + (parseInt(this.value) * big);
+        });
+
+        $("#total").text(total);
+    }
+
+    $("[name^='digital']").each(function() {
+        $(this).change(function() {
+            calculateTotal();
+        });
+    });
+    $("[name^='small']").each(function() {
+        $(this).change(function() {
+            calculateTotal();
+        });
+    });
+    $("[name^='medium']").each(function() {
+        $(this).change(function() {
+            calculateTotal();
+        });
+    });
+    $("[name^='big']").each(function() {
+        $(this).change(function() {
+            calculateTotal();
+        });
+    });
+
+    calculateTotal();
 });
 </script>
