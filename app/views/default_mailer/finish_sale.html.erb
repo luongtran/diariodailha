@@ -2,6 +2,10 @@
 
 <p>Faça o depósito na conta: XXXXXXXX </p>
 
+<% total = 0 %>
 <% @sale.sale_items.each do |i| %>
+  <% total += i.price %>
   <p><%= image_tag i.photo.image_url(:medium).to_s %></p>
 <% end %>
+
+<h1>Total R$<%= total %> </h1>

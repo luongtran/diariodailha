@@ -8,11 +8,13 @@ class PhotographersController < ApplicationController
 
     @photographer.confirmed_at = Time.now
 
+    DefaultMailer.registration_aproved(@photographer).deliver
+
     respond_to do |format|
       if @photographer.save
-        format.html { redirect_to photographers_path, notice: "Cadastro confirmado com sucesso"}
+        format.html { redirect_to photographers_index_path, notice: "Cadastro confirmado com sucesso"}
       else
-        format.html { redirect_to photographers_path, notice: "Não foi possível confirmar cadastro"}
+        format.html { redirect_to photographers_index_path, notice: "Não foi possível confirmar cadastro"}
       end
     end
   end
@@ -25,7 +27,7 @@ class PhotographersController < ApplicationController
     @photographer.destroy
 
     respond_to do |format|  
-      format.html { redirect_to photographers_path, notice: "Fotógrafo excluido do cadstro"}
+      format.html { redirect_to photographers_index_path, notice: "Fotógrafo excluido do cadstro"}
     end
   end
 

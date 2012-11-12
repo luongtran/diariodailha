@@ -29,9 +29,13 @@ class DefaultMailer < ActionMailer::Base
   #
   #   en.default_mailer.alert_photographer.subject
   #
-  def alert_photographer
-    @greeting = "Hi"
+  def alert_photographer(photographer)
+    @photographer = photographer
 
-    mail to: "to@example.org"
+    mail to: photographer.email, subject: "Cadastro Efetuado"
+  end
+
+  def registration_aproved(photographer)
+    mail to: photographer.email, subject: "Cadastro Aprovado"
   end
 end

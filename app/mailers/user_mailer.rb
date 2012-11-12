@@ -8,4 +8,9 @@ class UserMailer < Devise::Mailer
     mail to: record.email, subject: "Cadastro no Diário da ilha"
   end
 
+  def reset_password_instructions(record)
+    @resource = record
+    mail to: record.email, subject: "Alterar senha"
+    
+  end
 end

@@ -107,66 +107,92 @@ class SalesController < ApplicationController
     end
 
     sale = Sale.new
-
+    sale.user = current_user
     basket.each do |key, value|
       
       digital = params["digital" + key.to_s]
       if digital.to_i > 0
         sale_item_digital = SaleItem.new
-        sale_item_digital.type = "Digital"
+        sale_item_digital.photo_type = "Digital"
         sale_item_digital.quantity = digital.to_i
         sale_item_digital.sale = sale
         sale_item_digital.photo = Photo.find(key)
         sale_item_digital.date = Time.now
+        price_digital = Price.where(price_type: "digital").first
+        if price_digital
+          sale_item_digital.price = price_digital.value * digital.to_i
+        else
+          sale_item_digital.price = digital.to_i
+        end
 
-        puts sale_item_digital
+        sale_item_digital.save
       end
 
       small = params["small" + key.to_s]
       if small.to_i > 0
         sale_item_small = SaleItem.new
-        sale_item_small.type = "Física Pequena"
+        sale_item_small.photo_type = "Física Pequena"
         sale_item_small.quantity = small.to_i
         sale_item_small.sale = sale
         sale_item_small.photo = Photo.find(key)
         sale_item_small.date = Time.now
 
-        puts sale_item_small
+        price_small = Price.where(price_type: "física_pequena").first
+        if price_small
+          sale_item_small.price = price_small.value * small.to_i
+        else
+          sale_item_small.price = small.to_i
+        end
+
+        sale_item_small.save
       end
 
       medium = params["medium" + key.to_s]
       if medium.to_i > 0
         sale_item_medium = SaleItem.new
-        sale_item_medium.type = "Física Média"
+        sale_item_medium.photo_type = "Física Média"
         sale_item_medium.quantity = medium.to_i
         sale_item_medium.sale = sale
         sale_item_medium.photo = Photo.find(key)
         sale_item_medium.date = Time.now
 
-        puts sale_item_medium
+        price_medium = Price.where(price_type: "física_média").first
+        if price_medium
+          sale_item_medium.price = price_medium.value * medium.to_i
+        else
+          sale_item_medium.price = medium.to_i
+        end
+
+        sale_item_medium.save
       end
 
       big = params["big" + key.to_s]
       if big.to_i > 0
         sale_item_big = SaleItem.new
-        sale_item_big.type = "Física Grande"
+        sale_item_big.photo_type = "Física Grande"
         sale_item_big.quantity = big.to_i
         sale_item_big.sale = sale
         sale_item_big.photo = Photo.find(key)
         sale_item_big.date = Time.now
-
-        puts sale_item_big
+        
+        price_big = Price.where(price_type: "física_grande").first
+        if price_big
+          sale_item_big.price = price_big.value * big.to_i
+        else
+          sale_item_big.price = big.to_i
+        end
+        
+        sale_item_big.save
       end
     end
 
     session[:basket] = nil
-    @sale.save
 
-    DefaultMailer.finish_sale(@sale).deliver
+    sale.save
+
+    DefaultMailer.finish_sale(sale).deliver
     flash[:notice] = "Venda finalizada com sucesso! Você receberá um email com informações sobre como proceder"
     redirect_to root_path
-    redirect_to sale_view_sale_path
-
 
   end
 

@@ -11,21 +11,16 @@ Diariodailha::Application.routes.draw do
   #resources :sale_items
 
   get "/photographers/:id/authorize" => "photographers#authorize", :as => "photographer_authorize"
-
   get "/photographers/:id/deny" => "photographers#deny", :as => "photographer_deny"
-
   get "/photographers/show_albums" => "photographers#show_albums", :as => "photographer_show_albums"
-
   match "photographers/index" => "photographers#index"
 
   resources :photo_lists
 
   resources :sales
 
-  get "/sales/:photo_id/add_photo" => "sales#add_photo", :as => "sale_add_photo"
- 
+  get "/sales/:photo_id/add_photo" => "sales#add_photo", :as => "sale_add_photo" 
   post "/sale/finish_sale" => "sales#finish_sale", :as => "sale_finish_sale"
- 
   get "/sale/view_sale" => "sales#view_sale", :as => "sale_view_sale"
 
   resources :contact_types
@@ -65,61 +60,4 @@ Diariodailha::Application.routes.draw do
   devise_for :photographers, :controllers => {:registrations => 'Photographers::Registrations', :sessions => 'Photographers::Sessions', :passwords => 'Photographers::Passwords', :confirmations => 'Photographers::Confirmations' }
 
   root :to => 'site#index'
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
 end

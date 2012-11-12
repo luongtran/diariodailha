@@ -12,7 +12,7 @@
 <% @prices.each do |price| %>
   <tr>
     <td><%= price.value %></td>
-    <td><%= price.type %></td>
+    <td><%= price.price_type %></td>
     <td><%= link_to 'Ver', price %></td>
     <td><%= link_to 'Editar', edit_price_path(price) %></td>
     <td><%= link_to 'Apagar', price, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
