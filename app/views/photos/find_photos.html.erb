@@ -4,8 +4,15 @@
             <h1 class="page-title">Busca fotos</h1>
         </div>   
         <div class="span6">            
-            <p id="basket_items" class='img-header'><%= basket.count + " items no carrinho" unless basket == nil %><%= image_tag("cart_amount_button.png", :alt => "Carrinho de compras") %></p>
-            <%= link_to "Finalizar compra", sale_finish_sale_path, :class => "btn btn-small" %>
+            <p id="basket_items" class='img-header'>
+                <span><%= basket.count.to_s + " items no carrinho" unless basket == nil %></span>
+            </p>
+        </div>
+
+        <div class="span12">
+            <div style="text-align: right; margin-right: 20px; margin-bottom: 7px">
+                <%= link_to "Finalizar venda", sale_view_sale_path, class: "btn btn-finish-sale" %>
+            </div>
         </div>
     </div> 
 
@@ -18,6 +25,12 @@
 
 
       <div>
+
+        <% if flash[:notice] %>
+            <div class="alert alert-notice">
+                <%= flash[:notice]%>
+            </div>
+        <% end %>
         <h3 class='page-subsubtitle'>Útimos álbuns adicionados</h3>
         <% @break_page = 0 %>
         <% @opened = false %>

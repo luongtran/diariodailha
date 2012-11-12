@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end  
 
   def add_to_basket(photo_id)
-    session[:basket] << photo_id
+    session[:basket][photo_id] = "added"
   end
   
   rescue_from CanCan::AccessDenied do |exception|

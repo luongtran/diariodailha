@@ -1,5 +1,7 @@
 Diariodailha::Application.routes.draw do
 
+  resources :prices
+
   resources :banners
 
   resources :messages do 
@@ -21,7 +23,10 @@ Diariodailha::Application.routes.draw do
   resources :sales
 
   get "/sales/:photo_id/add_photo" => "sales#add_photo", :as => "sale_add_photo"
-  get "/sale/finish_sale" => "sales#finish_sale", :as => "sale_finish_sale"
+ 
+  post "/sale/finish_sale" => "sales#finish_sale", :as => "sale_finish_sale"
+ 
+  get "/sale/view_sale" => "sales#view_sale", :as => "sale_view_sale"
 
   resources :contact_types
 

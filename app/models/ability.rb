@@ -13,6 +13,7 @@ class Ability
         can :manage, :all
       else
         can :create, Contact
+        can :read, :all
       end
     end
   end

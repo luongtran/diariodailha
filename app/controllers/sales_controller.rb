@@ -85,10 +85,9 @@ class SalesController < ApplicationController
   end
 
   def add_photo
-
     if (user_signed_in?)
       if (session[:basket] == nil)
-        session[:basket] = []
+        session[:basket] = {}
       end
 
       add_to_basket(params[:photo_id])
@@ -101,29 +100,82 @@ class SalesController < ApplicationController
 
   def finish_sale
 
-    if (session[:basket] != nil)
-      @sale = Sale.new
-      @sale.date = Time.now
-      @sale.user = current_user
-      
-      session[:basket].each do |b|
-        sale_item = SaleItem.new
-        sale_item.sale = @sale
-        sale_item.photo = Photo.find(b)
-        sale_item.date = Time.now
-
-        sale_item.save
+    if basket
+      if basket.empty?
+        redirect_to find_photos_path, flash[:notice] = "Carrinho de compras vazio!"
       end
-
-      session[:basket] = nil
-      @sale.save
-
-      DefaultMailer.finish_sale(@sale).deliver
-      flash[:notice] = "Venda finalizada com sucesso! Você receberá um email com informações sobre como proceder"
-      redirect_to root_path
-    else
-      redirect_to find_photos_path, :notice => "Venda Finalizada"
     end
 
+    sale = Sale.new
+
+    basket.each do |key, value|
+      
+      digital = params["digital" + key.to_s]
+      if digital.to_i > 0
+        sale_item_digital = SaleItem.new
+        sale_item_digital.type = "Digital"
+        sale_item_digital.quantity = digital.to_i
+        sale_item_digital.sale = sale
+        sale_item_digital.photo = Photo.find(key)
+        sale_item_digital.date = Time.now
+
+        puts sale_item_digital
+      end
+
+      small = params["small" + key.to_s]
+      if small.to_i > 0
+        sale_item_small = SaleItem.new
+        sale_item_small.type = "Física Pequena"
+        sale_item_small.quantity = small.to_i
+        sale_item_small.sale = sale
+        sale_item_small.photo = Photo.find(key)
+        sale_item_small.date = Time.now
+
+        puts sale_item_small
+      end
+
+      medium = params["medium" + key.to_s]
+      if medium.to_i > 0
+        sale_item_medium = SaleItem.new
+        sale_item_medium.type = "Física Média"
+        sale_item_medium.quantity = medium.to_i
+        sale_item_medium.sale = sale
+        sale_item_medium.photo = Photo.find(key)
+        sale_item_medium.date = Time.now
+
+        puts sale_item_medium
+      end
+
+      big = params["big" + key.to_s]
+      if big.to_i > 0
+        sale_item_big = SaleItem.new
+        sale_item_big.type = "Física Grande"
+        sale_item_big.quantity = big.to_i
+        sale_item_big.sale = sale
+        sale_item_big.photo = Photo.find(key)
+        sale_item_big.date = Time.now
+
+        puts sale_item_big
+      end
+    end
+
+    session[:basket] = nil
+    @sale.save
+
+    DefaultMailer.finish_sale(@sale).deliver
+    flash[:notice] = "Venda finalizada com sucesso! Você receberá um email com informações sobre como proceder"
+    redirect_to root_path
+    redirect_to sale_view_sale_path
+
+
+  end
+
+  def view_sale
+    if basket
+      if basket.empty?
+        redirect_to find_photos_path, flash[:notice] = "Carrinho de compras vazio!"
+        return
+      end
+    end
   end
 end

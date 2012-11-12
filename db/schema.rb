@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121109014808) do
+ActiveRecord::Schema.define(:version => 20121112125640) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -84,6 +84,13 @@ ActiveRecord::Schema.define(:version => 20121109014808) do
     t.boolean  "contrast"
   end
 
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "photographers", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -123,12 +130,22 @@ ActiveRecord::Schema.define(:version => 20121109014808) do
 
   add_index "photos", ["album_id"], :name => "index_photos_on_album_id"
 
+  create_table "prices", :force => true do |t|
+    t.float    "value"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "sale_items", :force => true do |t|
     t.datetime "date"
     t.integer  "sale_id"
     t.integer  "photo_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "quantity"
+    t.string   "type"
+    t.float    "price"
   end
 
   add_index "sale_items", ["photo_id"], :name => "index_sale_items_on_photo_id"

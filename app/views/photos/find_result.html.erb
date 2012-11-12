@@ -6,11 +6,14 @@
         </div>   
         <div class="span6">            
             <p id="basket_items" class='img-header'>
-                <span> <%= basket.count unless basket == nil %> item no carrinho</span>
+                <span> <%= basket.length unless basket == nil %> item no carrinho</span>
             </p>
         </div>
-         
-                <%= link_to "Finalizar venda", sale_finish_sale_path %>
+        <div class="span12">
+            <div style="text-align: right; margin-right: 20px; margin-bottom: 7px">
+                <%= link_to "Finalizar venda", sale_view_sale_path, class: "btn btn-finish-sale" %>
+            </div>
+        </div>  
     </div> 
 
 
@@ -23,7 +26,7 @@
     <% end %>
 
     <div class="results">
-        <span class="emph">Sua Busca</span> retornou <%= @photos.size %> resultados!
+        <span class="emph">Sua Busca</span> retornou <%= @photos.size unless @photos == nil %> resultados!
     </div>
     <hr />
 

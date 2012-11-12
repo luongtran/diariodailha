@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def add_to_basket(photo_id)
-    session[:basket] << photo_id
+    session[:basket][photo_id] = "added"
   end
   
 end
