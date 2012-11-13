@@ -45,6 +45,7 @@ class MessagesController < ApplicationController
   def create
     authorize! :manage, :all
     @message = Message.new(params[:message])
+    @message.contrast = false
 
     respond_to do |format|
       if @message.save
