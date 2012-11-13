@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :name, :label => false, :placeholder => "Nome: " %>
-    <%= f.input :position, :label => false, :as => :select, :include_blank => false, :collection => ['top-banner', 'med-banner', 'side-1', 'side-2', 'side-3', 'side-4', 'side-5'] %>
+    <%= f.input :position, :label => false, :as => :select, :include_blank => false, :collection => ['topo', 'meio', 'menor-1', 'menor-2', 'menor-3', 'quadrado', 'maior'] %>
     <%= f.input :link, :label => false, :placeholder => "Link" %>
     <%= f.file_field :file %>
   </div>
