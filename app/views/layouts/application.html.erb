@@ -150,7 +150,7 @@
                                 <% end  %>
                             </div>
                             <div class='row banner-small' id='rightbanner-02'> 
-                                <% banner_2 = Banner.where(:position => "side-1").first %>
+                                <% banner_2 = Banner.where(:position => "side-2").first %>
                                 <%  if banner_2 != nil %>
                                     <% if banner_2.file_url.include? ".swf" %>
                                         <embed width="100%" height="100%" name="plugin" src="<%= banner_2.file_url %>" type="application/x-shockwave-flash">
@@ -166,7 +166,7 @@
                                 <% end  %>
                             </div>
                             <div class='row banner-small' id='rightbanner-03'> 
-                                <% banner_3 = Banner.where(:position => "side-1").first %>
+                                <% banner_3 = Banner.where(:position => "side-3").first %>
                                 <%  if banner_3 != nil %>
                                     <% if banner_3.file_url.include? ".swf" %>
                                         <embed width="100%" height="100%" name="plugin" src="<%= banner_3.file_url %>" type="application/x-shockwave-flash">
@@ -182,7 +182,7 @@
                                 <% end  %>
                             </div>
                             <div class='row banner-medium' id='rightbanner-04'> 
-                                <% banner_4 = Banner.where(:position => "side-1").first %>
+                                <% banner_4 = Banner.where(:position => "side-4").first %>
                                 <%  if banner_4 != nil %>
                                     <% if banner_4.file_url.include? ".swf" %>
                                         <embed width="100%" height="100%" name="plugin" src="<%= banner_4.file_url %>" type="application/x-shockwave-flash">
@@ -198,7 +198,7 @@
                                 <% end  %>
                             </div>
                             <div class='row banner-large' id='rightbanner-05'> 
-                                <% banner_5 = Banner.where(:position => "side-1").first %>
+                                <% banner_5 = Banner.where(:position => "side-5").first %>
                                 <%  if banner_5 != nil %>
                                     <% if banner_5.file_url.include? ".swf" %>
                                         <embed width="100%" height="100%" name="plugin" src="<%= banner_5.file_url %>" type="application/x-shockwave-flash">
