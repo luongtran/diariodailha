@@ -133,20 +133,85 @@
                         </div>
                     </div>
                     <div id='container-right' class='span3 container-right'>
-                        <div class='row banner-small' id='rightbanner-01'> 
-                                <p><%= image_tag("banner01.png", :alt => "banner 1") %></p>
+                            <div class='row banner-small' id='rightbanner-01'> 
+                                <% banner_1 = Banner.where(:position => "side-1").first %>
+                                <%  if banner_1 != nil %>
+                                    <% if banner_1.file_url.include? ".swf" %>
+                                        <embed width="100%" height="100%" name="plugin" src="<%= banner_1.file_url %>" type="application/x-shockwave-flash">
+                                    <% else %>
+                                        <% if banner_1.link.empty? %>
+                                            <%= image_tag banner_1.file_url %>
+                                        <% else %>
+                                            <a href="<%= banner_1.link %>" targe="_blank"><%= image_tag banner_1.file_url %></a>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    Anuncie Aqui
+                                <% end  %>
                             </div>
                             <div class='row banner-small' id='rightbanner-02'> 
-                               <p> <%= image_tag("banner02.png", :alt => "banner 2") %></p>
+                                <% banner_2 = Banner.where(:position => "side-1").first %>
+                                <%  if banner_2 != nil %>
+                                    <% if banner_2.file_url.include? ".swf" %>
+                                        <embed width="100%" height="100%" name="plugin" src="<%= banner_2.file_url %>" type="application/x-shockwave-flash">
+                                    <% else %>
+                                        <% if banner_2.link.empty? %>
+                                            <%= image_tag banner_2.file_url %>
+                                        <% else %>
+                                            <a href="<%= banner_2.link %>" targe="_blank"><%= image_tag banner_2.file_url %></a>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    Anuncie Aqui
+                                <% end  %>
                             </div>
                             <div class='row banner-small' id='rightbanner-03'> 
-                                <p><%= image_tag("banner03.png", :alt => "banner 3") %></p>
+                                <% banner_3 = Banner.where(:position => "side-1").first %>
+                                <%  if banner_3 != nil %>
+                                    <% if banner_3.file_url.include? ".swf" %>
+                                        <embed width="100%" height="100%" name="plugin" src="<%= banner_3.file_url %>" type="application/x-shockwave-flash">
+                                    <% else %>
+                                        <% if banner_3.link.empty? %>
+                                            <%= image_tag banner_3.file_url %>
+                                        <% else %>
+                                            <a href="<%= banner_3.link %>" targe="_blank"><%= image_tag banner_3.file_url %></a>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    Anuncie Aqui
+                                <% end  %>
                             </div>
                             <div class='row banner-medium' id='rightbanner-04'> 
-                                <p><%= image_tag("banner04.png", :alt => "banner 4") %></p>
+                                <% banner_4 = Banner.where(:position => "side-1").first %>
+                                <%  if banner_4 != nil %>
+                                    <% if banner_4.file_url.include? ".swf" %>
+                                        <embed width="100%" height="100%" name="plugin" src="<%= banner_4.file_url %>" type="application/x-shockwave-flash">
+                                    <% else %>
+                                        <% if banner_4.link.empty? %>
+                                            <%= image_tag banner_4.file_url %>
+                                        <% else %>
+                                            <a href="<%= banner_4.link %>" targe="_blank"><%= image_tag banner_4.file_url %></a>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    Anuncie Aqui
+                                <% end  %>
                             </div>
                             <div class='row banner-large' id='rightbanner-05'> 
-                                <p><%= image_tag("banner05.png", :alt => "banner 5") %></p>
+                                <% banner_5 = Banner.where(:position => "side-1").first %>
+                                <%  if banner_5 != nil %>
+                                    <% if banner_5.file_url.include? ".swf" %>
+                                        <embed width="100%" height="100%" name="plugin" src="<%= banner_5.file_url %>" type="application/x-shockwave-flash">
+                                    <% else %>
+                                        <% if banner_5.link.empty? %>
+                                            <%= image_tag banner_5.file_url %>
+                                        <% else %>
+                                            <a href="<%= banner_5.link %>" targe="_blank"><%= image_tag banner_5.file_url %></a>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    Anuncie Aqui
+                                <% end  %>
                             </div>
                             <% if user_signed_in? %>
                                 <div class='row banner-large' id='rightbanner-05'> 
