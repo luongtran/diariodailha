@@ -47,10 +47,14 @@ class PhotosController < ApplicationController
   end
 
   def find_result
-    puts params
     @photos = []
-    if !params[:find_by_keyword].empty?
-      @photos = Photo.where("lower(name) like lower('%#{params[:find_by_keyword]}%')")
+
+    if !params[:album_id].empty?
+      @photos = Album.find(params[:album_id]).photos
+    elsif !params[:find_by_keyword].empty?
+      Album.where("lower(beach) like lower('%#{params[:find_by_keyword]}%')").each do |a|
+        @photos.concat a.photos
+      end
     elsif !params[:find_by_date].empty?
       date_str = params[:find_by_date].gsub('/', '_')
       @photos = Photo.where("lower(name) like lower('%#{date_str}%')")
