@@ -1,40 +1,107 @@
-<div class="row-fluid">
-    <div class="span12">
-        <p>Total R$<span id="total"></span></p>
-        <input type="hidden" id="digital" value="<%= Price.where(price_type: 'digital').first.value %>">
-        <input type="hidden" id="small" value="<%= Price.where(price_type: 'física_pequena').first.value %>">
-        <input type="hidden" id="medium" value="<%= Price.where(price_type: 'física_média').first.value %>">
-        <input type="hidden" id="big" value="<%= Price.where(price_type: 'física_grande').first.value %>">
-        <%= form_tag sale_finish_sale_path do %>
-            <% basket.each do |key, value| %>
-                <div class="span10">
-                    <div class="span2">
-                        <div class="thumbnail">
+<div class="cart">
+    <h1 class="page-title">Carrinho de Compras</h1>
+
+    <p>Selecione o tamanho, quantidade de cada imagem e clique em finalizar o pedido</p>
+
+    <hr class='bigstroke'/>
+
+    <input type="hidden" id="digital" value="<%= Price.where(price_type: 'digital').first.value %>">
+    <input type="hidden" id="small" value="<%= Price.where(price_type: 'física_pequena').first.value %>">
+    <input type="hidden" id="medium" value="<%= Price.where(price_type: 'física_média').first.value %>">
+    <input type="hidden" id="big" value="<%= Price.where(price_type: 'física_grande').first.value %>">
+    <% unless basket.nil? %>
+    <table class="table table-striped">
+        <tbody>
+            <%= form_tag sale_finish_sale_path do %>
+                <% basket.each do |key, value| %>
+                    <tr class="basket-row">
+                        <td class="image-crop">
                             <div class="crop">
                                 <%= image_tag Photo.find(key).image_url(:crop_small).to_s, :class => 'img-rounded' %>
                             </div>
-                        </div>
-                    </div>
-                    <div class="span2">
-                        <%= number_field_tag "digital" + key.to_s, 1, :in => 0...10 %>
-                        <%= label_tag "Digital" %>
-                    </div>
-                    <div class="span2">
-                        <%= number_field_tag "small" + key.to_s, 1, :in => 0...10 %>
-                        <%= label_tag "Fisica pequena" %>
-                    </div>
-                    <div class="span2">
-                        <%= number_field_tag "medium" + key.to_s, 1, :in => 0...10 %>
-                        <%= label_tag "Física média" %>
-                    </div>
-                    <div class="span2">
-                        <%= number_field_tag "big" + key.to_s, 1, :in => 0...10 %>
-                        <%= label_tag "Física grande" %>
-                    </div>
-                </div>
-            <% end %>
-            <%= submit_tag "Finalizar venda", :class => 'btn btn-primary btn-finish-sale' %>
-        <% end %>
+                        </td>
+                        <td class="span2">
+                            <div class="row-fluid">    
+                                <div class="span6">                                    
+                                    <%= number_field_tag "digital" + key.to_s, 1, :in => 0...10, :class => 'leform' %>
+                                </div>
+                                <div class="span6">
+                                    <div class="size">                                        
+                                        D (300x300)
+                                    </div>
+                                    <div class="price">                                        
+                                        R$ <%= Price.where(price_type: 'digital').first.value %>
+                                    </div>
+                                </div> 
+                            </div>
+                        </td>
+                        <td class="span2">
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    <%= number_field_tag "small" + key.to_s, 1, :in => 0...10, :class => 'leform' %>
+                                </div>
+                                <div class="span6">
+                                    <div class="size">                                        
+                                        P (300x300)
+                                    </div>
+                                    <div class="price">                                        
+                                        R$ <%= Price.where(price_type: 'física_pequena').first.value %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="span2">
+                            <div class="row-fluid">
+                                <div class="span6">                                    
+                                    <%= number_field_tag "medium" + key.to_s, 1, :in => 0...10, :class => 'leform' %>
+                                </div>
+                                <div class="span6">
+                                    <div class="size">                                        
+                                        M (300x300)
+                                    </div>
+                                    <div class="price">                                        
+                                        R$ <%= Price.where(price_type: 'física_média').first.value %>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="span2">                            
+                            <div class="row-fluid">
+                                <div class="span6 numberinput">
+                                    <%= number_field_tag "big" + key.to_s, 1, :in => 0...10, :class => 'leform' %>
+                                </div>
+                                <div class="span6">
+                                    <div class="textinput">                                    
+                                        <div class="size">                                        
+                                            G (300x300)
+                                        </div>
+                                        <div class="price">                                        
+                                            R$ <%= Price.where(price_type: 'física_grande').first.value %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="span2">
+                            <p class='delete'>
+                                <%= image_tag 'delete.png', :alt => "Excluir" %>
+                            </p>
+                        </td>
+                    </tr>
+                <% end %>
+            <% end %>            
+        </tbody>
+    </table>
+    <% end %>
+    <div class="finish right">
+        <h2 class="total"> R$<span id="total"></span> Total </h1>
+        <div class="row-fluid">            
+
+            <p class="desc">
+                Ao clicar em finalizar pedido, você receberá as informações no email de como prosseguir a compra                
+                <%= submit_tag "FINALIZAR PEDIDO", :class => 'btn btn-info btn-finish-sale large' %>
+            </p>
+        </div>
     </div>
 </div>
 

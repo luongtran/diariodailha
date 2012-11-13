@@ -1,0 +1,34 @@
+<h1 class="page-title">Carrinho de Compras</h1>
+
+<p> Selecione o tamanho e quantidade de cada imagem e clique em finalizar pedido </p>
+
+<hr/>
+
+<% @basket.each do |item| %>
+
+<div class="cart-row row-fluid">
+	<div class="span2">		
+		<div class="cover">
+			<img class="img-rounded" src="<%= Photo.find(item).image_url(:cover) %>" alt="item">
+		</div>
+	</div>
+	<div class="span2">
+		<div class="small">
+			<div class="row-fluid">
+				<div class="amount"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#container-right').hide();
+    $('#content').removeClass('span9');
+    // $('#content').addClass('full');
+    $('#body').addClass('full');    
+
+});
+</script>   

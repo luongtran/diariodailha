@@ -991,5 +991,83 @@ body {
 		overflow-x: hidden;
 
 	}
+}
 
+hr {
+	border:0;
+	border-top: 2px solid $lightgray;
+	height: 0;
+}
+
+.cart {
+	.basket-row {
+		padding-bottom: 15px;
+		line-height: 100px;
+	}
+	.table {
+		td {
+			line-height: 100px;
+			.numberinput {
+				line-height: 100px;
+			}
+			.textinput {
+			}
+			p {
+				vertical-align: text-top;
+			}
+			div.size {
+				font-size: 10px;
+				line-height: 35px;
+				vertical-align: bottom;
+			}
+			div.price {
+				font-size: 10px;
+				line-height: 10px;
+			}
+			input {
+				width: 30px!important;
+				text-align: center;
+				border-radius: 10px;
+			}
+
+			.delete {
+				line-height: 100px;
+			}
+		}
+
+		td.image-crop {
+			width: 15%;
+		}
+	}
+	.finish {
+		width: 100%;
+		text-align: right;
+		.desc {
+			width: 100%;
+			text-align: right;
+		}
+		.large {
+			line-height: 40px;
+			min-height: 45px;
+			min-width: 145px;
+			font-weight: bolder;
+			border: none;
+			font-family: "Trebuchet MS", trebuc, sans-serif;
+		}
+		.buttons {}
+	}
+	.total {
+		color: $gray;
+	}
+	.crop {
+		width: 100px;
+		height: 100px;
+	}
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
