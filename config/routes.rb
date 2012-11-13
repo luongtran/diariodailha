@@ -1,5 +1,7 @@
 Diariodailha::Application.routes.draw do
 
+  resources :marquees
+
   resources :prices
 
   resources :banners

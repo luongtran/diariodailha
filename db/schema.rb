@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112125640) do
+ActiveRecord::Schema.define(:version => 20121113143136) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -76,6 +76,12 @@ ActiveRecord::Schema.define(:version => 20121112125640) do
     t.text     "body"
   end
 
+  create_table "marquees", :force => true do |t|
+    t.string   "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "messages", :force => true do |t|
     t.string   "title"
     t.text     "body"
@@ -125,7 +131,7 @@ ActiveRecord::Schema.define(:version => 20121112125640) do
 
   create_table "prices", :force => true do |t|
     t.float    "value"
-    t.string   "type"
+    t.string   "price_type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -137,7 +143,7 @@ ActiveRecord::Schema.define(:version => 20121112125640) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "quantity"
-    t.string   "type"
+    t.string   "photo_type"
     t.float    "price"
   end
 
