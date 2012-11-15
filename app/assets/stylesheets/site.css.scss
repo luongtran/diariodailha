@@ -2,7 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+a:hover {
+	background: transparent;
+	color: black;
+}
 @font-face {
 	font-family: bebas;
 	src: url('bebas.otf'), url('bebas.ttf');
@@ -88,9 +91,9 @@ body {
 			margin-top: 18px;
 			.banner {
 				text-align: center;
-				height: 90px;
-				line-height: 90px;
-				background: $lightblue;
+				height: 97px;
+				line-height: 93px;
+				background: white;
 				-webkit-border-radius: $borderradius;
 				-moz-border-radius: $borderradius;
 				border-radius: $borderradius;
