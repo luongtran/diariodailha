@@ -88,7 +88,11 @@
             <div id='top-info' class='row-fluid hidden'>
                 <div class='span12'>
                     <div class='top-info btn-large' id='top-info'>
-                        <%= Marquee.first.text %>
+                        <% unless Marquee.first.nil? %> 
+                            <marquee behavior="scroll" direction="left">
+                                <%= Marquee.first.text %>
+                            </marquee>
+                        <% end %>
                     </div>
                 </div>
             </div>

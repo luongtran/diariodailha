@@ -4,7 +4,11 @@
 
       <li><%= link_to "Editar conteúdo das páginas", contents_path %></li>
 
-      <li><%= link_to "Editar manchete", edit_marquee_path(Marquee.first) %></li>
+      <% if Marquee.first.nil? %>
+        <li><%= link_to "Criar manchete", new_marquee_path  %></li>
+      <% else %>
+        <li><%= link_to "Editar manchete", edit_marquee_path(Marquee.first) %></li>
+      <% end %>
 
       <li><%= link_to "Cadastrar Banners", banners_path %></li>
       

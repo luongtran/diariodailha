@@ -143,7 +143,7 @@ ActiveRecord::Schema.define(:version => 20121113143136) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "quantity"
-    t.string   "photo_type"
+    t.string   "type"
     t.float    "price"
   end
 
