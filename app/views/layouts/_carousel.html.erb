@@ -1,4 +1,7 @@
 <div class='home-pics' id='home-pics'>
+    <span class="button left-button"></span>
+    <span class="button right-button"></span>
+
     <div class="row-fluid album-row">
         <% Album.limit(4).order('id desc').each_with_index do |album, aindex| %>
             <div class="span3 home-img">
@@ -93,6 +96,12 @@
                 });
             }
         });
+        $(".left-button").click(function() {
+            $(".carousel").carousel('prev');
+        })
+        $(".right-button").click(function() {
+            $(".carousel").carousel('next');
+        })
         
     });
 
