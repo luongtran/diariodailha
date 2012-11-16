@@ -5,14 +5,14 @@
         </div>   
         <div class="span6">            
             <p id="basket_items" class='img-header'>
-                <span><%= basket.count.to_s + " items no carrinho" unless basket == nil %></span>
+                <span>
+                    <% if basket.nil? %>
+                        <%= link_to "0 itens no carrinho", sale_view_sale_path, class: "btn-finish-sale" %>
+                    <% else %>
+                        <%= (basket.count.to_s || 0) + " items no carrinho" unless basket == nil %>
+                    <% end %>
+                </span>
             </p>
-        </div>
-
-        <div class="span12">
-            <div style="text-align: right; margin-right: 20px; margin-bottom: 7px">
-                <%= link_to "Vizualizar Carrinho", sale_view_sale_path, class: "btn btn-primary btn-finish-sale" %>
-            </div>
         </div>
     </div> 
 
@@ -47,8 +47,15 @@
                             <% @break_page = @break_page + 1 %>
                         <% end %>
                         <div class="span2">
-                            <div class="crop-small">
-                                <%= form_tag find_result_path do %>
+                            <%= form_tag find_result_path do %>
+                                <div class="crop-small hover-effect">
+                                    <div class="lupe hide">
+                                        <%= image_submit_tag 'search_tag.png', :class => 'lupe-icon' %>
+                                        <div class="text">
+                                            <div class="date"><%= album.date.strftime('%d/%m/%Y') %></div>
+                                            <div class="beach"><%= album.beach %><div class="divider"></div></div>
+                                        </div>
+                                    </div>
                                     <%= hidden_field_tag 'album_id', album.id %>
                                     <%= image_submit_tag album.photos.first.image_url(:crop_small).to_s, :class => 'img-rounded' %>
                                 <% end %>
@@ -110,4 +117,14 @@ $('#modal-gallery').on('displayed', function () {
     // modalData.img is the img (or canvas) element for the loaded image
     // modalData.options.index is the index of the current link
 });
+
+$(document).ready(function() {
+    $(".hover-effect").mouseenter(function(){
+        $(this).children(".lupe").removeClass('hide');
+    });
+
+    $(".hover-effect").mouseleave(function(){
+        $(this).children(".lupe").addClass('hide');
+    });
+})
 </script>
