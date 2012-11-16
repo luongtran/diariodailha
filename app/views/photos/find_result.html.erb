@@ -33,7 +33,7 @@
 
     <% @break_row = 5 %>
     <% @opened = 0 %>
-    <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery" data-selector="div.crop">
+    <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery" data-selector="div.fake-basket-photo">
         <div class="row-fluid album-row">        
             <% @photos.each_with_index do |photo, index| %>      
                 <% if index + 1 == @break_row %>
@@ -43,18 +43,31 @@
                     <div class="row-fluid album-row">
                 <% end %>                   
                 <div class="span3">
-                    <div class="thumbnail">
-                        <div class="crop" data-href="<%= photo.image_url(:medium).to_s %>" title="<%= photo.album.beach %>">
-                            <%= image_tag photo.image_url(:thumb).to_s, :class => 'img-rounded'%>
+                    <a href="<%= sale_add_photo_path(photo.id) %>" class='icon hide' data-remote="true">
+                        <%= image_tag 'photo_tag.png', :class => 'basket-icon' %>
+                    </a> 
+                    <div class="fake-basket-photo" data-href="<%= photo.image_url(:medium).to_s %>" title="<%= photo.album.beach %>">
+                        <div class="basket-photo hide" >
+                            <div class="text">
+                                <div class="date"><%= photo.album.date.strftime('%d/%m/%Y') %></div>
+                                <div class="beach"><%= photo.album.beach %></div>
+                                <div class="peak"><%= photo.album.peak %>
+                                    <div class="divider"></div>
+                                </div>
+                                <div class="date">Fotógrafo - <%= photo.album.photographer.name %></div>
+                            </div>
                         </div>
-                        <div class="description-buttons">
-                            <a href="<%= sale_add_photo_path(photo.id) %>" class="btn btn-small btn-info buy" data-remote="true"> 
-                                <i class="icon-shopping-cart"></i> 
-                            </a>
-                            <a href="<%=  album_path(photo.album) %>" class="btn btn-small see">
-                                <i class="icon-eye-open"></i>
-                            </a>
-                        </div>
+                    </div>
+                    <div class="crop" >
+                        <%= image_tag photo.image_url(:thumb).to_s, :class => 'img-rounded'%>
+                    </div>
+                    <div class="description-buttons">
+                        <a href="<%= sale_add_photo_path(photo.id) %>" class="btn btn-small btn-info buy" data-remote="true"> 
+                            <i class="icon-shopping-cart"></i> 
+                        </a>
+                        <a href="<%=  album_path(photo.album) %>" class="btn btn-small see">
+                            <i class="icon-eye-open"></i>
+                        </a>
                     </div>
                 </div>
             <% end %>
@@ -105,4 +118,23 @@ $('#modal-gallery').on('displayed', function () {
     // modalData.img is the img (or canvas) element for the loaded image
     // modalData.options.index is the index of the current link
 });
+
+$(document).ready(function() {
+    $(".fake-basket-photo").mouseenter(function(){
+        $(this).children('.basket-photo').removeClass('hide');
+        $(this).parent().children('.icon').removeClass('hide');
+    });
+    $(".fake-basket-photo").mouseleave(function(){
+        $(this).children('.basket-photo').addClass('hide');
+        $(this).parent().children('.icon').addClass('hide');
+    });
+    $(".icon").mouseenter(function(){
+        $(this).removeClass('hide');
+        $(this).parent().children('.fake-basket-photo').children('.basket-photo').removeClass('hide');
+    });
+    $(".icon").mouseleave(function(){
+        $(this).addClass('hide');
+        $(this).parent().children('.fake-basket-photo').children('.basket-photo').addClass('hide');
+    });
+})
 </script>

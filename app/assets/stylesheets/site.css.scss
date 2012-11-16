@@ -1131,3 +1131,56 @@ input::-webkit-inner-spin-button {
 		}							
 	}
 }
+
+.fake-basket-photo {	
+	width: 194px;
+	height: 145px;
+	position: absolute;
+	border-radius: 5px;				
+}
+.basket-photo {
+	background-color: rgba(0, 0, 0, 0.4);
+	border: 3px solid $gray;
+	width: 194px;
+	height: 145px;
+	border-radius: 5px;	
+
+	.text {
+		margin-top: 20%;
+		text-align: left;
+		margin-left: 10%;
+		margin-right: 10%;
+		.date {
+			color: #cecece;
+			font-size: smaller;
+			line-height: 7px;
+		}	
+		.date {
+			color: #cecece;
+			font-size: small;
+			line-height: 7px;
+		}				
+		.beach, .peak {
+			color: white;
+		}				
+		.peak {
+			margin-top: -5px;
+		}			
+
+		.divider {
+			margin-top: 7%;
+			margin-bottom: 7%;
+			border-bottom: 1px solid white;
+		}
+	}
+}
+.basket-icon {
+	float: right;
+	height: 57px!important;
+	width: 59px;
+	cursor: pointer;
+	z-index: 999;
+	position: absolute;
+	margin-left: 138px;
+	padding-top: 3px;
+}
