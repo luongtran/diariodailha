@@ -211,6 +211,8 @@ pt-BR:
       <<: *errors
   activerecord:
     errors:
+      messages:
+        rmagick_processing_error: "Erro ao enviar foto"
       models:
         user:
           attributes:

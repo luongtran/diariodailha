@@ -19,3 +19,27 @@
 //= require_tree .
 //= require ckeditor/init
 
+var calculateTotal = function() {
+    var digital = $("#digital").val();
+    var small = $("#small").val();
+    var medium = $("#medium").val();
+    var big = $("#big").val();
+    var total = 0;
+    
+    $("[name^='digital']").each(function() {
+        total = total + (parseInt(this.value) * digital);
+    });
+    $("[name^='small']").each(function() {
+        total = total + (parseInt(this.value) * small);
+    });
+    $("[name^='medium']").each(function() {
+        total = total + (parseInt(this.value) * medium);
+    });
+    $("[name^='big']").each(function() {
+        total = total + (parseInt(this.value) * big);
+    });
+
+    $("#total").text(total);
+
+    console.log("Total :" + total);
+}

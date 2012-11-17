@@ -10,11 +10,11 @@
     <input type="hidden" id="medium" value="<%= Price.where(price_type: 'física_média').first.value %>">
     <input type="hidden" id="big" value="<%= Price.where(price_type: 'física_grande').first.value %>">
     <% unless basket.nil? %>
-    <table class="table table-striped">
+    <table class="table table-striped" id="sale_items_table">
         <tbody>
             <%= form_tag sale_finish_sale_path do %>
                 <% basket.each do |key, value| %>
-                    <tr class="basket-row">
+                    <tr class="basket-row" id="<%= key %>">
                         <td class="image-crop">
                             <div class="crop">
                                 <%= image_tag Photo.find(key).image_url(:crop_small).to_s, :class => 'img-rounded' %>
@@ -84,57 +84,35 @@
                         </td>
                         <td class="span2">
                             <p class='delete'>
-                                <%= image_tag 'delete.png', :alt => "Excluir" %>
+                                <%= link_to image_tag('delete.png', :alt => "Excluir"), sale_remove_photo_path(key), remote:true %>
                             </p>
                         </td>
                     </tr>
                 <% end %>
-            <% end %>            
+                       
         </tbody>
     </table>
-    <% end %>
     <div class="finish right">
         <h2 class="total"> R$<span id="total"></span> Total </h1>
         <div class="row-fluid">            
 
             <p class="desc">
                 Ao clicar em finalizar pedido, você receberá as informações no email de como prosseguir a compra                
-                <%= submit_tag "FINALIZAR PEDIDO", :class => 'btn btn-info btn-finish-sale large' %>
+                <%= submit_tag "FINALIZAR PEDIDO", :confirm => "Finalizar venda?", :class => 'btn btn-info btn-finish-sale large' %>
             </p>
         </div>
     </div>
+    <% end %> 
+    <% end %>
 </div>
 
 <script type="text/javascript">
 $(document).ready(function() {
+    //calculateTotal is in application.js
     $('#container-right').hide();
     $('#content').removeClass('span9');
     // $('#content').addClass('full');
     $('#body').addClass('full');        
-
-    var digital = $("#digital").val();
-    var small = $("#small").val();
-    var medium = $("#medium").val();
-    var big = $("#big").val();
-
-
-    var calculateTotal = function() {
-        var total = 0;
-        $("[name^='digital']").each(function() {
-            total = total + (parseInt(this.value) * digital);
-        });
-        $("[name^='small']").each(function() {
-            total = total + (parseInt(this.value) * small);
-        });
-        $("[name^='medium']").each(function() {
-            total = total + (parseInt(this.value) * medium);
-        });
-        $("[name^='big']").each(function() {
-            total = total + (parseInt(this.value) * big);
-        });
-
-        $("#total").text(total);
-    }
 
     $("[name^='digital']").each(function() {
         $(this).change(function() {

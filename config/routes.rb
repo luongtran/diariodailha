@@ -24,6 +24,7 @@ Diariodailha::Application.routes.draw do
   get "/sales/:photo_id/add_photo" => "sales#add_photo", :as => "sale_add_photo" 
   post "/sale/finish_sale" => "sales#finish_sale", :as => "sale_finish_sale"
   get "/sale/view_sale" => "sales#view_sale", :as => "sale_view_sale"
+  get "/sale/:photo_id/remove_photo" => "sales#remove_photo", :as => "sale_remove_photo"
 
   resources :contact_types
 

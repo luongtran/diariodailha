@@ -6,10 +6,10 @@
         <div class="span6">            
             <p id="basket_items" class='img-header'>
                 <span>
-                    <% if basket.nil? %>
-                        <%= link_to "0 itens no carrinho", sale_view_sale_path, class: "btn-finish-sale" %>
+                    <% if basket.nil? || basket.empty? %>
+                        <%= "0 items no carrinho" %>
                     <% else %>
-                        <%= (basket.count.to_s || 0) + " items no carrinho" unless basket == nil %>
+                        <%= link_to basket.count.to_s + "itens no carrinho", sale_view_sale_path, class: "btn-finish-sale" %>
                     <% end %>
                 </span>
             </p>
