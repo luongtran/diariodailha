@@ -47,6 +47,7 @@ body {
 		margin-left: auto;
 		margin-right: auto;
 		height: 230px;
+		margin-top: 10px;
 	}
 }
 
@@ -194,28 +195,35 @@ body {
 
 		.info-header {
 			text-align: right;
-			font-family: sans-serif;
-			font-size: smaller;
+			font-family: "Trebuchet MS", trebuc, arial;
+			font-size: 11px;
 			line-height: 30px;
 			margin-right: 10px;
 			margin-top: -7px;
+			padding-top: 10px;
 			a {
-				margin-left: 5px;
+				margin-left: 10px;
 			}
 		}
 
 		.top-banner {
-			text-align: center;
+			text-align: right;
 			height: 90px;
+			img {
+				width: 100%;
+			}
 			line-height: 90px;
 			-webkit-border-radius: $borderradius;
 			-moz-border-radius: $borderradius;
 			border-radius: $borderradius;
+
 		}
 		
 		.header-nav {
 			position: absolute;
 			margin-top: 25px;
+			min-width: 752px;
+
 			.nav-tabs > li > a, .nav-pills > li > a {
 				padding-right: 7px;
 				padding-left: 10px;
