@@ -176,6 +176,7 @@ DEPENDENCIES
   mini_magick
   mocha
   nifty-generators
+  nokogiri
   pg
   plupload-rails
   rails (= 3.2.8)

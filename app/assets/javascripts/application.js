@@ -40,6 +40,4 @@ var calculateTotal = function() {
     });
 
     $("#total").text(total);
-
-    console.log("Total :" + total);
 }

@@ -32,6 +32,7 @@ gem 'fog'
 gem "plupload-rails"
 gem 'jquery-fileupload-rails'
 gem 'jquery-ui-rails'
+gem "nokogiri"
   
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
