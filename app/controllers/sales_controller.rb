@@ -199,9 +199,25 @@ class SalesController < ApplicationController
   def view_sale
     if basket
       if basket.empty?
-        redirect_to find_photos_path, flash[:notice] = "Carrinho de compras vazio!"
+        flash[:error] = "Carrinho de compras vazio!"
+        redirect_to root_path
         return
       end
+    else 
+      flash[:error] = "Carrinho de compras vazio!"
+      redirect_to root_path
+      return
+    end
+  end
+
+  def remove_photo
+    @photo_id = nil
+    if user_signed_in?
+      basket.delete(params[:photo_id])
+      @photo_id = params[:photo_id]
+    end
+    respond_to do |format|
+      format.js
     end
   end
 end

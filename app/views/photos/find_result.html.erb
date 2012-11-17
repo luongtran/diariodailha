@@ -6,13 +6,14 @@
         </div>   
         <div class="span6">            
             <p id="basket_items" class='img-header'>
-                <span> <%= basket.length unless basket == nil %> item no carrinho</span>
+                <span>
+                    <% if basket.nil? || basket.empty? %>
+                        <%= "0 items no carrinho" %>
+                    <% else %>
+                        <%= link_to basket.count.to_s + "itens no carrinho", sale_view_sale_path, class: "btn-finish-sale" %>
+                    <% end %>
+                </span>
             </p>
-        </div>
-        <div class="span12">
-            <div style="text-align: right; margin-right: 20px; margin-bottom: 7px">
-                <%= link_to "Visualizar Carrinho", sale_view_sale_path, class: "btn btn-primary btn-finish-sale" %>
-            </div>
         </div>  
     </div> 
 

@@ -90,6 +90,13 @@ ActiveRecord::Schema.define(:version => 20121113143136) do
     t.boolean  "contrast"
   end
 
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "photographers", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -131,7 +138,7 @@ ActiveRecord::Schema.define(:version => 20121113143136) do
 
   create_table "prices", :force => true do |t|
     t.float    "value"
-    t.string   "price_type"
+    t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
