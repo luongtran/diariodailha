@@ -12,7 +12,7 @@
     <% unless basket.nil? %>
     <table class="table table-striped" id="sale_items_table">
         <tbody>
-            <%= form_tag sale_finish_sale_path do %>
+            <%= form_tag sale_finish_sale_path, :id => "finish_sale_form" do %>
                 <% basket.each do |key, value| %>
                     <tr class="basket-row" id="<%= key %>">
                         <td class="image-crop">
@@ -98,7 +98,7 @@
 
             <p class="desc">
                 Ao clicar em finalizar pedido, você receberá as informações no email de como prosseguir a compra                
-                <%= submit_tag "FINALIZAR PEDIDO", :confirm => "Finalizar venda?", :class => 'btn btn-info btn-finish-sale large' %>
+                <%= submit_tag "FINALIZAR PEDIDO", :class => 'btn btn-info btn-finish-sale large' %>
             </p>
         </div>
     </div>
