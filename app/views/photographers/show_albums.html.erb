@@ -40,7 +40,7 @@
                         <!-- @TODO Colocar uma imagem do algum de "capa" -->
                         <div class='mouse-over'>
                             <span><%= link_to '', edit_album_path(album), :class => 'link-edit' %></span>
-                            <span><%= link_to '', album, :method => 'delete', :class => 'link-delete'%></span>
+                            <span><%= link_to '', album, :data => { :confirm => "Você está certo disso?" }, :method => 'delete', :class => 'link-delete'%></span>
                         </div>
                         <% if album.photos != [] %>
                         <div class="crop-small">                            

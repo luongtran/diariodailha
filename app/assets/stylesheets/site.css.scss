@@ -558,11 +558,11 @@ body {
 				}
 			}
 			.crop img{
-				/*width: 100%;*/
+				width: 100%;
 				height: 150px;	
 			}
 			.crop-small img{
-				/*width: 100%;*/
+				width: 100%;
 				height: 130px;
 				border-radius: 10px;
 			}
@@ -598,21 +598,16 @@ body {
 					width: 208px;
 					height: 150px;
 					position: absolute;
-					.link-edit {
-						height: 150px;
-						width: 104px;
-						position: absolute;
-					}
 					.link-delete {
 						float: right;
 						height: 150px;
 						position: absolute;
-						width: 104px;
-						margin-left: 104px;
+						width: 208px;
+						margin-left: 0px;
 					}
 				}
 				.mouse-over-big:hover {
-					background: url('mouseover.png') no-repeat center;
+					background: url('delete.png') no-repeat center;
 					background-color: rgba(55, 55, 55, 0.9);
 					border-radius: 10px;
 				};
@@ -908,7 +903,7 @@ body {
 		float: right;
 	}
 	.crop-small img{
-		/*width: 100%;*/
+		width: 100%;
 		border-radius: 10px;
 	}
 	.album-row {
@@ -952,7 +947,7 @@ body {
 	}
 
 	.crop img{
-		/*width: 100%; */
+		width: 100%; 
 		height: 150px;
 	}
 
@@ -1133,7 +1128,7 @@ input::-webkit-inner-spin-button {
 }
 
 .fake-basket-photo {	
-	width: 194px;
+	width: 211px;
 	height: 145px;
 	position: absolute;
 	border-radius: 5px;				
@@ -1141,7 +1136,7 @@ input::-webkit-inner-spin-button {
 .basket-photo {
 	background-color: rgba(0, 0, 0, 0.4);
 	border: 3px solid $gray;
-	width: 194px;
+	width: 211px;
 	height: 145px;
 	border-radius: 5px;	
 
@@ -1155,10 +1150,10 @@ input::-webkit-inner-spin-button {
 			font-size: smaller;
 			line-height: 7px;
 		}	
-		.date {
+		.photo-name {
 			color: #cecece;
 			font-size: small;
-			line-height: 7px;
+			line-height: 10px;
 		}				
 		.beach, .peak {
 			color: white;
@@ -1181,6 +1176,11 @@ input::-webkit-inner-spin-button {
 	cursor: pointer;
 	z-index: 999;
 	position: absolute;
-	margin-left: 138px;
+	margin-left: 155px;
 	padding-top: 3px;
+}
+.allsize {
+	input {
+		width: 100%;
+	}
 }

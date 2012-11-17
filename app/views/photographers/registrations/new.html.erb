@@ -12,31 +12,31 @@
     <%= simple_form_for("photographer", :url => photographer_registration_path, :html => { :class => "form form-horizontal"})  do |f| %>
     <%= f.error_notification %>
 
-    <div class="row">        
+    <div class="row-fluid form-inputs">        
         <div class="span6">
             <%= f.input :email, :label => false, :required => true, 
                         :autofocus => true, 
-                        :input_html => { :class => "input-xlarge gray", :placeholder => " Email: "} %>
+                        :input_html => { :class => "leform block input-xlarge gray", :placeholder => " Email: "} %>
             <%= f.input :name, :label => false, :required => true, 
-                        :input_html => { :class => "input-xlarge gray", :placeholder => " Nome: "} %>
+                        :input_html => { :class => "leform block input-xlarge gray", :placeholder => " Nome: "} %>
             <%= f.input :phone,  :label => false,:required => true, 
-                        :input_html => { :class => "input-xlarge gray", :placeholder => " Telefone: "} %>
+                        :input_html => { :class => "leform block input-xlarge gray", :placeholder => " Telefone: "} %>
             <%= f.input :address,  :label => false,:required => true, 
-                        :input_html => { :class => "input-xlarge gray", :placeholder => " Endereço: "} %>
+                        :input_html => { :class => "leform block input-xlarge gray", :placeholder => " Endereço: "} %>
             <%= f.input :cep,  :label => false,:required => true, 
-                        :input_html => { :class => "input-xlarge gray", :placeholder => " CEP: "} %>
+                        :input_html => { :class => "leform block input-xlarge gray", :placeholder => " CEP: "} %>
         </div>
         <div class="span6">
             <%= f.input :city, :label => false, :required => true, 
-                        :input_html => { :class => "input-xlarge gray", :placeholder => " Cidade: "} %>
+                        :input_html => { :class => "leform block input-xlarge gray", :placeholder => " Cidade: "} %>
             <%= f.input :equipments,  :label => false,:required => true, 
-                        :input_html => { :class => "input-xlarge gray", :placeholder => " Equipamentos: "} %>
+                        :input_html => { :class => "leform block input-xlarge gray", :placeholder => " Equipamentos: "} %>
             <%= f.input :peaks_of_activity,  :label => false,:required => true, 
-                        :input_html => { :class => "input-xlarge gray", :placeholder => " Picos de atuação: "} %>
+                        :input_html => { :class => "leform block input-xlarge gray", :placeholder => " Picos de atuação: "} %>
             <%= f.input :password, :label => false, :required => true, 
-                        :input_html => { :class => "input-xlarge gray", :placeholder => " Senha: "} %>
+                        :input_html => { :class => "leform block input-xlarge gray", :placeholder => " Senha: "} %>
             <%= f.input :password_confirmation, :label => false, :required => true, 
-                        :input_html => { :class => "input-xlarge gray", :placeholder => " Confirme a senha: "} %>
+                        :input_html => { :class => "leform block input-xlarge gray", :placeholder => " Confirme a senha: "} %>
         </div>
     </div>
 

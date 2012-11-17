@@ -75,8 +75,7 @@
                         <!-- @TODO Colocar uma imagem do algum de "capa" -->
                         <% if photographer_signed_in? %>
                             <div class='mouse-over-big'>
-                                <span><%= link_to '', '#', :class => 'link-edit' %></span>
-                                <span><%= link_to '', photo, :method => 'delete', :class => 'link-delete'%></span>
+                                <span><%= link_to '', photo, :data => { :confirm => "Você tem certeza?" },:method => 'delete', :class => 'link-delete'%></span>
                             </div>
                         <% end %>
                         <div class="crop">
