@@ -4,8 +4,12 @@
    
   <%= raw Content.where(:name => "como_comprar_fotos").first.body %>
 
-  <%= render "users/sessions/form" %>
-
-  <%= render "users/registrations/form" %>
-
+	<div class="row-fluid">
+		<div class="span7">			
+			<%= render "users/registrations/form" %>			
+		</div>
+		<div class="span5 allsize">
+			<%= render "users/sessions/form" %>
+		</div>
+	</div>
 </div>

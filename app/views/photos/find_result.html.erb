@@ -7,14 +7,14 @@
         <div class="span6">            
             <p id="basket_items" class='img-header'>
                 <span>
-                    <% if basket.nil? || basket.empty? %>
-                        <%= "0 items no carrinho" %>
+                    <% if basket.nil? %>
+                        <%= link_to "0 itens no carrinho", sale_view_sale_path, class: "btn-finish-sale" %>
                     <% else %>
-                        <%= link_to basket.count.to_s + "itens no carrinho", sale_view_sale_path, class: "btn-finish-sale" %>
+                        <%= (basket.count.to_s || 0) + " items no carrinho" unless basket == nil %>
                     <% end %>
                 </span>
             </p>
-        </div>  
+        </div>
     </div> 
 
 
@@ -55,20 +55,12 @@
                                 <div class="peak"><%= photo.album.peak %>
                                     <div class="divider"></div>
                                 </div>
-                                <div class="date">Fotógrafo - <%= photo.album.photographer.name %></div>
+                                <div class="photo-name">Fotógrafo - <%= photo.album.photographer.name %></div>
                             </div>
                         </div>
                     </div>
                     <div class="crop" >
                         <%= image_tag photo.image_url(:thumb).to_s, :class => 'img-rounded'%>
-                    </div>
-                    <div class="description-buttons">
-                        <a href="<%= sale_add_photo_path(photo.id) %>" class="btn btn-small btn-info buy" data-remote="true"> 
-                            <i class="icon-shopping-cart"></i> 
-                        </a>
-                        <a href="<%=  album_path(photo.album) %>" class="btn btn-small see">
-                            <i class="icon-eye-open"></i>
-                        </a>
                     </div>
                 </div>
             <% end %>
@@ -82,7 +74,7 @@
 <div id="modal-gallery" class="modal modal-gallery hide fade" tabindex="-1">
     <div class="modal-dismiss" >
         <a class="close" data-dismiss="modal">&times;</a>
-    </div> 
+    </div>
     <div class="modal-body">
         <div class="modal-image"></div>
             <div class="modal-black-box">

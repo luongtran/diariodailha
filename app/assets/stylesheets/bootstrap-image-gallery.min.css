@@ -52,14 +52,14 @@
 }
 .modal-gallery .modal-image:before,
 .modal-gallery .modal-image:after {
-  background: url('leftarrow.png') no-repeat;
+  background: url('photo_zoom_left.png') no-repeat;
   content: '';
   position: absolute;
   top: 50%;
-  left: -40px;
-  width: 40px;
+  left: -60px;
+  width: 60px;
   height: 200px;
-  margin-top: -20px;
+  margin-top: -30px;
   font-size: 60px;
   font-weight: 100;
   line-height: 30px;
@@ -70,7 +70,8 @@
   content: '';
   left: auto;
   height: 200px;
-  right: -40px;
+  right: -60px;
+  margin-top: -20px;
 }
 .modal-single .modal-image:before,
 .modal-single .modal-image:after {
