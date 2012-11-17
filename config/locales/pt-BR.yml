@@ -2,9 +2,6 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 pt-BR:
-  errors:
-    messages:
-      rmagick_processing_error: "Erro ao enviar foto"
   hello: "Hello world"
   date:
     abbr_day_names:
@@ -214,6 +211,8 @@ pt-BR:
       <<: *errors
   activerecord:
     errors:
+      messages:
+        rmagick_processing_error: "Erro ao enviar foto"
       models:
         user:
           attributes:
