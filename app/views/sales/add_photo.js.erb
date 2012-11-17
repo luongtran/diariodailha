@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   $("#basket_items").empty();
-  $("#basket_items").append('<span> <%= link_to basket.count.to_s + "itens no carrinho", sale_view_sale_path, class: "btn-finish-sale" %> </span>');
+  $("#basket_items").append('<span> <%= link_to basket.count.to_s + " itens no carrinho", sale_view_sale_path, class: "btn-finish-sale" %> </span>');
 <% else %>
   $("#alert_sucess_login").remove();
   $("#form_div").show();
