@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
@@ -56,7 +57,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to :root, notice: 'Contact was successfully created.' }
+        format.html { redirect_to :root, notice: 'Sua mensagem foi enviada com sucesso' }
       else
         format.html { render action: "new" }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
@@ -73,7 +74,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.update_attributes(params[:contact])
-        format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
+        format.html { redirect_to @contact, notice: 'Messagem alterada com sucesso' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

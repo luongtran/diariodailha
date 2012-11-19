@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ContentsController < ApplicationController
   # GET /contents
   # GET /contents.json
@@ -54,7 +55,7 @@ class ContentsController < ApplicationController
     
     respond_to do |format|
       if @content.save
-        format.html { redirect_to @content, notice: 'Content was successfully created.' }
+        format.html { redirect_to @content, notice: 'Conteúdo criado com sucesso' }
         format.json { render json: @content, status: :created, location: @content }
       else
         format.html { render action: "new" }
@@ -72,7 +73,7 @@ class ContentsController < ApplicationController
     
     respond_to do |format|
       if @content.update_attributes(params[:content])
-        format.html { redirect_to @content, notice: 'Content was successfully updated.' }
+        format.html { redirect_to @content, notice: 'Conteúdo editado com sucesso' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
