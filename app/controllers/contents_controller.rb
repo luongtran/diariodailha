@@ -73,7 +73,7 @@ class ContentsController < ApplicationController
     
     respond_to do |format|
       if @content.update_attributes(params[:content])
-        format.html { redirect_to @content, notice: 'Conteúdo editado com sucesso' }
+        format.html { redirect_to contents_url, notice: 'Conteúdo editado com sucesso' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
