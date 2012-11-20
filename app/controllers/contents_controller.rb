@@ -55,8 +55,8 @@ class ContentsController < ApplicationController
     
     respond_to do |format|
       if @content.save
-        format.html { redirect_to @content, notice: 'Conteúdo criado com sucesso' }
-        format.json { render json: @content, status: :created, location: @content }
+        format.html { redirect_to contents_url, notice: 'Conteúdo criado com sucesso' }
+        format.json { render json: contents_url, status: :created, location: @content }
       else
         format.html { render action: "new" }
         format.json { render json: @content.errors, status: :unprocessable_entity }
