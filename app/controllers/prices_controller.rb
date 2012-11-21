@@ -1,3 +1,4 @@
+# encoding: utf-8
 class PricesController < ApplicationController
   # GET /prices
   # GET /prices.json
@@ -49,7 +50,7 @@ class PricesController < ApplicationController
 
     respond_to do |format|
       if @price.save
-        format.html { redirect_to @price, notice: 'Price was successfully created.' }
+        format.html { redirect_to @price, notice: 'Preço criado com sucesso.' }
         format.json { render json: @price, status: :created, location: @price }
       else
         format.html { render action: "new" }
@@ -66,7 +67,7 @@ class PricesController < ApplicationController
 
     respond_to do |format|
       if @price.update_attributes(params[:price])
-        format.html { redirect_to @price, notice: 'Price was successfully updated.' }
+        format.html { redirect_to @price, notice: 'Preço alterado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

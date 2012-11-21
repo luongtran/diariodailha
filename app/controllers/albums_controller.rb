@@ -1,3 +1,4 @@
+# encoding: utf-8
 class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
@@ -51,7 +52,7 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
-        format.html { redirect_to @album, notice: 'Album was successfully created.' }
+        format.html { redirect_to @album, notice: 'Álbum criado com sucesso' }
         format.json { render json: @album, status: :created, location: @album }
       else
         format.html { render action: "new" }

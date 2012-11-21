@@ -1,3 +1,4 @@
+# encoding: utf-8
 class MarqueesController < ApplicationController
   # GET /marquees
   # GET /marquees.json
@@ -48,7 +49,7 @@ class MarqueesController < ApplicationController
 
     respond_to do |format|
       if @marquee.save
-        format.html { redirect_to @marquee, notice: 'Marquee was successfully created.' }
+        format.html { redirect_to @marquee, notice: 'Manchete criada com sucesso' }
         format.json { render json: @marquee, status: :created, location: @marquee }
       else
         format.html { render action: "new" }
@@ -65,7 +66,7 @@ class MarqueesController < ApplicationController
 
     respond_to do |format|
       if @marquee.update_attributes(params[:marquee])
-        format.html { redirect_to @marquee, notice: 'Marquee was successfully updated.' }
+        format.html { redirect_to @marquee, notice: 'Manchete alterada com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

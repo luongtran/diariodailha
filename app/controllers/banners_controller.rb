@@ -1,3 +1,4 @@
+# encoding: utf-8
 class BannersController < ApplicationController
   # GET /banners
   # GET /banners.json
@@ -48,7 +49,7 @@ class BannersController < ApplicationController
 
     respond_to do |format|
       if @banner.save
-        format.html { redirect_to @banner, notice: 'Banner was successfully created.' }
+        format.html { redirect_to @banner, notice: 'Banner criado com sucesso' }
         format.json { render json: @banner, status: :created, location: @banner }
       else
         format.html { render action: "new" }
@@ -65,7 +66,7 @@ class BannersController < ApplicationController
 
     respond_to do |format|
       if @banner.update_attributes(params[:banner])
-        format.html { redirect_to @banner, notice: 'Banner was successfully updated.' }
+        format.html { redirect_to @banner, notice: 'Banner alterado com sucesso' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
