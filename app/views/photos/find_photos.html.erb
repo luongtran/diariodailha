@@ -9,7 +9,7 @@
                     <% if basket.nil? || basket.empty? %>
                         <%= "0 items no carrinho" %>
                     <% else %>
-                        <%= link_to basket.count.to_s + "itens no carrinho", sale_view_sale_path, class: "btn-finish-sale" %>
+                        <%= link_to basket.count.to_s + " itens no carrinho", sale_view_sale_path, class: "btn-finish-sale" %>
                     <% end %>
                 </span>
             </p>
