@@ -2,7 +2,7 @@ connection: &connection
   adapter: postgresql
   database: diariodailha_development
   pool: 5
-  username: raphael
+  username: derik
 
 development:
   <<: *connection
