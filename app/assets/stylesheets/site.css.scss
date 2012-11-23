@@ -427,6 +427,7 @@ body {
 
 				.image-right {
 					float: right;
+					border-radius: 15px;
 				}
 				
 				form {
@@ -456,7 +457,9 @@ body {
 					    border-radius: 15px;
 					    border-color: transparent;
 						select {
+						    background-color: #ebebeb;
 						    background: transparent;
+						    font-size: 13px;
 							width: 350px;
 							height: 42px;
 							margin-bottom: 10px;		
