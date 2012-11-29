@@ -2,7 +2,10 @@
 
 
 <% @messages.each do |message| %>
-  <p><%= link_to message.title, message_path(message) %> </p>
+  <p><%= link_to message.title, message_path(message) %> - 
+    <%= link_to "Adicionar Fotos", upload_images_path(message), class: "btn btn-small btn-primary" %>
+    <%= link_to "Editar Fotos", message_view_photos_path(message), class: "btn btn-small" %>
+  </p>
 <% end %>
 
 <%  if can? :manage, @message %>

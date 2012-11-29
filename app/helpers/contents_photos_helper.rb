@@ -1,0 +1,2 @@
+module ContentsPhotosHelper
+end

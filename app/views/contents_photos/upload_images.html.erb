@@ -1,0 +1,18 @@
+<h2>Adicionar fotos aos Conteúdos das Páginas</h2>
+
+<%= form_for ContentsPhoto.new do |f| %>
+  <%= f.hidden_field :content_id, :value => @content.id %>
+  <%= f.label :image, "Uploade de imagens:" %>
+  <%= f.file_field :image, multiple: true, name: "contents_photo[image]" %>
+<% end %>
+
+<div id="photo" class="span12 centralize">
+  <script id="template-upload" type="text/x-tmpl">
+      <div class="upload">
+          {%=o.name%}
+          <div class="progress">
+              <div class="bar" style="width: 0%;"></div>
+          </div>
+      </div>
+  </script> 
+</div>
