@@ -427,6 +427,7 @@ body {
 
 				.image-right {
 					float: right;
+					border-radius: 15px;
 				}
 				
 				form {
@@ -442,7 +443,7 @@ body {
 						width: 174px;
 						margin-left: 140px;
 					}
-					.style-select {
+					.style-select {/*
 						padding-left: 10px;
 						line-height: 48px;
 						width: 303px;
@@ -456,13 +457,16 @@ body {
 					    border-radius: 15px;
 					    border-color: transparent;
 						select {
+						    background-color: #ebebeb;
 						    background: transparent;
+						    font-size: 13px;
 							width: 350px;
 							height: 42px;
 							margin-bottom: 10px;		
 							border-top-right-radius: 15px;
 							border-bottom-right-radius: 15px;
 						}
+							*/
 					}
 					textarea {
 						width: 300px;
@@ -902,6 +906,42 @@ body {
     border-color: transparent;
 }
 
+.customStyleSelectBox {
+	background: #f1f1f1; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f1f1f1 0%, #ececec 50%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1f1f1), color-stop(50%,#ececec), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f1f1f1 0%,#ececec 50%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f1f1f1 0%,#ececec 50%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f1f1f1 0%,#ececec 50%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f1f1f1 0%,#ececec 50%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+	width: 291px;
+	display: block;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: inset 2px 2px 3px #cecece;
+	box-shadow: inset 2px 2px 3px #cecece;
+    height: 42!important;
+    border-radius: 15px;
+    border-color: transparent;
+    padding-left: 22px;
+    line-height: 42px;
+}
+
+.customStyleSelectBox.changed {
+/* You can use this if you want a different style after user has made a selection */
+}
+
+/* on the next line we add a down arrow on the right to indicate that it is a select box */
+.customStyleSelectBoxInner {
+	background:url("select-arrow.png") no-repeat;
+    border-radius: 15px;
+	background-position: 100% 100%;
+}
+select {
+    border-radius: 15px;
+	width:314px;
+}
 
 
 .search {
@@ -1196,5 +1236,5 @@ input::-webkit-inner-spin-button {
 }
 
 .left-align {
-	text-align: left;
+	text-align: left!important;
 }

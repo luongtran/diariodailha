@@ -3,6 +3,7 @@
 <div class='work-with-us'>
 	<%= render 'form' %>
 
+	<div class="left-align">		
 	<% if Content.where(:name => "trabalhe_conosco") != [] %>
 		<%= raw Content.where(:name => "trabalhe_conosco").first.body %>
 	<% else %>
@@ -17,4 +18,5 @@
 			<li>cargos administrativos (secretaria, administração e comercial).</li>
 		</ul>
 	<% end %>
+	</div>
 </div>
