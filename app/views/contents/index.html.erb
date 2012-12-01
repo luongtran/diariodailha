@@ -16,7 +16,10 @@
     <td><%= content.description %></td>
     <td><%= content.title %></td>
     <td><%= content.subtitle %></td>
-    <td><%= link_to 'Ver', content, class: "btn btn-small" %>
+    <td>
+    <%= link_to 'Ver', content, class: "btn btn-small" %>
+    <%= link_to 'Adicionar Fotos', content_upload_images_path(content), class: "btn btn-small"  %>
+    <%= link_to "Editar Fotos", content_view_photos_path(content), class: "btn btn-small" %>
     <%= link_to 'Editar', edit_content_path(content), class: "btn btn btn-small"%>
     <%= link_to 'Apagar', content, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger" %></td>
   </tr>

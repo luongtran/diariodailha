@@ -26,7 +26,7 @@
 				<div class="span7 headline">
 					<h1 class="page-title"><%= d.title %></h1>
 					<p>
-						<%= raw d.body %>
+						<%= link_to raw(d.body), message_path(d) %>
 					</p>
 				</div>
 			<% end %>

@@ -1,0 +1,2 @@
+module NewsPhotoHelper
+end

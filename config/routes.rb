@@ -1,5 +1,43 @@
 Diariodailha::Application.routes.draw do
 
+  put "contents_photo/:id" => "contents_photos#update"
+  
+  get "contents_photo/:id" => "contents_photos#show", :as => "contents_photo"
+
+  delete "contents_photo/:id" => "contents_photos#destroy"
+
+  get "contents_photos/new"
+
+  post "contents_photos" => "contents_photos#create"
+
+  get "contents_photos" => "contents_photos#index"
+
+  get "contents_photos/upload_images/:content_id" => "contents_photos#upload_images", :as => "content_upload_images"
+  
+  get "contents_photos/view_photos/:content_id" => "contents_photos#view_photos", :as => "content_view_photos"
+  
+  get "contents_photos/edit/:id" => "contents_photos#edit", :as => "edit_contents_photo"
+
+
+
+  put "news_photo/:id" => "news_photos#update"
+  
+  get "news_photo/:id" => "news_photos#show", :as => "news_photo"
+
+  delete "news_photo/:id" => "news_photos#destroy"
+
+  get "news_photos/new"
+
+  post "news_photos" => "news_photos#create"
+
+  get "news_photos" => "news_photos#index"
+
+  get "news_photos/upload_images/:message_id" => "news_photos#upload_images", :as => "upload_images"
+  
+  get "news_photos/view_photos/:message_id" => "news_photos#view_photos", :as => "message_view_photos"
+  
+  get "news_photos/edit/:id" => "news_photos#edit", :as => "edit_news_photo"
+
   resources :marquees
 
   resources :prices

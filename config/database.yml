@@ -7,7 +7,7 @@ connection: &connection
 development:
   <<: *connection
   database: diariodailha_development
-  host: localhost
+
 
 test:
   <<: *connection

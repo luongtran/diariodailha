@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113143136) do
+ActiveRecord::Schema.define(:version => 20121129020852) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -76,6 +76,16 @@ ActiveRecord::Schema.define(:version => 20121113143136) do
     t.text     "body"
   end
 
+  create_table "contents_photos", :force => true do |t|
+    t.string   "image"
+    t.string   "legend"
+    t.integer  "content_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "contents_photos", ["content_id"], :name => "index_contents_photos_on_content_id"
+
   create_table "marquees", :force => true do |t|
     t.string   "text"
     t.datetime "created_at", :null => false
@@ -89,6 +99,23 @@ ActiveRecord::Schema.define(:version => 20121113143136) do
     t.datetime "updated_at", :null => false
     t.boolean  "contrast"
   end
+
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "news_photos", :force => true do |t|
+    t.string   "image"
+    t.string   "legend"
+    t.integer  "message_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "news_photos", ["message_id"], :name => "index_news_photos_on_message_id"
 
   create_table "photographers", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -143,7 +170,7 @@ ActiveRecord::Schema.define(:version => 20121113143136) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "quantity"
-    t.string   "type"
+    t.string   "photo_type"
     t.float    "price"
   end
 

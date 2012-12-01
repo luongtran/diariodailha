@@ -1,0 +1,16 @@
+<h1>Fotos</h1>
+
+<%- flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert alert-#{name}" %>
+<%- end -%>
+
+<% @news_photos.each do |p| %>
+  <p>
+    <p><%= p.legend %></p>
+    <%= image_tag p.image_url %>
+    <p>
+      <%= link_to "Adicionar Legenda", edit_news_photo_path(p), class: "btn btn-small btn-primary" %>
+      <%= link_to "Excluir Foto", news_photo_path(p), :method => "delete", data: { confirm: 'Tem certeza?' }, class: "btn btn-small btn-danger" %>
+    </p>
+  </p>
+<% end %>
