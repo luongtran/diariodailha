@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
     <div class="wrapper">
@@ -89,7 +90,7 @@
                 <div class='span12'>
                     <div class='top-info btn-large' id='top-info'>
                         <% unless Marquee.first.nil? %> 
-                            <marquee behavior="scroll" direction="left">
+                            <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
                                 <%= Marquee.first.text %>
                             </marquee>
                         <% end %>
@@ -97,6 +98,44 @@
                 </div>
             </div>
 
+<!--             <div class='row-fluid'>
+                <div class='span12'>
+                    <div class='news-carrousel'>
+                        <div class="crop">
+                            <div class="active">
+                                <%= image_tag('surf01.jpg') %>                                
+                            </div> 
+                            <div class="hide">
+                                <%= image_tag('surf02.jpg') %>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            </div> -->
+
+            <div id="top-carousel" class="row-fluid hide">
+                <div class="span12">
+                    <div class="news-carrousel">
+                        <div class="crop">
+                            <div id="myCarousel" class="carousel slide">
+                              <!-- Carousel items -->
+                                <div class="carousel-inner">
+                                    <div class="active item"><%= image_tag('surf01.jpg') %>  </div>
+                                    <div class="item"><%= image_tag('surf02.jpg') %>  </div>
+                                    <div class="item"><%= image_tag('surf01.jpg') %>  </div>
+                                </div>
+                                 <!-- Carousel nav -->
+                                <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                                <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class='container-fluid' id="size3">
                 <div class='row-fluid'>
@@ -287,7 +326,6 @@
         var biggest = function() {
             return (page > container) ? ((winH > page) ? winH - 83  : page) : container
         };
-
         $(".footer").css("margin-top", biggest() -220 +   "px");
         $(".footer").removeClass("hide");
     });

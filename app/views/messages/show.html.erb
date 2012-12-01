@@ -4,6 +4,22 @@
   <%= @message.title %>
 </h1>
 
+<div class="left-arrow2"></div>
+<div class="cwrapper">   
+    <div id="myCarousel" class="carousel slide">
+      <!-- Carousel items -->
+        <div class="carousel-inner">
+            <div class="active item"> 
+                <%= image_tag("foto_quem.png", :alt => "foto_quem", :class => "main") %>
+            </div>
+            <div class="item">            
+                <%= image_tag("foto_quem.png", :alt => "foto_quem", :class => "main") %>
+            </div>
+        </div>
+    </div>
+<div class="right-arrow2"></div>
+</div>
+
 <% @message.news_photos.each do |p| %>
   <p><%= image_tag p.image_url(:thumb) %></p>
   <p><%= p.legend %></p>
@@ -21,3 +37,18 @@
   <%= link_to 'Tornar Destaque', message_contrast_message_path(@message), remote: true %> | 
   <%= link_to 'Excluir Noticia', @message, :method => 'delete' %>
 <% end %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".carousel").carousel({
+            interval: false
+        });
+        $(".left-arrow2").click(function() {
+            $(".carousel").carousel('prev');
+        })
+        $(".right-arrow2").click(function() {
+            $(".carousel").carousel('next');
+        })
+    });
+
+</script>
