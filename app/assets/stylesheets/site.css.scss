@@ -1288,6 +1288,11 @@ input::-webkit-inner-spin-button {
 	float: left;
 	width: 410px;
 	height: 300px;
+	img {
+		width: 359px;
+		border-radius: 15px;
+		height: 282px;
+	}
 	.right-arrow2 {
 		background: url('rightarrow.png') no-repeat;
 		float: right;
