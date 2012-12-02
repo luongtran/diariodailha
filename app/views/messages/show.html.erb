@@ -4,25 +4,32 @@
   <%= @message.title %>
 </h1>
 
+<% if @message.news_photos.count > 0 %>
 <div class="left-arrow2"></div>
 <div class="cwrapper">   
     <div id="myCarousel" class="carousel slide">
       <!-- Carousel items -->
         <div class="carousel-inner">
-            <div class="active item"> 
-                <%= image_tag("foto_quem.png", :alt => "foto_quem", :class => "main") %>
-            </div>
-            <div class="item">            
-                <%= image_tag("surf01.jpg", :alt => "foto_quem", :class => "main") %>
-            </div>
+            <% @message.news_photos.each_with_index do |p, index| %>
+                <% if index == 0 %>
+                    <div class="active item">
+                <% else %>
+                    <div class="item">
+                <% end %>                
+                    <%= image_tag p.image_url %>
+                <% if p.legend? %>
+                    <div class="carousel-caption">
+                        <p>                            
+                            <%= p.legend %>
+                        </p>
+                    </div>
+                <% end %>
+                </div>
+            <% end %>
         </div>
     </div>
-<div class="right-arrow2"></div>
+    <div class="right-arrow2"></div>
 </div>
-
-<% @message.news_photos.each do |p| %>
-  <p><%= image_tag p.image_url(:thumb) %></p>
-  <p><%= p.legend %></p>
 <% end %>
 
 <div class="new-content">

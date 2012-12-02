@@ -49,7 +49,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Notícia criada com sucesso.' }
+        format.html { redirect_to upload_images_path(@message), notice: 'Notícia criada com sucesso. Adicione fotos!' }
         format.json { render json: @message, status: :created, location: @message }
       else
         format.html { render action: "new" }

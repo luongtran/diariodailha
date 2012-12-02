@@ -7,14 +7,14 @@
 	<div class="row-fluid">
 		<div class="allnews">
 			<div class="span5 news wrapper">
-				<div class="row">
+				<div class="row-fluid">
 					<% Message.where("contrast is null or contrast = false").limit(5).order("id desc").each do |m| %>
 							<div class="new">
 								<h1 class="page-title preview"><%= m.title %></h1>
-								<p><%= link_to raw(html_truncate(m.body)), message_path(m) %></p>
+								<p class="content"><%= link_to raw(html_truncate(m.body)), message_path(m) %></p>
 							</div>
 						</div>
-						<div class="row top-divider">
+						<div class="row-fluid top-divider">
 					<% end %>
 				</div>
 				<div class="row action">

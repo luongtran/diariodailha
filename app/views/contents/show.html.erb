@@ -7,26 +7,7 @@
 <div class='<%= @content.name %>'>
 	<h1 class='page-title'><%= @content.title %></h1>            	
 
-	<% if @content.name == "quem_somos" %>
-		<div class='image-about'>
-				<%= image_tag("leftarrow.png", :alt => "<<", :class => "leftarrow") %>	
-				<%= image_tag("foto_quem.png", :alt => "foto_quem", :class => "main") %>
-				<%= image_tag("rightarrow.png", :alt => ">>", :class => "rightarrow") %>
-		</div>
-	<% end %>
-	<% if @content.name == 	"trabalhe_conosco" %>
-		<div class="send-curriculum">
-			<form action="#" method="POST">
-				<input class='block' type='text' placeholder='Nome:' />			
-		    	<input class='block' type='text' placeholder='Email:' />
-		    	<input class='block' type='text' placeholder='Telefone:' />
-		    	<div class="inline">	    		
-	    			<input type="button" class='btn btn-warning' value='Anexar Curriculo' />
-	    			<input type="submit" class='btn btn-primary' value="Enviar">
-		    	</div>
-			</form>
-		</div>
-	<% end %>
+	
 	<h2 class='page-subtitle'><%= @content.subtitle %></h2>
 
 	<p class='page-subsubtitle'><%= @content.description %></p>
@@ -40,3 +21,16 @@
 	<% end %>
 
 </div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".left-arrow2").click(function() {
+            $(".carousel").carousel('prev');
+        })
+        $(".right-arrow2").click(function() {
+            $(".carousel").carousel('next');
+        })
+    });
+
+</script>

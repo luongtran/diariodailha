@@ -277,7 +277,7 @@ body {
 	.body {
 
 		margin-top: 10px;
-		min-height: 300px;
+		min-height: 400px;
 		background-color: white;
 		-webkit-border-radius: $borderradius;
 		-moz-border-radius: $borderradius;
@@ -352,18 +352,27 @@ body {
 					margin-bottom: -10px;
 				}
 				.top-divider {	
+					margin-top: 20px;
 					border-top: 1px dotted #ccc;
 				}
-				.row {
-					.new {
-						margin: 20px;
-
-						.preview {
-							line-height: 18px;
-							text-align: left;
-							margin-bottom: -25px;
+				.new {
+					p {
+						&.content {
+							margin: 0;
+							padding: 0;
+							line-height: 0;
 						}
+
+						
+						line-height: 18px;
+						
 					}
+
+					.preview {
+						line-height: 18px;
+						margin-bottom: 15px;
+					}
+
 
 				}
 				.action {
@@ -1281,13 +1290,14 @@ input::-webkit-inner-spin-button {
 		width: 70px;	
 	}
 
-
+.notice {
+	min-height: 500px;
+}
 .cwrapper {
-
-
 	float: left;
 	width: 410px;
 	height: 300px;
+	margin-bottom: 10px;
 	img {
 		width: 359px;
 		border-radius: 15px;
@@ -1314,4 +1324,10 @@ input::-webkit-inner-spin-button {
 	position: relative;
 	margin-left: -30px;
 	cursor: pointer;
+}
+
+.carousel-caption {
+	width: 80%;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 }
