@@ -100,6 +100,14 @@ ActiveRecord::Schema.define(:version => 20121129020852) do
     t.boolean  "contrast"
   end
 
+
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "news_photos", :force => true do |t|
     t.string   "image"
     t.string   "legend"
