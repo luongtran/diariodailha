@@ -5,6 +5,7 @@
 <% end %>
 <h1 class="page-title">Boletim do mar</h1>
 
+<% if @content.contents_photos.count > 0 %>
 <div class="center-carousel">
 	<div class="left-arrow2"></div>
 	<div class="cwrapper">   
@@ -32,7 +33,7 @@
 	    <div class="right-arrow2"></div>
 	</div>
 </div>
-
+<% end %>
 <p>
 	<%= raw @content.body %>
 </p>
