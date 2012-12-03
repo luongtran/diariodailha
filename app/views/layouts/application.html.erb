@@ -57,7 +57,7 @@
                                         <li class='first'><%= link_to "HOME", root_path %></li>
                                         <li class="divider-vertical"></li>
                                         <% if Content.where(:name => "boletim_do_mar") != [] %>
-                                            <li><%= link_to "BOLETIM DO MAR", content_path(Content.where(:name => "boletim_do_mar").first) %></li>
+                                            <li><%= link_to "BOLETIM DO MAR", site_boletim_path %></li>
                                         <% else %>
                                             <li><a href="#">BOLETIM DO MAR</a></li>
                                         <% end %>

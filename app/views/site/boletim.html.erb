@@ -1,0 +1,50 @@
+<% @content = Content.where(:name => "boletim_do_mar").first %>
+
+<% if can? :manage, @content %>    
+  <%= link_to "Editar Página", edit_content_path(@content) %>
+<% end %>
+<h1 class="page-title">Boletim do mar</h1>
+
+<div class="center-carousel">
+	<div class="left-arrow2"></div>
+	<div class="cwrapper">   
+	    <div id="myCarousel" class="carousel slide">
+	      <!-- Carousel items -->
+	        <div class="carousel-inner">
+	            <% @content.contents_photos.each_with_index do |p, index| %>
+	                <% if index == 0 %>
+	                    <div class="active item">
+	                <% else %>
+	                    <div class="item">
+	                <% end %>                
+	                    <%= image_tag p.image_url %>
+	                <% if p.legend? %>
+	                    <div class="carousel-caption">
+	                        <p>                            
+	                            <%= p.legend %>
+	                        </p>
+	                    </div>
+	                <% end %>
+	                </div>
+	            <% end %>
+	        </div>
+	    </div>
+	    <div class="right-arrow2"></div>
+	</div>
+</div>
+
+<p>
+	<%= raw @content.body %>
+</p>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".left-arrow2").click(function() {
+            $(".carousel").carousel('prev');
+        })
+        $(".right-arrow2").click(function() {
+            $(".carousel").carousel('next');
+        })
+    });
+
+</script>

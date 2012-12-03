@@ -3,9 +3,9 @@
 
   <div class="form-inputs">
     <%= f.input :name, :as => :select, :include_blank => false, :collection => ["anuncie_aqui", "como_comprar_fotos", "contrate_fotografo", "quem_somos", "termos_de_uso", "boletim_do_mar", "trabalhe_conosco", "contato" ] %>
-    <%= f.input :description %>
-    <%= f.input :title %>
-    <%= f.input :subtitle %>
+    <%= f.input :description, :input_html => { :class => 'input-xxlarge' } %>
+    <%= f.input :title, :input_html => { :class => 'input-xxlarge' }%>
+    <%= f.input :subtitle, :input_html => { :class => 'input-xxlarge' } %>
     <%= f.cktext_area :body, :input_html => { :value => @content.body } %>
 
   </div>

@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+a:visited.btn {
+	color: white;
+}
+
 a:hover {
 	background: transparent;
 	color: black;
@@ -356,6 +360,7 @@ body {
 					border-top: 1px dotted #ccc;
 				}
 				.new {
+					margin-right: 10px;
 					p {
 						&.content {
 							margin: 0;
@@ -1330,4 +1335,8 @@ input::-webkit-inner-spin-button {
 	width: 80%;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
+}
+
+.center-carousel {
+	margin-top: 30px;
 }

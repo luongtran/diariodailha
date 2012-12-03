@@ -4,13 +4,37 @@
   <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert alert-#{name}" %>
 <%- end -%>
 
-<% @contents_photos.each do |p| %>
-  <p>
-    <p><%= p.legend %></p>
-    <%= image_tag p.image_url %>
-    <p>
-      <%= link_to "Adicionar Legenda", edit_contents_photo_path(p), class: "btn btn-small btn-primary" %>
-      <%= link_to "Excluir Foto", contents_photo_path(p), :method => "delete", data: { confirm: 'Tem certeza?' }, class: "btn btn-small btn-danger" %>
-    </p>
-  </p>
-<% end %>
+<table class="table table-striped">
+	<thead>
+		<th>Foto</th>
+		<th>Legenda</th>
+		<th colspan="2">Ações</th>
+	</thead>	
+	<tbody>
+		<% @contents_photos.each do |p| %>
+		  <tr>
+		    <td>		    	
+		    	<%= image_tag p.image_url(:thumb) %>
+		    </td>
+		    <td><%= p.legend %></td>
+		    <td>
+		      <%= link_to "Adicionar Legenda", edit_contents_photo_path(p), class: "btn btn-small btn-primary" %>
+		    </td>
+		    <td>
+		    	
+		      <%= link_to "Excluir Foto", contents_photo_path(p), :method => "delete", data: { confirm: 'Tem certeza?' }, class: "btn btn-small btn-danger" %>
+		    </td>
+		  </tr>
+		<% end %>
+			
+	</tbody>
+</table>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#container-right').hide(); $("#top-carousel").hide();
+    $('#content').removeClass('span9');
+    // $('#content').addClass('full');
+    $('#body').addClass('full');        
+});
+</script>

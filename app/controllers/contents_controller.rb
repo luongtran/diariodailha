@@ -55,7 +55,7 @@ class ContentsController < ApplicationController
     
     respond_to do |format|
       if @content.save
-        format.html { redirect_to contents_url, notice: 'Conteúdo criado com sucesso' }
+        format.html { redirect_to content_upload_images_path(@content), notice: 'Conteúdo criado com sucesso. Adicione fotos!' }
         format.json { render json: contents_url, status: :created, location: @content }
       else
         format.html { render action: "new" }
@@ -73,7 +73,7 @@ class ContentsController < ApplicationController
     
     respond_to do |format|
       if @content.update_attributes(params[:content])
-        format.html { redirect_to contents_url, notice: 'Conteúdo editado com sucesso' }
+        format.html { redirect_to content_upload_images_path(@content), notice: 'Conteúdo criado com sucesso. Adicione fotos!' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

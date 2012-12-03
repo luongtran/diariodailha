@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :title, :label => "Título" %>
+    <%= f.input :title, :label => "Título", :input_html => { :class => 'input-xxlarge' } %>
     <%= f.cktext_area :body, :input_html => { :value => @message.body } %>
   </div>
 

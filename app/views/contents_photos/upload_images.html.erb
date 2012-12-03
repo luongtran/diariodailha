@@ -1,4 +1,4 @@
-<h2>Adicionar fotos aos Conteúdos das Páginas</h2>
+<h2>Adicionar fotos a este Conteúdo</h2>
 
 <%= form_for ContentsPhoto.new do |f| %>
   <%= f.hidden_field :content_id, :value => @content.id %>
@@ -15,4 +15,10 @@
           </div>
       </div>
   </script> 
+</div>
+
+
+<div class="links">
+  <%= link_to "Adicione Legenda as fotos", content_view_photos_path(@content), :class => "btn btn-primary " %>
+  <%= link_to "Salvar", site_index_path, :class => "btn btn-success " %>
 </div>

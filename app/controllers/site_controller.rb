@@ -22,4 +22,7 @@ class SiteController < ApplicationController
 
   def how_to_buy_photos
   end
+
+  def boletim
+  end
 end
