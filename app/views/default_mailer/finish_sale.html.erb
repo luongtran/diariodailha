@@ -1,7 +1,25 @@
+
+
+
 <p>Olá, <%= @sale.user.name %></p>
+<p>	
+Obrigado por utilizar nosso site, seu pedido está em andamento.
+Você deverá efetuar o seguinte depósito:
+</p>
 
-<p>Faça o depósito na conta: XXXXXXXX </p>
+<p>BANCO: Caixa Econômica Federal
+	AGÊNCIA:
+	CONTA CORRENTE:
+	FAVORECIDO: Ana Claudia da Silva Mesquita ME
+	CNPJ: 17.034.867/0001-60</p>
 
+<p>Depois de efetuar o depósito acima, responda este e-mail confirmando o valor depositado, anexe o comprovante, e informe o endereço de entrega pelo correio se seu pedido for de fotos impressas.</p>
+
+<p>Nossa equipe vai verificar a efetivação do depósito e realizar o tratamento final da foto em até dois dias úteis, para encaminhar sua foto naquele mesmo e-mail do seu cadastro. Se você optou por receber fotos impressas, as mesmas serão enviadas via correios. Neste caso, não esqueça de informar o endereço da entrega.</p>
+
+<p>Qualquer dúvida entre em contato com a gente pelo telefone (48) 9968-7404 ou pelo e-mail contato@diariodailha.com.br.</p>
+
+<hr />
 <% total = 0 %>
 <% photos = [] %>
 <% @sale.sale_items.each do |i| %>
@@ -13,3 +31,6 @@
 <% end %>
 
 <h1>Total R$<%= total %> </h1>
+
+<p>Ana Claudia Mesquita
+	DIÁRIO DA ILHA</p>

@@ -116,26 +116,49 @@
                 </div>
             </div> -->
 
+            <% messages = Message.where("contrast is null or contrast = false").order("id desc") %>
+            <% counter = 0 %>
             <div id="top-carousel" class="row-fluid hide">
                 <div class="span12">
                     <div class="news-carrousel">
                         <div class="crop">
-                            <div id="myCarousel" class="carousel slide">
+                            <div id="myCarousel" class="carousel" >
                               <!-- Carousel items -->
                                 <div class="carousel-inner">
-                                    <div class="active item"><%= image_tag('surf01.jpg') %>  </div>
-                                    <div class="item"><%= image_tag('surf02.jpg') %>  </div>
-                                    <div class="item"><%= image_tag('surf01.jpg') %>  </div>
+                                    <% messages.each do |m| %>
+                                        <% if counter == 5 %>
+                                            <% break %>
+                                        <% end %>
+                                        <% if m.news_photos.count > 0 %>
+                                            <% if counter == 0 %>
+                                                <div class="active item">
+
+                                                    <%= image_tag m.news_photos.first().image_url %>
+                                                </div>
+                                            <% else %>
+                                                <div class="item">
+                                                    <%= image_tag m.news_photos.first().image_url %>
+                                                </div>
+                                            <% end %>
+                                            <% counter = counter + 1 %>
+                                        <% end %>
+                                    <% end %>
                                 </div>
                                  <!-- Carousel nav -->
-                                <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                                <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
                             </div>
                             
                         </div>
                     </div>
+                    <div class="carousel-nav">
+                        <a href="#" data-to="0" class="active">0</a>
+                        <a href="#" data-to="1">1</a>
+                        <a href="#" data-to="2">2</a>
+                        <a href="#" data-to="3">3</a>
+                        <a href="#" data-to="4">4</a>
+                    </div>
                 </div>
             </div>
+
 
             <div class='container-fluid' id="size3">
                 <div class='row-fluid'>
@@ -328,6 +351,31 @@
         };
         $(".footer").css("margin-top", biggest() -220 +   "px");
         $(".footer").removeClass("hide");
+        $("#myCarousel").carousel({
+            interval: 2000,
+            pause: 'hover'
+        });
+        $(".carousel-nav a").click(function(e){
+
+            e.preventDefault();
+            var index = parseInt($(this).attr('data-to'));
+
+            $('#myCarousel').carousel(index);
+
+            var nav = $('.carousel-nav');
+            var item = nav.find('a').get(index);
+            nav.find('a.active').removeClass('active');
+            $(item).addClass('active');
+        });
+        $("#myCarousel").bind('slide', function(e) {
+            var elements = 5;
+            var nav = $('.carousel-nav');
+            var index = $('#myCarousel').find('.item.active').index();
+            index = (index == elements - 1) ? 0 : index + 1;
+            var item = nav.find('a').get(index);
+            nav.find('a.active').removeClass('active');
+            $(item).addClass('active');
+        });
     });
 </script>
 </html>

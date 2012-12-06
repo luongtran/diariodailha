@@ -1270,7 +1270,8 @@ input::-webkit-inner-spin-button {
 	}
 	/* input values to crop the image: top, right, bottom, left */
 	.crop img{
-		margin: -40% 0px 0px 0px;
+		margin-top: -40%;
+		width:100%;
 		border-radius: 15px!important;		
 	}
 }
@@ -1339,4 +1340,26 @@ input::-webkit-inner-spin-button {
 
 .center-carousel {
 	margin-top: 30px;
+}
+
+.carousel-nav {
+	padding-right: 45px;
+	position: absolute;
+	float: right;
+	width: 100%;
+	z-index: 999999;
+	margin-top: -33px;
+	right: 0;
+	a {
+	  width: 22px;
+	  height: 35px;
+	  background: url('unselected_elipse.png') no-repeat;
+	  text-indent: -9999px;
+	  border: 0;
+	  float: right;
+	  margin-left: 5px;
+	}
+}
+.carousel-nav a.active {
+  background: url("selected_elipse.png") no-repeat;
 }
