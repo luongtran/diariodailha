@@ -3,7 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 a:visited.btn {
-	color: white;
+	color: black;
+}
+a:visited {
+	&.btn-danger, &.btn-primary, &.btn-success {
+		color: white;
+	}
 }
 
 a:hover {
@@ -1365,4 +1370,21 @@ input::-webkit-inner-spin-button {
 
 .headline {
 	margin-left: 20px!important;
+}
+
+#myCarousel {
+	height: 130px;
+}
+
+#home-caption {
+	position: absolute;
+	height: 15px;
+	width: 100%;
+	top: 133px;
+	line-height: 21px;
+	text-align: left;
+	padding-left: 55px;
+	a {
+		color: white;
+	}
 }
