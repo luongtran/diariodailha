@@ -6,29 +6,31 @@
 
 <% if @message.news_photos.count > 0 %>
 <div class="left-arrow2"></div>
-<div class="cwrapper">   
-    <div id="myCarousel" class="carousel slide">
-      <!-- Carousel items -->
-        <div class="carousel-inner">
-            <% @message.news_photos.each_with_index do |p, index| %>
-                <% if index == 0 %>
-                    <div class="active item">
-                <% else %>
-                    <div class="item">
-                <% end %>                
-                    <%= image_tag p.image_url %>
-                <% if p.legend? %>
-                    <div class="carousel-caption">
-                        <p>                            
-                            <%= p.legend %>
-                        </p>
+    <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery"  data-selector="div.item">
+    <div class="cwrapper">   
+        <div id="myCarousel" class="carousel slide">
+          <!-- Carousel items -->
+            <div class="carousel-inner">
+                <% @message.news_photos.each_with_index do |p, index| %>
+                    <% if index == 0 %>
+                        <div class="active item" data-href="<%= p.image_url.to_s %>" title="<%= p.legend %>">
+                    <% else %>
+                        <div class="item" data-href="<%= p.image_url.to_s %>" title="<%= p.legend %>">
+                    <% end %>                
+                        <%= image_tag p.image_url %>
+                    <% if p.legend? %>
+                        <div class="carousel-caption">
+                            <p>                            
+                                <%= p.legend %>
+                            </p>
+                        </div>
+                    <% end %>
                     </div>
                 <% end %>
-                </div>
-            <% end %>
+            </div>
         </div>
+        <div class="right-arrow2"></div>
     </div>
-    <div class="right-arrow2"></div>
 </div>
 <% end %>
 
@@ -37,6 +39,39 @@
 	  <%= raw @message.body %>
 	</p>
 </div>
+
+<div id="modal-gallery" class="modal modal-gallery hide fade" tabindex="-1">
+    <div class="modal-dismiss" >
+        <a class="close" data-dismiss="modal">&times;</a>
+    </div>
+    <div class="modal-body">
+        <div class="modal-image"></div>
+        <div class="modal-black-box">
+            <div class="modal-title"></div>
+        </div>
+    </div>
+</div>
+
+<script src="http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js"></script>
+<script src="https://raw.github.com/blueimp/Bootstrap-Image-Gallery/master/js/bootstrap-image-gallery.min.js"></script>
+
+<script type="text/javascript">
+    
+$('#modal-gallery').on('displayed', function () {
+    var modalData = $(this).data('modal');
+    $(".modal-black-box").width($('.modal-image').width());
+    $(".modal-title").width($('.modal-image').width());
+    var img = $('.modal-image').width();
+    var gal = $('.modal-gallery').width();
+    var margin = ((gal - img)/2) + img - 20;
+    $(".modal-dismiss").css('left', margin + "px");
+    // modalData.$links is the list of (filtered) element nodes as jQuery object
+    // modalData.img is the img (or canvas) element for the loaded image
+    // modalData.options.index is the index of the current link
+});
+
+</script>
+
 
 <% if can? :manage, @message %>
   <%= link_to 'Editar', edit_message_path(@message) %> |
