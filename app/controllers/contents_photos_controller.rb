@@ -1,6 +1,7 @@
 #encoding: utf-8
 class ContentsPhotosController < ApplicationController
   def create
+    authorize! :manage, :all
     @contents_photo = ContentsPhoto.create(params[:contents_photo])
 
     @contents_photo.save
@@ -14,10 +15,12 @@ class ContentsPhotosController < ApplicationController
   end
 
   def edit
+    authorize! :manage, :all
     @contents_photo = ContentsPhoto.find(params[:id])
   end
 
   def update
+    authorize! :manage, :all
     @contents_photo = ContentsPhoto.find(params[:id])
 
     @contents_photo.legend = params[:contents_photo][:legend]
@@ -29,6 +32,7 @@ class ContentsPhotosController < ApplicationController
   end
 
   def destroy
+    authorize! :manage, :all
     session[:return_to] ||= request.referer
     
     @contents_photo = ContentsPhoto.find(params[:id])
@@ -45,6 +49,7 @@ class ContentsPhotosController < ApplicationController
   end
 
   def upload_images
+    authorize! :manage, :all
     @content = Content.find(params[:content_id])
   end
 end
