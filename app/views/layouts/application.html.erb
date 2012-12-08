@@ -139,13 +139,13 @@
                                                     <% if p.cover %>
                                                         <%= link_to image_tag(p.image_url), message_path(m) %>
                                                     <% end %>
-                                                    
-                                                <% end %>
+
                                                     <div id="home-caption" class="carousel-caption">
                                                         <p>                            
-                                                            <%= link_to m.title, message_path(m) %>
+                                                            <%= link_to p.legend, message_path(m) %>
                                                         </p>
                                                     </div>
+                                                <% end %>
                                                 </div>                                
                                             <% counter = counter + 1 %>
                                         <% end %>
