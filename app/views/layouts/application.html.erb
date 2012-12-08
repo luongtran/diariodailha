@@ -137,7 +137,7 @@
                                             <% end %>
                                                 <% m.news_photos.each do |p| %>
                                                     <% if p.cover %>
-                                                        <%= link_to image_tag(p.image_url), message_path(m) %>
+                                                        <%= link_to image_tag(p.image_url(:cover)), message_path(m) %>
                                                     <% end %>
 
                                                     <div id="home-caption" class="carousel-caption">

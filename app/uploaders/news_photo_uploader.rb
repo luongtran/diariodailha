@@ -35,13 +35,20 @@ class NewsPhotoUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  process :resize_to_fill => [640, 480]
+  #process :resize_to_fill => [640, 480]
 
   version :thumb do
     process :resize_to_limit => [200, 200]
   end
-
   
+  version :cover do
+    process :resize_to_fill => [991, 220]
+  end
+
+  version :medium do
+    process :resize_to_fill => [640, 480]
+  end
+
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process :scale => [50, 50]

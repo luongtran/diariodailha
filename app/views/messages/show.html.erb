@@ -17,7 +17,7 @@
                     <% else %>
                         <div class="item" data-href="<%= p.image_url.to_s %>" title="<%= p.legend %>">
                     <% end %>                
-                        <%= image_tag p.image_url %>
+                        <%= image_tag p.image_url(:medium) %>
                     <% if p.legend? %>
                         <div class="carousel-caption">
                             <p>                            
