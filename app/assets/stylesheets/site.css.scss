@@ -1275,7 +1275,6 @@ input::-webkit-inner-spin-button {
 	}
 	/* input values to crop the image: top, right, bottom, left */
 	.crop img{
-		margin-top: -30%;
 		width:100.1%;
 		border-radius: 15px!important;		
 	}
@@ -1338,7 +1337,7 @@ input::-webkit-inner-spin-button {
 }
 
 .carousel-caption {
-	width: 80%;
+	width: 93%!important;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 }
