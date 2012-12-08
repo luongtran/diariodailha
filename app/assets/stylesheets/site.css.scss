@@ -1337,7 +1337,11 @@ input::-webkit-inner-spin-button {
 }
 
 .carousel-caption {
-	width: 93%!important;
+	width: 80%;
+	#home-caption {
+		width: 92%!important;
+
+	}
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 }
