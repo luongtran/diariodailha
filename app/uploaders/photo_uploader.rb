@@ -73,7 +73,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
       overlay_path = Rails.root.join("public/images/logo_site.png")
       overlay = Magick::Image.read(overlay_path).first
       overlay.resize_to_fill(15, 15)
-      source.composite!(overlay, 20, 20, Magick::OverCompositeOp)
+      source.composite!(overlay, Magick::SouthWestGravity, Magick::OverCompositeOp)
     end
   end
   # For images you might use something like this:

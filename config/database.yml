@@ -2,11 +2,12 @@ connection: &connection
   adapter: postgresql
   database: diariodailha_development
   pool: 5
-  username: derik
+  username: raphael
 
 development:
   <<: *connection
   database: diariodailha_development
+  host: localhost
 
 
 test:
