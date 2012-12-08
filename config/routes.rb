@@ -35,7 +35,7 @@ Diariodailha::Application.routes.draw do
   get "news_photos/upload_images/:message_id" => "news_photos#upload_images", :as => "upload_images"
   
   get "news_photos/view_photos/:message_id" => "news_photos#view_photos", :as => "message_view_photos"
-  
+  get "news_photos/update_cover/:message_id/:id" => "news_photos#update_cover", :as => "message_update_cover"
   get "news_photos/edit/:id" => "news_photos#edit", :as => "edit_news_photo"
 
   resources :marquees

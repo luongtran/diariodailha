@@ -1268,15 +1268,15 @@ input::-webkit-inner-spin-button {
 	margin-left: 3.8%;
 	padding: 0;
 	.crop{
-		width: 100%;
+		width: 100.1%;
 		height: 220px;
 		border-radius: 15px!important;
 		overflow:hidden; /* this is important */
 	}
 	/* input values to crop the image: top, right, bottom, left */
 	.crop img{
-		margin-top: -40%;
-		width:100%;
+		margin-top: -30%;
+		width:100.1%;
 		border-radius: 15px!important;		
 	}
 }
@@ -1374,14 +1374,16 @@ input::-webkit-inner-spin-button {
 }
 
 #myCarousel {
-	height: 130px;
+	height: 220px;
+	padding-top: 0px;
+	margin-right: -1px;
 }
 
 #home-caption {
 	position: absolute;
 	height: 15px;
 	width: 100%;
-	top: 173px;
+	top: 175px;
 	line-height: 21px;
 	text-align: left;
 	padding-left: 55px;
@@ -1389,3 +1391,4 @@ input::-webkit-inner-spin-button {
 		color: white;
 	}
 }
+

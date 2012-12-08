@@ -13,6 +13,7 @@ class NewsPhotosController < ApplicationController
 
   def view_photos
     @news_photos = Message.find(params[:message_id]).news_photos
+    @message = params[:message_id]
   end
 
   def edit
@@ -25,11 +26,31 @@ class NewsPhotosController < ApplicationController
     @news_photo = NewsPhoto.find(params[:id])
 
     @news_photo.legend = params[:news_photo][:legend]
-
     @news_photo.save
 
     flash[:success] = "Sucesso ao salvar legenda"
     redirect_to message_view_photos_path(@news_photo.message_id)
+  end
+
+  def update_cover 
+    authorize! :manage, :all 
+
+    Message.find(params[:message_id]).news_photos.each do |m| 
+      m.cover = false
+      m.save()
+    end
+
+    @news_photo = NewsPhoto.find(params[:id])
+
+    @news_photo.cover = true
+    @news_photo.save
+
+    respond_to do |format|
+      flash[:alert] = "Foto tornada capa com sucesso"
+      format.html { redirect_to message_view_photos_path(params[:message_id]) }
+      format.json { head :no_content }
+    end
+
   end
 
   def destroy
@@ -53,4 +74,5 @@ class NewsPhotosController < ApplicationController
     authorize! :manage, :all
     @message = Message.find(params[:message_id])
   end
+
 end

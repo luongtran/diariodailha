@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129020852) do
+ActiveRecord::Schema.define(:version => 20121208200447) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20121129020852) do
     t.integer  "message_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "cover"
   end
 
   add_index "news_photos", ["message_id"], :name => "index_news_photos_on_message_id"
@@ -163,7 +164,7 @@ ActiveRecord::Schema.define(:version => 20121129020852) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "quantity"
-    t.string   "photo_type"
+    t.string   "type"
     t.float    "price"
   end
 

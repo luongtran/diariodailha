@@ -126,7 +126,7 @@
                               <!-- Carousel items -->
                                 <div id="c1" class="carousel-inner">
                                     <% messages.each do |m| %>
-                                        <% if counter == 1 %>
+                                        <% if counter == 5 %>
                                             <% break %>
                                         <% end %>
                                         <% if m.news_photos.count > 0 %>
@@ -135,7 +135,11 @@
                                             <% else %>
                                                 <div class="item">
                                             <% end %>
-                                                <%= link_to image_tag(m.news_photos.first().image_url), message_path(m) %>
+                                                <% m.news_photos.each do |p| %>
+                                                    <% if p.cover %>
+                                                        <%= link_to image_tag(p.image_url), message_path(m) %>
+                                                    <% end %>
+                                                <% end %>
                                                     <div id="home-caption" class="carousel-caption">
                                                         <p>                            
                                                             <%= link_to m.title, message_path(m) %>

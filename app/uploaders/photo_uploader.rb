@@ -35,7 +35,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-  process :resize_to_fill => [640, 480]
+  process :resize_to_fit => [640, 480]
   
   # Create different versions of your uploaded files:
   version :thumb do
@@ -62,7 +62,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   end
 
   version :medium do
-    process :resize_to_fill => [800, 600]
+    process :resize_to_fit => [640, 480]
     process :overlay_images
   end
 
@@ -72,7 +72,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
     manipulate! format: "png" do |source|
       overlay_path = Rails.root.join("public/images/logo_site.png")
       overlay = Magick::Image.read(overlay_path).first
-      overlay.resize_to_fill(15, 15)
+      overlay.resize_to_fill(10, 10)
       source.composite!(overlay, Magick::SouthWestGravity, Magick::OverCompositeOp)
     end
   end
