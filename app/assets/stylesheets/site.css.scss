@@ -1341,6 +1341,11 @@ input::-webkit-inner-spin-button {
 	&#home-caption {
 		width: 93%!important;
 	}
+	&#boletim-caption{
+		width: 55.5%!important;
+		margin-right: auto;
+		margin-left: auto;
+	}
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 }
@@ -1423,6 +1428,8 @@ input::-webkit-inner-spin-button {
 			position: relative;
 			left: -25px;
 			cursor: pointer;
+			z-index: 9999;
+			
 		}
 
 		.left-arrow3 {
@@ -1434,6 +1441,7 @@ input::-webkit-inner-spin-button {
 			position: relative;
 			margin-left: 15px;
 			cursor: pointer;
+			z-index: 9999;
 		}		
 		.carousel-caption {
 			width: 52%!important;
@@ -1442,4 +1450,44 @@ input::-webkit-inner-spin-button {
 			margin-left: 20%!important;
 		}
 	}
+}
+
+.boletim {
+	.cwrapper2 {
+		margin-bottom: 100px;
+		position: relative;
+		width: 100%;
+		top: -110px;
+		img {
+			margin-left: auto;
+			margin-right: auto;
+			border-radius: 15px;
+			width: 60%;
+			height: 282px;
+		}
+		.right-arrow-bol {
+			background: url("rightarrow.png") no-repeat;
+			float: right;
+			top: -18px;
+			height: 110px;
+			width: 50px;
+			position: relative;
+			left: -12.3%;
+			cursor: pointer;
+			z-index:9999;
+		}
+
+	}
+}
+
+.left-arrow-bol {
+	background: url('photo_zoom_left.png') no-repeat;
+	float: left;
+	height: 110px;
+	width: 60px;
+	top: 100px;
+	position: relative;
+	margin-left: 11%;
+	cursor: pointer;
+	z-index:99999;
 }

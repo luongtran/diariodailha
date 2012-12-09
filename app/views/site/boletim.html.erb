@@ -6,10 +6,10 @@
 <h1 class="page-title">Boletim do mar</h1>
 
 <% if @content.contents_photos.count > 0 %>
-<div class="center-carousel">
-	<div class="left-arrow2"></div>
-    <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery"  data-selector="div.item">
-		<div class="cwrapper">   
+    <div class="center-carousel">
+	<div class="left-arrow-bol"></div>
+    <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery"  data-selector="div.item" class="boletim">
+		<div class="cwrapper2">   
 		    <div id="myCarousel" class="carousel slide">
 		      <!-- Carousel items -->
 		        <div class="carousel-inner">
@@ -21,7 +21,7 @@
 		                <% end %>                
 		                    <%= image_tag p.image_url %>
 		                <% if p.legend? %>
-		                    <div class="carousel-caption">
+		                    <div id="boletim-caption" class="carousel-caption">
 		                        <p>                            
 		                            <%= p.legend %>
 		                        </p>
@@ -31,15 +31,14 @@
 		            <% end %>
 		        </div>
 		    </div>
-		    <div class="right-arrow2"></div>
+		    <div class="right-arrow-bol"></div>
 		</div>
 	</div>
 </div>
 <% end %>
 <p>
-	<%= raw @content.body %>
+    <%= raw @content.body %>
 </p>
-
 <div id="modal-gallery" class="modal modal-gallery hide fade" tabindex="-1">
     <div class="modal-dismiss" >
         <a class="close" data-dismiss="modal">&times;</a>
@@ -54,10 +53,10 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $(".left-arrow2").click(function() {
+        $(".left-arrow-bol").click(function() {
             $(".carousel").carousel('prev');
         })
-        $(".right-arrow2").click(function() {
+        $(".right-arrow-bol").click(function() {
             $(".carousel").carousel('next');
         })
     });
