@@ -1396,14 +1396,17 @@ input::-webkit-inner-spin-button {
 
 
 .headline {
-
+	.new {
+		position: relative;
+		top: -100px;
+	}
 	.cwrapper {
 		position: relative;
 		width: 100%;
-		margin-top: -100px;
-		.headlineCarousel {
-			float: center;
+		&.push-top {
+			top: -100px;
 		}
+		margin-bottom: -100px;
 		img {
 			margin-left: auto;
 			margin-right: auto;
@@ -1414,7 +1417,7 @@ input::-webkit-inner-spin-button {
 		.right-arrow3 {
 			background: url('rightarrow.png') no-repeat;
 			float: right;
-			top: -150px;
+			top: -145px;
 			height: 110px;
 			width: 50px;
 			position: relative;

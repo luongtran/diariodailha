@@ -25,13 +25,13 @@
 			<% Message.where(contrast: true).each do |d| %>
 				<div class="span7 headline">
 					<h1 class="page-title"><%= d.title %></h1>
-
-					<p>
-						<%= link_to raw(d.body), message_path(d) %>
-					</p>
-					    <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery"  data-selector="div.item">
-					    <div class="cwrapper">   
-							<div class="left-arrow3"></div>
+			    	<div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery"  data-selector="div.item">
+							<% if d.news_photos.count > 1 %>
+					    		<div class="cwrapper push-top">   
+								<div class="left-arrow3"></div>
+							<% else %>
+								<div class="cwrapper">
+							<% end %>
 					        <div id="headlineCarousel" class="carousel slide">
 					          <!-- Carousel items -->
 					            <div class="carousel-inner">
@@ -53,9 +53,15 @@
 					                <% end %>
 					            </div>
 					        </div>
-					        <div class="right-arrow3"></div>
+					        <% if d.news_photos.count > 1 %>
+					        	<div class="right-arrow3"></div>
+							<% end %>
 					    </div>
 					</div>
+					<p class="new">
+						<%= link_to raw(d.body), message_path(d) %>
+					</p>
+
 				</div>
 			<% end %>
 		</div>
