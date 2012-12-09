@@ -62,27 +62,7 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#top-info").removeClass("hidden");
-		$("#top-info").show();
-		$("#home-more").removeClass("hidden");
-		$("#home-more").show();
-        $("#top-carousel").removeClass("hide");
-		$("#top-carousel").show();
-		$("#headlineCarousel").carousel({
-			interval: false;
-		});
-        $(".left-arrow3").click(function() {
-            $("#headlineCarousel").carousel('prev');
-        })
-        $(".right-arrow2").click(function() {
-            $("#headlineCarousel").carousel('next');
-        })
 
-
-	})
-</script>
 
 <div id="modal-gallery" class="modal modal-gallery hide fade" tabindex="-1">
     <div class="modal-dismiss" >
@@ -100,7 +80,25 @@
 <script src="https://raw.github.com/blueimp/Bootstrap-Image-Gallery/master/js/bootstrap-image-gallery.min.js"></script>
 
 <script type="text/javascript">
-    
+$(document).ready(function() {
+		$("#top-info").removeClass("hidden");
+		$("#top-info").show();
+		$("#home-more").removeClass("hidden");
+		$("#home-more").show();
+        $("#top-carousel").removeClass("hide");
+		$("#top-carousel").show();
+		$("#headlineCarousel").carousel({
+			interval: false
+		});
+        $(".left-arrow3").click(function() {
+            $("#headlineCarousel").carousel('prev');
+        })
+        $(".right-arrow3").click(function() {
+            $("#headlineCarousel").carousel('next');
+        })
+
+
+	})    
 $('#modal-gallery').on('displayed', function () {
     var modalData = $(this).data('modal');
     $(".modal-black-box").width($('.modal-image').width());
