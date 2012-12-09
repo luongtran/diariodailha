@@ -1394,3 +1394,43 @@ input::-webkit-inner-spin-button {
 	}
 }
 
+
+.headline {
+
+	.cwrapper {
+		position: relative;
+		width: 100%;
+		margin-top: -100px;
+		.headlineCarousel {
+			float: center;
+		}
+		img {
+			margin-left: auto;
+			margin-right: auto;
+			width: 60%;
+			height: 60%;
+		}
+
+		.right-arrow3 {
+			background: url('rightarrow.png') no-repeat;
+			float: right;
+			top: -150px;
+			height: 110px;
+			width: 50px;
+			position: relative;
+			left: -25px;
+			cursor: pointer;
+		}
+
+		.left-arrow3 {
+			background: url('photo_zoom_left.png') no-repeat;
+			float: left;
+			height: 110px;
+			width: 60px;
+			top: 150px;
+			position: relative;
+			margin-left: 15px;
+			cursor: pointer;
+		}		
+	}
+}
