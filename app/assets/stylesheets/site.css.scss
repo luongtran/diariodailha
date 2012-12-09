@@ -1432,5 +1432,11 @@ input::-webkit-inner-spin-button {
 			margin-left: 15px;
 			cursor: pointer;
 		}		
+		.carousel-caption {
+			width: 52%!important;
+			border-bottom-left-radius: 15px;
+			border-bottom-right-radius: 15px;
+			margin-left: 20%!important;
+		}
 	}
 }
