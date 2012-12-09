@@ -75,9 +75,6 @@ body {
 .home-pics {
 	background: url('home_bg.png') no-repeat;
 	background-position-y: 100px;
-	.carousel {
-		margin-top: 140px;
-	}
 	.crop-small {
 		cursor: pointer;
 	}
@@ -120,10 +117,10 @@ body {
 			border-radius: $borderradius;
 			padding: 10px 40px;
 			.button {
-				position: relative;
+				position: absolute;
 				width: 50px;
 				height: 110px;
-				top: 300px;
+				top: 150px;
 				cursor: pointer;
 			}
 			.left-button {
@@ -134,7 +131,7 @@ body {
 			.right-button {
 				background: url('home_right_button.png') no-repeat;
 				float: right;
-				margin-right: -44px;
+				margin-left: 96%;
 				width: 70px;	
 			}
 			.home-img {
@@ -1491,5 +1488,4 @@ input::-webkit-inner-spin-button {
 
 .home-xxx {
 	position: relative;
-	top: -252px;
 }
