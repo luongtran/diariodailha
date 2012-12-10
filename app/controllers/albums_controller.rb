@@ -6,9 +6,8 @@ class AlbumsController < ApplicationController
   before_filter :authenticate_photographer!, :except => [:show_photos]
 
   def index
-    @albums = Album.all
+    @albums = Album.where(:photographer_id => current_photographer)
 
-    authorize! :manage, :all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @albums }
@@ -18,7 +17,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
-    @album = Album.find(params[:id])
+    @album = Album.where(:id => params[:id], :photographer_id => current_photographer).first
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,7 +29,6 @@ class AlbumsController < ApplicationController
   # GET /albums/new.json
   def new
     @album = Album.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @album }
@@ -39,7 +37,7 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1/edit
   def edit
-    @album = Album.find(params[:id])
+    @album = Album.where(:id => params[:id], :photographer_id => current_photographer).first
     @album.date = @album.date.strftime('%d/%m/%Y')
   end
 
@@ -65,6 +63,15 @@ class AlbumsController < ApplicationController
   # PUT /albums/1.json
   def update
     @album = Album.find(params[:id])
+
+    if (@album.photographer != current_photographer)
+      respond_to do |format|
+        flash[:error] = "Você não tem permissão para editar esse álbum"
+        format.html { redirect_to root_path }
+      end
+
+      return
+    end
 
     respond_to do |format|
       if @album.update_attributes(params[:album])
@@ -93,6 +100,16 @@ class AlbumsController < ApplicationController
     @photo = Photo.new
     @photo.album_id = params[:album_id]
 
+    album = Album.find(params[:album_id])
+    if (album.photographer != current_photographer)
+      respond_to do |format|
+        flash[:error] = "Você não tem permissão para adicionar fotos a esse álbum"
+        format.html { redirect_to root_path }
+      end
+
+      return
+    end
+
     respond_to do |format|
       format.html
     end
@@ -102,6 +119,15 @@ class AlbumsController < ApplicationController
   # DELETE /albums/1.json
   def destroy
     @album = Album.find(params[:id])
+
+    if (@album.photographer != current_photographer)
+      respond_to do |format|
+        flash[:error] = "Você não tem permissão para apagar esse álbum"
+        format.html { redirect_to root_path }
+      end
+      return
+    end
+
     @album.destroy
 
     respond_to do |format|

@@ -12,5 +12,9 @@ class Photographer < ActiveRecord::Base
 
   validates_uniqueness_of :email
   validates_presence_of :name, :phone, :cep, :address, :city, :equipments, :peaks_of_activity
+
+  def is_admin?
+    false
+  end
   
 end
