@@ -121,6 +121,7 @@ body {
 				width: 50px;
 				height: 110px;
 				top: 150px;
+				left: 0;
 				cursor: pointer;
 			}
 			.left-button {
@@ -131,7 +132,7 @@ body {
 			.right-button {
 				background: url('home_right_button.png') no-repeat;
 				float: right;
-				margin-left: 96%;
+				margin-left: 95.9%;
 				width: 70px;	
 			}
 			.home-img {
@@ -1347,9 +1348,6 @@ input::-webkit-inner-spin-button {
 	border-bottom-right-radius: 15px;
 }
 
-.center-carousel {
-	margin-top: 30px;
-}
 
 .carousel-nav {
 	padding-right: 45px;
@@ -1381,6 +1379,7 @@ input::-webkit-inner-spin-button {
 	height: 220px;
 	padding-top: 0px;
 	margin-right: -1px;
+	position: relative;
 }
 
 #home-caption {
@@ -1405,10 +1404,7 @@ input::-webkit-inner-spin-button {
 	.cwrapper {
 		position: relative;
 		width: 100%;
-		&.push-top {
-			top: -100px;
-		}
-		margin-bottom: -100px;
+		margin-bottom: 0px;
 		img {
 			margin-left: auto;
 			margin-right: auto;
@@ -1432,10 +1428,12 @@ input::-webkit-inner-spin-button {
 			height: 90px;
 			width: 60px;
 			top: 43px;
-			position: absolute;
+			float: right;
 			margin-left: 15px;
 			cursor: pointer;
 			z-index: 2;
+			margin-top: -3%;
+			position: absolute;
 		}		
 		.carousel-caption {
 			width: 52%!important;
@@ -1448,7 +1446,8 @@ input::-webkit-inner-spin-button {
 
 .boletim {
 	.cwrapper2 {
-		margin-bottom: 100px;
+		margin-top: 10px;
+		margin-bottom: -10px;
 		position: relative;
 		width: 100%;
 		top: -110px;
@@ -1462,7 +1461,7 @@ input::-webkit-inner-spin-button {
 		.right-arrow-bol {
 			background: url("rightarrow.png") no-repeat;
 			float: right;
-			top: -18px;
+			top: -135px;
 			height: 110px;
 			width: 50px;
 			position: relative;
@@ -1476,14 +1475,13 @@ input::-webkit-inner-spin-button {
 
 .left-arrow-bol {
 	background: url('photo_zoom_left.png') no-repeat;
-	float: left;
 	height: 110px;
 	width: 60px;
 	top: 100px;
 	position: relative;
 	margin-left: 11%;
 	cursor: pointer;
-	z-index:2;
+	z-index: 2;
 }
 
 .home-xxx {

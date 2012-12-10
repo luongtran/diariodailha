@@ -33,12 +33,12 @@
 					</p>
 			    	<div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery"  data-selector="div.item">
 				    		<div class="cwrapper">   
+					        <div id="headlineCarousel" class="carousel slide">
 				    		<% if d.news_photos.count < 2 %>
 								<div class="left-arrow3 hide"></div>
 							<% else %>
 								<div class="left-arrow3 "></div>
 							<% end %>
-					        <div id="headlineCarousel" class="carousel slide">
 					          <!-- Carousel items -->
 					            <div class="carousel-inner">
 					                <% d.news_photos.each_with_index do |p, index| %>
