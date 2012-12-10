@@ -16,14 +16,20 @@ class PhotosController < ApplicationController
 
   # POST /photos
   # POST /photos.json
-  def create    
-    @photo = Photo.create(params[:photo])
-    count = @photo.album.photos.size
-    @photo.name = @photo.album.date.strftime("%d_%m_%Y") + @photo.album.beach + "_" + count.to_s
+  def create
 
-    @photo.save
+    album = Album.find(params[:photo][:album_id])
+    if album.photographer != current_photographer
+      flash[:error] = "Você não tem permissão para adicionar fotos a esse álbum"
+    else
+      @photo = Photo.create(params[:photo])
+      count = @photo.album.photos.size
+      @photo.name = @photo.album.date.strftime("%d_%m_%Y") + @photo.album.beach + "_" + count.to_s
 
-    @photo
+      @photo.save
+
+      @photo
+    end
   end
 
   # PUT /photos/1
@@ -76,6 +82,13 @@ class PhotosController < ApplicationController
   def destroy
     session[:return_to] ||= request.referer
     @photo = Photo.find(params[:id])
+
+    if @photo.album.photographer != current_photographer
+      respond_to do |format|
+        flash[:error] = "Você não tem permissão para adicionar fotos a esse álbum"
+        format.html { redirect_to root_path }
+      end      
+    end
     @photo.destroy
 
     respond_to do |format|

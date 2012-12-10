@@ -1,4 +1,6 @@
-<% if @photo.new_record? %>
+<% if flash[:error] %>
+  alert("<%= flash[:error] %>");
+<% elsif @photo.new_record? %>
   alert("Failed to upload photo: <%= j @photo.errors.full_messages.join(', ').html_safe %>");
 <% else %>
   var size = $('.thumbnail').size() + 1;
