@@ -55,7 +55,7 @@ class PhotosController < ApplicationController
   def find_result
     @photos = []
 
-    if !params[:album_id].empty?
+    if params[:album_id]
       @photos = Album.find(params[:album_id]).photos
     elsif !params[:find_by_keyword].empty?
       Album.where("lower(beach) like lower('%#{params[:find_by_keyword]}%')").each do |a|
