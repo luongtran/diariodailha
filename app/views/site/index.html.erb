@@ -11,7 +11,13 @@
 					<% Message.where("contrast is null or contrast = false").limit(5).order("id desc").each do |m| %>
 							<div class="new">
 								<h1 class="page-title preview"><%= m.title %></h1>
-								<p class="content"><%= link_to raw(html_truncate(m.body)), message_path(m) %></p>
+								<p class="content">
+									<% if m.body? %>
+										<%= link_to raw(html_truncate(m.body)), message_path(m) %>
+									<% else %>
+										<%= link_to "Veja mais", message_path(m) %>
+									<% end %>
+								</p>
 							</div>
 						</div>
 						<div class="row-fluid top-divider">
