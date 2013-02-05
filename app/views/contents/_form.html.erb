@@ -2,7 +2,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name, :as => :select, :include_blank => false, :collection => ["anuncie_aqui", "como_comprar_fotos", "contrate_fotografo", "quem_somos", "termos_de_uso", "boletim_do_mar", "trabalhe_conosco", "contato" ] %>
+    <%= f.input :name, :as => :select, :include_blank => false, :collection => ["anuncie_aqui", "como_comprar_fotos", "contrate_fotografo", "quem_somos", "termos_de_uso", "boletim_do_mar", 
+      "trabalhe_conosco", "contato", "email_venda" ] %>
     <%= f.input :description, :input_html => { :class => 'input-xxlarge' } %>
     <%= f.input :title, :input_html => { :class => 'input-xxlarge' }%>
     <%= f.input :subtitle, :input_html => { :class => 'input-xxlarge' } %>
