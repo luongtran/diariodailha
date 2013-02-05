@@ -138,13 +138,13 @@
                                                 <% m.news_photos.each do |p| %>
                                                     <% if p.cover %>
                                                         <%= link_to image_tag(p.image_url(:cover)), message_path(m) %>
-                                                    <% end %>
 
-                                                    <div id="home-caption" class="carousel-caption">
-                                                        <p>                            
-                                                            <%= link_to p.legend, message_path(m) %>
-                                                        </p>
-                                                    </div>
+                                                        <div id="home-caption" class="carousel-caption">
+                                                            <p>                            
+                                                                <%= link_to p.legend, message_path(m) %>
+                                                            </p>
+                                                        </div>
+                                                    <% end %>
                                                 <% end %>
                                                 </div>                                
                                             <% counter = counter + 1 %>
