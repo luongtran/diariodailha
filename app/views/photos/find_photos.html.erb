@@ -16,7 +16,7 @@
         </div>
     </div> 
 
-    <%= form_tag find_result_path do %>
+    <%= form_tag find_albums_path do %>
       <div class="form-inputs">
         <%= text_field_tag 'find_by_date', nil,:class => 'input-medium gray', :placeholder => "Busca por: Data" %>
         <%= text_field_tag 'find_by_keyword', nil,:class => 'input-large gray large', :placeholder => "Busca por: Palavra-chave" %>
@@ -25,7 +25,7 @@
     <% end %>
 
 
-      <div>
+    <div>
 
         <% if flash[:notice] %>
             <div class="alert alert-notice">
@@ -54,7 +54,11 @@
                                         <%= image_submit_tag 'search_tag.png', :class => 'lupe-icon' %>
                                         <div class="text">
                                             <div class="date"><%= album.date.strftime('%d/%m/%Y') %></div>
-                                            <div class="beach"><%= album.beach %><div class="divider"></div></div>
+                                            <div class="beach"><%= album.beach %></div>
+                                            <div class="peak"><%= album.peak %>
+                                                <div class="divider"></div>
+                                            </div>
+                                            <div class="photo-name">Fotógrafo - <%= album.photographer.name %></div>
                                         </div>
                                     </div>
                                     <%= hidden_field_tag 'album_id', album.id %>

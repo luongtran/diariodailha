@@ -8,9 +8,13 @@
                     <% else %>
                         <div data-id='<%= album.id %>' class="active-description hide">
                     <% end %>
-                        <div class="text">                            
+                        <div class="text">
                             <div class="date"><%= album.date.strftime('%d/%m/%Y') %></div>
-                            <div class="beach"><%= album.beach %><div class="divider"></div></div>
+                            <div class="beach"><%= album.beach %></div>
+                            <div class="peak"><%= album.peak %>
+                                <div class="divider"></div>
+                            </div>
+                            <div class="photo-name">Fotógrafo - <%= album.photographer.name %></div>
                         </div>
                     </div>
                     <% if aindex == 0 %>

@@ -52,28 +52,31 @@ class PhotosController < ApplicationController
   def find_photos
   end
 
-  def find_result
-    @photos = []
+  def find_albums
+    @albums = []
 
-    if params[:album_id]
-      @photos = Album.find(params[:album_id]).photos
-    elsif !params[:find_by_keyword].empty?
-      Album.where("lower(beach) like lower('%#{params[:find_by_keyword]}%')").each do |a|
-        @photos.concat a.photos
-      end
+    if !params[:find_by_keyword].empty?
+      @albums = Album.where("lower(name) like lower('%#{params[:find_by_keyword]}%')")
     elsif !params[:find_by_date].empty?
       date_str = params[:find_by_date].gsub('/', '_')
-      @photos = Photo.where("lower(name) like lower('%#{date_str}%')")
+      @albums = Album.where("lower(date) like lower('%#{date_str}%')")
     else
       flash[:notice] = "Pesquise por Data ou Palavra-chave"
       redirect_to find_photos_path
       return
     end
 
-    if(@photos == [])
-      flash[:notice] = "Nenhuma foto encontrada."
+    if(@albums == [])
+      flash[:notice] = "Nenhum álbum encontrado."
       redirect_to find_photos_path
     end
+  end
+
+  def find_result
+    @photos = []
+
+    @photos = Album.find(params[:album_id]).photos
+   
     
   end
 

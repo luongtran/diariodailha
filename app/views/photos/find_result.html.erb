@@ -18,7 +18,7 @@
     </div> 
 
 
-    <%= form_tag find_result_path do %>
+    <%= form_tag find_albums_path do %>
         <div class="form-inputs">
             <%= text_field_tag 'find_by_date', nil,:class => 'input-medium gray', :placeholder => "Busca por: Data" %>
             <%= text_field_tag 'find_by_keyword', nil,:class => 'input-large gray large', :placeholder => "Busca por: Palavra-chave" %>
@@ -27,7 +27,7 @@
     <% end %>
 
     <div class="results">
-        <span class="emph">Sua Busca</span> retornou <%= @photos.size unless @photos == nil %> resultados!
+        Mostrando fotos do álbum<span class="emph"> <%= @photos[0].album.name %></span>
     </div>
     <hr />
 

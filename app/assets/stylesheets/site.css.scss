@@ -147,7 +147,7 @@ body {
 					border: 3px solid $gray;
 					border-radius: 10px;				
 					.text {
-						margin-top: 40%;
+						margin-top: 30%;
 						text-align: left;
 						margin-left: 10%;
 						margin-right: 10%;
@@ -155,15 +155,29 @@ body {
 							color: #cecece;
 							font-size: smaller;
 							line-height: 7px;
+						}	
+						.photo-name {
+							color: #cecece;
+							font-size: small;
+							line-height: 10px;
 						}				
 						.beach {
 							color: white;
-							.divider {
-								margin-top: 10%;
-								border-bottom: 1px solid white;
-							}
-						}							
+							line-height: 10px;
+							margin-top: 5px;							
+						}				
+						.peak {
+							color: white;							
+							margin-top: 5px;
+						}			
+
+						.divider {
+							margin-top: 7%;
+							margin-bottom: 7%;
+							border-bottom: 1px solid white;
+						}
 					}
+
 				}
 
 			}
@@ -1176,7 +1190,7 @@ input::-webkit-inner-spin-button {
 		cursor: pointer;
 	}
 	.text {
-		margin-top: 40%;
+		margin-top: 30%;
 		text-align: left;
 		margin-left: 10%;
 		margin-right: 10%;
@@ -1184,14 +1198,27 @@ input::-webkit-inner-spin-button {
 			color: #cecece;
 			font-size: smaller;
 			line-height: 7px;
+		}	
+		.photo-name {
+			color: #cecece;
+			font-size: small;
+			line-height: 10px;
 		}				
 		.beach {
 			color: white;
-			.divider {
-				margin-top: 10%;
-				border-bottom: 1px solid white;
-			}
-		}							
+			line-height: 10px;
+			margin-top: 5px;
+		}				
+		.peak {
+			color: white;
+			margin-top: 5px;			
+		}			
+
+		.divider {
+			margin-top: 3%;
+			margin-bottom: 4%;
+			border-bottom: 1px solid white;
+		}
 	}
 }
 
@@ -1404,8 +1431,10 @@ input::-webkit-inner-spin-button {
 	}
 	.cwrapper {
 		position: relative;
-		width: 100%;
+		width: 440px!important;
+		height: 340px!important;
 		margin-bottom: 0px;
+		margin-left: -20px;
 		img {
 			margin-left: auto;
 			margin-right: auto;
@@ -1415,7 +1444,7 @@ input::-webkit-inner-spin-button {
 
 		.right-arrow3 {
 			background: url('rightarrow.png') no-repeat;
-			top: -145px;
+			top: -164px;
 			height: 78px;
 			width: 50px;
 			position: relative;
@@ -1428,16 +1457,16 @@ input::-webkit-inner-spin-button {
 			background: url('photo_zoom_left.png') no-repeat;
 			height: 90px;
 			width: 60px;
-			top: 43px;
+			top: 52px;
 			float: right;
-			margin-left: 15px;
+			margin-left: 28px;
 			cursor: pointer;
 			z-index: 2;
 			margin-top: -3%;
 			position: absolute;
 		}		
 		.carousel-caption {
-			width: 52%!important;
+			width: 53.2%!important;
 			border-bottom-left-radius: 15px;
 			border-bottom-right-radius: 15px;
 			margin-left: 20%!important;

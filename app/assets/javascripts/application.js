@@ -26,8 +26,8 @@ var calculateTotal = function() {
     var big = $("#big").val();
     var total = 0;
     
-    $("[name^='digital']").each(function() {
-        total = total + (parseInt(this.value) * digital);
+    $("[name^='digital']:checked").each(function() {
+        total = total + (parseInt(1) * digital);
     });
     $("[name^='small']").each(function() {
         total = total + (parseInt(this.value) * small);

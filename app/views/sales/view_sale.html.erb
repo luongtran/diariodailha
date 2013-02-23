@@ -23,7 +23,7 @@
                         <td class="span2">
                             <div class="row-fluid">    
                                 <div class="span5">                                    
-                                    <%= number_field_tag "digital" + key.to_s, 1, :in => 0...10, :class => 'leform' %>
+                                    <%= check_box_tag "digital" + key.to_s,  :class => 'leform' %>
                                 </div>
                                 <div class="span7">
                                     <div class="size">                                        
@@ -38,7 +38,7 @@
                         <td class="span2">
                             <div class="row-fluid">
                                 <div class="span5">
-                                    <%= number_field_tag "small" + key.to_s, 1, :in => 0...10, :class => 'leform' %>
+                                    <%= number_field_tag "small" + key.to_s, 0, :in => 0...10, :class => 'leform' %>
                                 </div>
                                 <div class="span7">
                                     <div class="size">                                        
@@ -53,7 +53,7 @@
                         <td class="span2">
                             <div class="row-fluid">
                                 <div class="span5">                                    
-                                    <%= number_field_tag "medium" + key.to_s, 1, :in => 0...10, :class => 'leform' %>
+                                    <%= number_field_tag "medium" + key.to_s, 0, :in => 0...10, :class => 'leform' %>
                                 </div>
                                 <div class="span7">
                                     <div class="size">                                        
@@ -68,7 +68,7 @@
                         <td class="span2">                            
                             <div class="row-fluid">
                                 <div class="span5 numberinput">
-                                    <%= number_field_tag "big" + key.to_s, 1, :in => 0...10, :class => 'leform' %>
+                                    <%= number_field_tag "big" + key.to_s, 0, :in => 0...10, :class => 'leform' %>
                                 </div>
                                 <div class="span7">
                                     <div class="textinput">                                    
@@ -123,16 +123,19 @@ $(document).ready(function() {
         $(this).change(function() {
             calculateTotal();
         });
+        
     });
     $("[name^='medium']").each(function() {
         $(this).change(function() {
             calculateTotal();
         });
+        
     });
     $("[name^='big']").each(function() {
         $(this).change(function() {
             calculateTotal();
         });
+        
     });
 
     $("input").keypress(function(event) {

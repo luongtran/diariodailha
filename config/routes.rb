@@ -99,6 +99,7 @@ Diariodailha::Application.routes.draw do
   resources :photos
   match "find_photos" => "photos#find_photos"
   match 'find_result' => "photos#find_result"
+  match 'find_albums' => "photos#find_albums"
 
   devise_for :photographers, :controllers => {:registrations => 'Photographers::Registrations', :sessions => 'Photographers::Sessions', :passwords => 'Photographers::Passwords', :confirmations => 'Photographers::Confirmations' }
 
