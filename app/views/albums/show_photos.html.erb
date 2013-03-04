@@ -73,7 +73,7 @@
                 <div class="span3">
                     <div class="thumbnail">
                         <!-- @TODO Colocar uma imagem do algum de "capa" -->
-                        <% if photographer_signed_in? %>
+                        <% if photographer_signed_in? || (user_signed_in? && current_user.is_admin?) %>
                             <div class='mouse-over-big'>
                                 <span><%= link_to '', photo, :data => { :confirm => "Você tem certeza?" },:method => 'delete', :class => 'link-delete'%></span>
                             </div>

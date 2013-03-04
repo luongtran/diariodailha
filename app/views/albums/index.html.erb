@@ -5,17 +5,20 @@
             <p class='img-header'><%= image_tag("area_fotografo.png", :alt => "area do fotografo") %></p>
         </div>
         <div class="span6">            
-            <div class="photographer-info">
-                <h1>Olá, <%= current_photographer.name %></h1>
-                <p class="edit">
-                    <%= link_to "editar informações", edit_photographer_registration_path(current_photographer) %>
-                </p>
-            </div>
+            <% if photographer_signed_in? %>
+                <div class="photographer-info">
+                    <h1>Olá, <%= current_photographer.name %></h1>
+                    <p class="edit">
+                        <%= link_to "editar informações", edit_photographer_registration_path(current_photographer) %>
+                    </p>
+                </div>
+            <% end %>
         </div>
     </div>
-
-    <h1 class="page-subtitle">Upload</h1>
-    <p> <%= link_to 'Cadastre', new_album_path %> quantos álbuns quiser</p>
+    <% if photographer_signed_in? %>
+        <h1 class="page-subtitle">Upload</h1>
+        <p> <%= link_to 'Cadastre', new_album_path %> quantos álbuns quiser</p>
+    <% end %>
 
     <ul class="breadcrumb">
         <li class='active'>Você está em<span class="divider">></span></li>
@@ -24,9 +27,11 @@
 
     <div class="albums">
         <div class="row-fluid album-row">
-            <div class="span2">
-               <%= link_to image_tag('new_album.png'), new_album_path %>
-           </div>
+            <% if photographer_signed_in? %>
+                <div class="span2">
+                   <%= link_to image_tag('new_album.png'), new_album_path %>
+               </div>
+           <% end %>
            <% @break_row = 6 %>
             <% @albums.each_with_index do |album, index| %>     
                 <% if index + 1 == @break_row %>
