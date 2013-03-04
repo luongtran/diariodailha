@@ -48,7 +48,9 @@
 
     <div class="albums" id="album">
         <div class="row-fluid album-row">
+            <% @break_row = 5 %>
             <% if photographer_signed_in? %>
+                <% @break_row = 4 %>
                 <div class='span3'>
                     <%= form_for Photo.new, :html => {:id => "new_photo_image" } do |f| %>
                         <%= f.hidden_field :album_id, :value => @album.id %>
@@ -62,7 +64,7 @@
                     <% end %>
                 </div>
             <% end %>
-            <% @break_row = 4 %>
+            
             <% @photos.each_with_index do |photo, index| %>      
                 <% if index + 1 == @break_row %>
                     <% @break_row = @break_row + 4 %>
