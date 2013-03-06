@@ -42,7 +42,7 @@ class NewsPhotoUploader < CarrierWave::Uploader::Base
   end
   
   version :cover do
-    process :resize_to_fill => [991, 220]
+    process :resize_to_fill => [991, 260]
   end
 
   version :medium do

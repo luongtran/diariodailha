@@ -1286,7 +1286,7 @@ input::-webkit-inner-spin-button {
 
 
 .news-carrousel {
-	height: 220px;
+	height: 260px;
 	background-color: white;
 	border-radius: 15px!important;
 	margin-top: 12px;
@@ -1295,7 +1295,7 @@ input::-webkit-inner-spin-button {
 	padding: 0;
 	.crop{
 		width: 100.1%;
-		height: 220px;
+		height: 260px;
 		border-radius: 15px!important;
 		overflow:hidden; /* this is important */
 	}
@@ -1414,7 +1414,7 @@ input::-webkit-inner-spin-button {
 	position: absolute;
 	height: 15px;
 	width: 100%;
-	top: 175px;
+	top: 215px;
 	line-height: 21px;
 	text-align: left;
 	padding-left: 55px;
@@ -1431,10 +1431,10 @@ input::-webkit-inner-spin-button {
 	}
 	.cwrapper {
 		position: relative;
-		width: 440px!important;
-		height: 340px!important;
+		width: 510px!important;
+		height: 400px!important;
 		margin-bottom: 0px;
-		margin-left: -20px;
+		margin-left: -45px;
 		img {
 			margin-left: auto;
 			margin-right: auto;
@@ -1444,7 +1444,7 @@ input::-webkit-inner-spin-button {
 
 		.right-arrow3 {
 			background: url('rightarrow.png') no-repeat;
-			top: -164px;
+			top: -180px;
 			height: 78px;
 			width: 50px;
 			position: relative;
@@ -1457,16 +1457,16 @@ input::-webkit-inner-spin-button {
 			background: url('photo_zoom_left.png') no-repeat;
 			height: 90px;
 			width: 60px;
-			top: 52px;
+			top: 73px;
 			float: right;
-			margin-left: 28px;
+			margin-left: 43px;
 			cursor: pointer;
 			z-index: 2;
 			margin-top: -3%;
 			position: absolute;
 		}		
 		.carousel-caption {
-			width: 53.2%!important;
+			width: 54%!important;
 			border-bottom-left-radius: 15px;
 			border-bottom-right-radius: 15px;
 			margin-left: 20%!important;
