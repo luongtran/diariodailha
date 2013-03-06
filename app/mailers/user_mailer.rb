@@ -1,7 +1,7 @@
 # encoding: utf-8
 class UserMailer < Devise::Mailer
   helper :application
-  default from: "contato.diariodailha@gmail.com"
+  default from: "contato@diariodailha.com.br"
 
   def confirmation_instructions(record)
     @resource = record
