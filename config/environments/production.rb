@@ -1,6 +1,6 @@
 Diariodailha::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-
+  require 'stmp_tls'
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -65,13 +65,13 @@ Diariodailha::Application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "smtp.diariodailha.com.br",
     port: 587,
-    domain: "gmail.com",
-    authentication: "plain",
+    domain: "diariodailha.com.br",
+    :authentication => :login,
     enable_starttls_auto: true,
-    user_name: "contato.diariodailha@gmail.com",
-    password: "diariodailha"
+    user_name: "contato@diariodailha.com.br",
+    password: "diario123"
   }
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
