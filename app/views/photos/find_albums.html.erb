@@ -1,0 +1,132 @@
+<div class="search">
+    <div class="row-fluid">   
+        <div class="span6">
+            <h1 class="page-title">Buscar fotos</h1>
+        </div>   
+        <div class="span6">            
+            <p id="basket_items" class='img-header'>
+                <span>
+                    <% if basket.nil? || basket.empty? %>
+                        <%= "0 items no carrinho" %>
+                    <% else %>
+                        <%= link_to basket.count.to_s + " itens no carrinho", sale_view_sale_path, class: "btn-finish-sale" %>
+                    <% end %>
+                </span>
+            </p>
+        </div>
+    </div> 
+
+    <%= form_tag find_albums_path do %>
+      <div class="form-inputs">
+        <%= text_field_tag 'find_by_date', nil,:class => 'input-medium gray', :placeholder => "Busca por: Data" %>
+        <%= text_field_tag 'find_by_keyword', nil,:class => 'input-large gray large', :placeholder => "Busca por: Palavra-chave" %>
+        <%= image_submit_tag('buscar_button.png', :class => 'xbutton') %>
+      </div>
+    <% end %>
+
+    <div class="results">
+        <span class="emph">Sua Busca</span> retornou <%= @albums.size unless @albums == nil %> resultados!
+    </div>
+    <hr />
+
+    <div>
+        <% @break_page = 0 %>
+        <% @opened = false %>
+        <div id="gallery">
+            <div class="row-fluid album-row">
+                <% @albums.each do |album| %>
+                    <% if album.photos.first %>
+                        <% if @break_page == 6 %>
+                            </div>
+                            <div class="row-fluid album-row">
+                            <% @break_page = 1 %>
+                            <% @opened = true %>
+                        <% else %>
+                            <% @break_page = @break_page + 1 %>
+                        <% end %>
+                        <div class="span2">
+                            <%= form_tag find_result_path do %>
+                                <div class="crop-small hover-effect">
+                                    <div class="lupe hide">
+                                        <%= image_submit_tag 'search_tag.png', :class => 'lupe-icon' %>
+                                        <div class="text">
+                                            <div class="date"><%= album.date.strftime('%d/%m/%Y') %></div>
+                                            <div class="beach"><%= album.beach %></div>
+                                            <div class="peak"><%= album.peak %>
+                                                <div class="divider"></div>
+                                            </div>
+                                            <div class="photo-name">Fotógrafo - <%= album.photographer.name %></div>
+                                        </div>
+                                    </div>
+                                    <%= hidden_field_tag 'album_id', album.id %>
+                                    <%= image_submit_tag album.photos.first.image_url(:crop_small).to_s, :class => 'img-rounded' %>
+                                <% end %>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+        <% if @opened  %>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+
+
+
+<div id="modal-gallery" class="modal modal-gallery hide fade" tabindex="-1">
+    <div class="modal-body">
+        <div class="modal-dismiss" >
+            <a class="close" data-dismiss="modal">&times;</a>
+        </div> 
+        <div class="modal-image">
+        </div>        
+        <div class="modal-black-box">
+            <div class="modal-title"></div>
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#container-right').hide(); $("#top-carousel").hide();
+        $('#content').removeClass('span9');
+        // $('#content').addClass('full');
+        $('#body').addClass('full');    
+
+    });
+
+    </script>    
+</div>
+
+<script src="http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js"></script>
+<script src="https://raw.github.com/blueimp/Bootstrap-Image-Gallery/master/js/bootstrap-image-gallery.min.js"></script>
+
+
+<script type="text/javascript">
+    
+$('#modal-gallery').on('displayed', function () {
+    var modalData = $(this).data('modal');
+    $(".modal-black-box").width($('.modal-image').width());
+    $(".modal-title").width($('.modal-image').width());
+    var img = $('.modal-image').width();
+    var gal = $('.modal-gallery').width();
+    var margin = ((gal - img)/2) + img - 20;
+    $(".modal-dismiss").css('left', margin + "px");
+    // modalData.$links is the list of (filtered) element nodes as jQuery object
+    // modalData.img is the img (or canvas) element for the loaded image
+    // modalData.options.index is the index of the current link
+});
+
+$(document).ready(function() {
+    $(".hover-effect").mouseenter(function(){
+        $(this).children(".lupe").removeClass('hide');
+    });
+
+    $(".hover-effect").mouseleave(function(){
+        $(this).children(".lupe").addClass('hide');
+    });
+})
+</script>

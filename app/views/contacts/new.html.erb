@@ -5,11 +5,11 @@
 
 	<h1 class='page-title'> Diário da ilha </h1>
 
-    <p>Propriedade de NOAN SERVIÇOS FOTOGRÁFICOS</p>
     <% if Content.where(:name => "contato") != [] %>
         <%= raw Content.where(:name => "contato").first.body %>
     <% else %>
     <div class='row-fluid'>
+        <p>Propriedade de NOAN SERVIÇOS FOTOGRÁFICOS</p>
         <div class='span6'>
             <p>Rua Anita Garibaldi, 79 – Sala 104 – Centro </p>
             <p>CEP 88.010-500</p>
@@ -33,3 +33,6 @@
         </div>
     </div>
 </div>
+
+
+  

@@ -3,7 +3,7 @@
 <% if can? :manage, @content %>    
   <%= link_to "Editar Página", edit_content_path(@content) %>
 <% end %>
-<h1 class="page-title">@content.title</h1>
+<h1 class="page-title"><%= @content.title %></h1>
 
 <% if @content.contents_photos.count > 0 %>
     <div class="center-carousel">
