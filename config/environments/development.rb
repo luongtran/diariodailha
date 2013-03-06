@@ -1,4 +1,6 @@
 Diariodailha::Application.configure do
+
+  require 'stmp_tls'
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -22,13 +24,13 @@ Diariodailha::Application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "smtp.diariodailha.com.br",
     port: 587,
-    domain: "gmail.com",
-    authentication: "plain",
+    domain: "diariodailha.com.br",
+    :authentication => :login,
     enable_starttls_auto: true,
-    user_name: "contato.diariodailha@gmail.com",
-    password: "diariodailha"
+    user_name: "contato@diariodailha.com.br",
+    password: "diario123"
   }
 
   # Only use best-standards-support built into browsers

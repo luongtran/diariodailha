@@ -18,33 +18,43 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
 
-    album = Album.find(params[:photo][:album_id])
-    if album.photographer != current_photographer
-      flash[:error] = "Você não tem permissão para adicionar fotos a esse álbum"
+    if photographer_signed_in?
+      album = Album.find(params[:photo][:album_id])
+      if album.photographer != current_photographer
+        flash[:error] = "Você não tem permissão para adicionar fotos a esse álbum"
+      else
+        @photo = Photo.create(params[:photo])
+        count = @photo.album.photos.size
+        @photo.name = @photo.album.date.strftime("%d_%m_%Y") + @photo.album.beach + "_" + count.to_s
+
+        @photo.save
+
+        @photo
+      end
     else
-      @photo = Photo.create(params[:photo])
-      count = @photo.album.photos.size
-      @photo.name = @photo.album.date.strftime("%d_%m_%Y") + @photo.album.beach + "_" + count.to_s
-
-      @photo.save
-
-      @photo
+      flash.notice = "Faça login antes de prosseguir!"
+      redirect_to new_photographer_session_path
     end
   end
 
   # PUT /photos/1
   # PUT /photos/1.json
   def update
-    @photo = Photo.find(params[:id])
+    if photographer_signed_in?
+      @photo = Photo.find(params[:id])
 
-    respond_to do |format|
-      if @photo.update_attributes(params[:photo])
-        format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @photo.update_attributes(params[:photo])
+          format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @photo.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      flash.notice = "Faça login antes de prosseguir!"
+      redirect_to new_photographer_session_path
     end
   end
 
@@ -83,20 +93,40 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
-    session[:return_to] ||= request.referer
-    @photo = Photo.find(params[:id])
 
-    if @photo.album.photographer != current_photographer
+    if photographer_signed_in?
+      session[:return_to] ||= request.referer
+      @photo = Photo.find(params[:id])
+
+      if @photo.album.photographer != current_photographer
+        respond_to do |format|
+          flash[:error] = "Você não tem permissão para adicionar fotos a esse álbum"
+          format.html { redirect_to root_path }
+        end      
+      end
+      @photo.destroy
+
       respond_to do |format|
-        flash[:error] = "Você não tem permissão para adicionar fotos a esse álbum"
-        format.html { redirect_to root_path }
-      end      
-    end
-    @photo.destroy
+        format.html { redirect_to photographer_show_albums_path }
+        format.json { head :no_content }
+      end
 
-    respond_to do |format|
-      format.html { redirect_to photographer_show_albums_path }
-      format.json { head :no_content }
+    elsif user_signed_in? && current_user.is_admin?
+      session[:return_to] ||= request.referer
+      @photo = Photo.find(params[:id])
+
+      album_id = @photo.album_id
+
+      @photo.destroy
+    
+      respond_to do |format|
+        format.html { redirect_to album_show_photos_path(album_id) }
+        format.json { head :no_content }
+      end
+    else
+      flash.notice = "Faça login antes de prosseguir!"
+      redirect_to new_photographer_session_path
     end
   end
+
 end
