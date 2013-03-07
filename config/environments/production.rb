@@ -70,7 +70,7 @@ Diariodailha::Application.configure do
     domain: "diariodailha.com.br",
     :authentication => :login,
     enable_starttls_auto: true,
-    user_name: "contato@diariodailha.com.br",
+    user_name: "pagamento@diariodailha.com.br",
     password: "diario123"
   }
   # Log the query plan for queries taking more than this (works
