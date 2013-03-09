@@ -13,7 +13,7 @@ test:
   <<: *connection
   database: diariodailha_development
 
-production:
-  adapter: postgresql
-  url: ENV['DATABASE_URL']
+# production:
+#   adapter: postgresql
+#   url: ENV['DATABASE_URL']
 
