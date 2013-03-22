@@ -1,1 +1,386 @@
-<h1>Not available</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diario da ilha</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class='header-fundo'>
+        <div class='header-img'></div>
+        <div class='page'>
+            <div class='container-fluid'>
+                <div class='header'>
+                    <div class='row-fluid'>
+                        <div class='span3'>
+                            <div class='logo'>
+                                <%= image_tag("logo_site.png", :alt => "Logotipo") %>
+                            </div>
+                        </div>
+                        <div class='span9'>
+                            <div class='info-header'>
+                                <% if Content.where(:name => "quem_somos") != [] %>
+                                    <%= link_to "QUEM SOMOS", content_path(Content.where(:name => "quem_somos").first) %>    
+                                <% else %>
+                                    <%= link_to "QUEM SOMOS", site_about_path %>
+                                <% end %>
+                                <%= link_to "TRABALHE CONOSCO", new_work_with_u_path %>
+                                <% if Content.where(:name => "anuncie_aqui") != [] %>
+                                    <%= link_to "ANUNCIE AQUI", content_path(Content.where(:name => "anuncie_aqui").first) %>    
+                                <% else %>
+                                <%= link_to "ANUNCIE AQUI", site_advertise_path %>
+                                <% end %>
+                                <%= link_to "CONTATO", new_contact_path %>
+                            </div>
+                            <div class='top-banner' id='top-banner'>
+                                <% banner_top = Banner.where(:position => "topo").first %>
+                                <%  if banner_top != nil %>
+                                    <% if banner_top.file_url.include? ".swf" %>
+                                        <embed width="100%" height="100%" name="plugin" src="<%= banner_top.file_url %>" type="application/x-shockwave-flash">
+                                    <% else %>
+                                        <% if banner_top.link.empty? %>
+                                            <%= image_tag banner_top.file_url %>
+                                        <% else %>
+                                            <a href="<%= banner_top.link %>" targe="_blank"><%= image_tag banner_top.file_url %></a>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    Anuncie Aqui
+                                <% end  %>
+                            </div>              
+                            <div class="header-nav">
+                                <!-- <div class='navbar-inner'>                             -->
+                                    <ul class="nav nav-pills">
+                                        <li class='first'><%= link_to "HOME", root_path %></li>
+                                        <li class="divider-vertical"></li>
+                                        <% if Content.where(:name => "boletim_do_mar") != [] %>
+                                            <li><%= link_to "BOLETIM DO MAR", site_boletim_path %></li>
+                                        <% else %>
+                                            <li><a href="#">BOLETIM DO MAR</a></li>
+                                        <% end %>
+                                        <li class='divider-vertical'></li>
+                                        <li><%= link_to "BUSCAR FOTOS", find_photos_path %></li>
+                                        <li class='divider-vertical'></li>
+                                        
+                                        <% if Content.where(:name => "como_comprar_fotos") != [] %>
+                                            <li><%= link_to "COMO COMPRAR FOTOS", site_how_to_buy_photos_path %></li>
+                                        <% else %>
+                                            <li><%= link_to "COMO COMPRAR FOTOS", site_how_buy_path %></li>
+                                        <% end %>
+
+                                        <li class='divider-vertical'></li>
+                                        
+                                        <% if Content.where(:name => "contrate_fotografo") != [] %>
+                                            <li><%= link_to "CONTRATE UM FOTÓGRAFO", content_path(Content.where(:name => "contrate_fotografo").first) %></li>
+                                        <% else %>
+                                            <li><a href="#"> CONTRATE UM FOTÓGRAFO </a></li>
+                                        <% end %>
+                                    </ul>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+
+            <div id='top-info' class='row-fluid hidden'>
+                <div class='span12'>
+                    <div class='top-info btn-large' id='top-info'>
+                        <% unless Marquee.first.nil? %> 
+                            <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                                <%= Marquee.first.text %>
+                            </marquee>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+
+<!--             <div class='row-fluid'>
+                <div class='span12'>
+                    <div class='news-carrousel'>
+                        <div class="crop">
+                            <div class="active">
+                                <%= image_tag('surf01.jpg') %>                                
+                            </div> 
+                            <div class="hide">
+                                <%= image_tag('surf02.jpg') %>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            
+                        </div>                        
+                    </div>
+                </div>
+            </div> -->
+
+            <% messages = Message.where("contrast is null or contrast = false").order("id desc") %>
+            <% counter = 0 %>
+            <div id="top-carousel" class="row-fluid hide">
+                <div class="span12">
+                    <div class="news-carrousel">
+                        <div class="crop">
+                            <div id="myCarousel" class="carousel" >
+                              <!-- Carousel items -->
+                                <div id="c1" class="carousel-inner">
+                                    <% messages.each do |m| %>
+                                        <% if counter == 5 %>
+                                            <% break %>
+                                        <% end %>
+                                        <% if m.news_photos.count > 0 %>
+                                            <% if counter == 0 %>
+                                                <div class="active item">
+                                            <% else %>
+                                                <div class="item">
+                                            <% end %>
+                                                <% m.news_photos.each do |p| %>
+                                                    <% if p.cover %>
+                                                        <%= link_to image_tag(p.image_url(:cover)), message_path(m) %>
+
+                                                        <div id="home-caption" class="carousel-caption">
+                                                            <p>                            
+                                                                <%= link_to p.legend, message_path(m) %>
+                                                            </p>
+                                                        </div>
+                                                    <% end %>
+                                                <% end %>
+                                                </div>                                
+                                            <% counter = counter + 1 %>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-nav">
+                        <a href="#" data-to="0" class="active">0</a>
+                        <a href="#" data-to="1">1</a>
+                        <a href="#" data-to="2">2</a>
+                        <a href="#" data-to="3">3</a>
+                        <a href="#" data-to="4">4</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class='container-fluid' id="size3">
+                <div class='row-fluid'>
+                    <div id='content' class='span9'>
+                        <div class='container-fluid'>
+                            <div class='body' id='body'>
+                                <div class='content'>
+                                    <%= yield %> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="home-more" class="hidden">                            
+                            <div class='container-fluid'>
+                                <div class='home-adver' id='home-ad'>
+                                    <div class='banner' id='med-banner'>
+                                        <% banner_med = Banner.where(:position => "meio").first %>
+                                        <%  if banner_med != nil %>
+                                            <% if banner_med.file_url.include? ".swf" %>
+                                                <embed width="100%" height="100%" name="plugin" src="<%= banner_med.file_url %>" type="application/x-shockwave-flash">
+                                            <% else %>
+                                                <% if banner_med.link.empty? %>
+                                                    <%= image_tag banner_med.file_url %>
+                                                <% else %>
+                                                    <a href="<%= banner_med.link %>" targe="_blank"><%= image_tag banner_med.file_url %></a>
+                                                <% end %>
+                                            <% end %>
+                                        <% else %>
+                                            <%= image_tag 'banner_meio.png' %>
+                                        <% end  %>
+                                    </div>     
+                                </div>
+                            </div>                        
+
+                            <div class='container-fluid'>
+                                <%= render 'layouts/carousel' %>
+                            </div>
+                        </div>
+                    </div>
+                    <div id='container-right' class='span3 container-right'>
+                            <div class='row banner-small' id='rightbanner-01'> 
+                                <% banner_1 = Banner.where(:position => "menor-1").first %>
+                                <%  if banner_1 != nil %>
+                                    <% if banner_1.file_url.include? ".swf" %>
+                                        <embed width="100%" height="100%" name="plugin" src="<%= banner_1.file_url %>" type="application/x-shockwave-flash">
+                                    <% else %>
+                                        <% if banner_1.link.empty? %>
+                                            <%= image_tag banner_1.file_url %>
+                                        <% else %>
+                                            <a href="<%= banner_1.link %>" targe="_blank"><%= image_tag banner_1.file_url %></a>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    Anuncie Aqui
+                                <% end  %>
+                            </div>
+                            <div class='row banner-small' id='rightbanner-02'> 
+                                <% banner_2 = Banner.where(:position => "menor-2").first %>
+                                <%  if banner_2 != nil %>
+                                    <% if banner_2.file_url.include? ".swf" %>
+                                        <embed width="100%" height="100%" name="plugin" src="<%= banner_2.file_url %>" type="application/x-shockwave-flash">
+                                    <% else %>
+                                        <% if banner_2.link.empty? %>
+                                            <%= image_tag banner_2.file_url %>
+                                        <% else %>
+                                            <a href="<%= banner_2.link %>" targe="_blank"><%= image_tag banner_2.file_url %></a>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    Anuncie Aqui
+                                <% end  %>
+                            </div>
+                            <div class='row banner-small' id='rightbanner-03'> 
+                                <% banner_3 = Banner.where(:position => "menor-3").first %>
+                                <%  if banner_3 != nil %>
+                                    <% if banner_3.file_url.include? ".swf" %>
+                                        <embed width="100%" height="100%" name="plugin" src="<%= banner_3.file_url %>" type="application/x-shockwave-flash">
+                                    <% else %>
+                                        <% if banner_3.link.empty? %>
+                                            <%= image_tag banner_3.file_url %>
+                                        <% else %>
+                                            <a href="<%= banner_3.link %>" targe="_blank"><%= image_tag banner_3.file_url %></a>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    Anuncie Aqui
+                                <% end  %>
+                            </div>
+                            <div class='row banner-medium' id='rightbanner-04'> 
+                                <% banner_4 = Banner.where(:position => "quadrado").first %>
+                                <%  if banner_4 != nil %>
+                                    <% if banner_4.file_url.include? ".swf" %>
+                                        <embed width="100%" height="100%" name="plugin" src="<%= banner_4.file_url %>" type="application/x-shockwave-flash">
+                                    <% else %>
+                                        <% if banner_4.link.empty? %>
+                                            <%= image_tag banner_4.file_url %>
+                                        <% else %>
+                                            <a href="<%= banner_4.link %>" targe="_blank"><%= image_tag banner_4.file_url %></a>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    Anuncie Aqui
+                                <% end  %>
+                            </div>
+                            <div class='row banner-large' id='rightbanner-05'> 
+                                <% banner_5 = Banner.where(:position => "maior").first %>
+                                <%  if banner_5 != nil %>
+                                    <% if banner_5.file_url.include? ".swf" %>
+                                        <embed width="100%" height="100%" name="plugin" src="<%= banner_5.file_url %>" type="application/x-shockwave-flash">
+                                    <% else %>
+                                        <% if banner_5.link.empty? %>
+                                            <%= image_tag banner_5.file_url %>
+                                        <% else %>
+                                            <a href="<%= banner_5.link %>" targe="_blank"><%= image_tag banner_5.file_url %></a>
+                                        <% end %>
+                                    <% end %>
+                                <% else %>
+                                    Anuncie Aqui
+                                <% end  %>
+                            </div>
+                            <% if user_signed_in? %>
+                                <div class='row banner-large' id='rightbanner-05'> 
+                                    <%= link_to "Log Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-danger' %>
+
+                                    <% if current_user.is_admin %>
+                                        <%= link_to "GERENCIAR PAGINAS", site_admin_page_path %>
+                                    <% end %>
+                                </div>
+                            <% end %>
+
+                            <div class='row banner-login' id='rightbanner-06'> 
+                                <div class='form-right'>
+                                    <p class='img-header'><%= image_tag("area_fotografo.png", :alt => "area do fotografo") %></p>
+
+                                    <% if photographer_signed_in? %>
+                                        <%= current_photographer.name %>
+                                        <%= link_to "Meus Álbuns", photographer_show_albums_path, :class => 'btn' %>
+
+                                        <%= link_to "Log out", destroy_photographer_session_path, :method => :delete, :class => 'btn btn-danger' %>
+                                    <% else %>
+                                        <%= render "photographers/sessions/form" %>
+                                    <% end %>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>        
+    </div>
+
+    <div class="footer hide">
+        <p><%= link_to "TERMOS DE USO", site_terms_path %> | <b>Diario da Ilha</b> propriedade de NOAN SERVIÇOS FOTOGRÁFICOS</p>
+    </div>
+
+    <div id="modal_user_session_new"class="modal hide fade">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Faça Login</h3>
+        </div>
+        <div id="form_div" class="modal-body">
+            <%= simple_form_for("user", :url => user_session_path, remote: true) do |f| %>
+              <div class="form-inputs">
+                <%= token_tag(nil) %>
+                <%= f.input :email, :required => false, :autofocus => true %>
+                <%= f.input :password, :required => false %>
+              </div>
+
+              <div class="form-actions">
+                <%= f.button :submit, "Entrar" %>
+              </div>
+            <% end %>
+        </div>
+        <div class="modal-footer">
+            <p>Sem cadastro?</p>
+            <%= link_to "Cadastre-se agora mesmo", new_user_registration_path %>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    $(window).load(function() {
+        var page = $(".page").height();
+        var container = $("#size3").height();
+        var winH = $(window).height();
+        var biggest = function() {
+            return (page > container) ? ((winH > page) ? winH - 83  : page) : container
+        };
+        $(".footer").css("margin-top", biggest() -220 +   "px");
+        $(".footer").removeClass("hide");
+        $("#myCarousel").carousel({
+            interval: 5000,
+            pause: 'hover'
+        });
+        $(".carousel-nav a").click(function(e){
+
+            e.preventDefault();
+            var index = parseInt($(this).attr('data-to'));
+
+            $('#myCarousel').carousel(index);
+
+            var nav = $('.carousel-nav');
+            var item = nav.find('a').get(index);
+            nav.find('a.active').removeClass('active');
+            $(item).addClass('active');
+        });
+        $("#myCarousel").bind('slide', function(e) {
+            var elements = 5;
+            var nav = $('.carousel-nav');
+            var index = $('#myCarousel').find('.item.active').index();
+            index = (index == elements - 1) ? 0 : index + 1;
+            var item = nav.find('a').get(index);
+            nav.find('a.active').removeClass('active');
+            $(item).addClass('active');
+        });
+    });
+</script>
+</html>
