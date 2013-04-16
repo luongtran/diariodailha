@@ -8,9 +8,9 @@
             <p id="basket_items" class='img-header'>
                 <span>
                     <% if basket.nil? %>
-                        <%= link_to "0 itens no carrinho", sale_view_sale_path, class: "btn-finish-sale" %>
+                        <%= link_to "Carrinho vazio", sale_view_sale_path, class: "btn-finish-sale" %>
                     <% else %>
-                        <%= (basket.count.to_s || 0) + " items no carrinho" unless basket == nil %>
+                        <%= (basket.count.to_s || 0) + " item(s) no carrinho" unless basket == nil %>
                     <% end %>
                 </span>
             </p>
