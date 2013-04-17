@@ -125,6 +125,8 @@ class AlbumsController < ApplicationController
 
     @album = Album.find(params[:album_id])
     @photos = @album.photos
+    @photos.sort! { |a, b| a.image.url.split("/")[a.image.url.split("/").count-1] <=> b.image.url.split("/")[b.image.url.split("/").count-1] }
+
 
     respond_to do |format|
       format.html

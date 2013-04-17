@@ -83,9 +83,11 @@ class PhotosController < ApplicationController
   end
 
   def find_result
+    puts "here"
     @photos = []
 
-    @photos = Album.find(params[:album_id]).photos
+    @photos = Album.find(params[:album_id]).photos(:order => "name")
+    @photos.sort! { |a, b| a.image.url.split("/")[a.image.url.split("/").count-1] <=> b.image.url.split("/")[b.image.url.split("/").count-1] }
    
     
   end
