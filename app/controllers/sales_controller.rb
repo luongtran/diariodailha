@@ -111,21 +111,19 @@ class SalesController < ApplicationController
     basket.each do |key, value|
       
       digital = params["digital" + key.to_s]
-      puts digital
-      if digital == 1
+      if digital 
         sale_item_digital = SaleItem.new
         sale_item_digital.photo_type = "Digital"
-        sale_item_digital.quantity = digital.to_i
+        sale_item_digital.quantity = 1
         sale_item_digital.sale = sale
         sale_item_digital.photo = Photo.find(key)
         sale_item_digital.date = Time.now
         price_digital = Price.where(price_type: "digital").first
         if price_digital
-          sale_item_digital.price = price_digital.value * digital.to_i
+          sale_item_digital.price = price_digital.value * 1
         else
-          sale_item_digital.price = digital.to_i
+          sale_item_digital.price = digital
         end
-
         sale_item_digital.save
       end
 
@@ -190,9 +188,10 @@ class SalesController < ApplicationController
     session[:basket] = nil
 
     sale.save
-
+    @sale = sale
     SaleMailer.finish_sale(sale).deliver
     flash[:notice] = "Venda finalizada com sucesso! Você receberá um email com informações sobre como proceder"
+    
     redirect_to root_path
 
   end
