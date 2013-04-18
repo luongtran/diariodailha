@@ -1,0 +1,22 @@
+
+<% @content = Content.where(:name => "email_venda").first %>
+
+<p>Olá, <%= @sale.user.name %></p>
+
+<%= raw @content.body %>
+
+<hr />
+<% total = 0 %>
+<% photos = [] %>
+<% @sale.sale_items.each do |i| %>
+  <% total += i.price %>
+  <% if photos.exclude? i.photo.id  %>  
+    <p><%= image_tag i.photo.image_url(:medium).to_s %></p>
+    <% photos << i.photo.id %>
+  <% end %>
+<% end %>
+
+<h1>Total R$<%= total %> </h1>
+
+<p>Ana Claudia Mesquita
+	DIÁRIO DA ILHA</p>
