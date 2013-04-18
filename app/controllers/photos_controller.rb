@@ -69,7 +69,7 @@ class PhotosController < ApplicationController
       @albums = Album.where("lower(name) like lower('%#{params[:find_by_keyword]}%')")
     elsif !params[:find_by_date].empty?
       date_str = params[:find_by_date].gsub('/', '_')
-      @albums = Album.where("lower(date) like lower('%#{date_str}%')")
+      @albums = Album.where("lower(to_char(date, 'DD_MM_YYYY')) like lower('%#{date_str}%')")
     else
       flash[:notice] = "Pesquise por Data ou Palavra-chave"
       redirect_to find_photos_path
