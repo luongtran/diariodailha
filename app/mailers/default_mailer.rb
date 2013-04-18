@@ -1,6 +1,6 @@
 # encoding: utf-8
 class DefaultMailer < ActionMailer::Base
-  default from: "contato@diariodailha.com.br"
+  default from: "pagamento@diariodailha.com.br"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
