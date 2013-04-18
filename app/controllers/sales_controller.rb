@@ -105,13 +105,14 @@ class SalesController < ApplicationController
         redirect_to find_photos_path, flash[:notice] = "Carrinho de compras vazio!"
       end
     end
-
+    puts params
     sale = Sale.new
     sale.user = current_user
     basket.each do |key, value|
       
       digital = params["digital" + key.to_s]
-      if digital.to_i > 0
+      puts digital
+      if digital == 1
         sale_item_digital = SaleItem.new
         sale_item_digital.photo_type = "Digital"
         sale_item_digital.quantity = digital.to_i
@@ -190,7 +191,7 @@ class SalesController < ApplicationController
 
     sale.save
 
-    DefaultMailer.finish_sale(sale).deliver
+    SaleMailer.finish_sale(sale).deliver
     flash[:notice] = "Venda finalizada com sucesso! Você receberá um email com informações sobre como proceder"
     redirect_to root_path
 
